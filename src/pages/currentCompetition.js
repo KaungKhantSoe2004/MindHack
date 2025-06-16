@@ -1,3 +1,1330 @@
+// "use client";
+
+// import { useState, useEffect } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import {
+//   FaChevronRight,
+//   FaMicrochip,
+//   FaCode,
+//   FaBolt,
+//   FaBars,
+//   FaTimes,
+//   FaEnvelope,
+//   FaPhone,
+//   FaMapMarkerAlt,
+//   FaBook,
+//   FaTrophy,
+//   FaBullseye,
+//   FaRocket,
+//   FaAward,
+//   FaMedal,
+//   FaCrown,
+//   FaLightbulb,
+//   FaCogs,
+//   FaChalkboardTeacher,
+//   FaGraduationCap,
+//   FaNetworkWired,
+//   FaBriefcase,
+//   FaGlobe,
+//   FaCalendarAlt,
+//   FaMapPin,
+//   FaPlay,
+//   FaChild,
+//   FaUserGraduate,
+//   FaUserTie,
+//   FaExternalLinkAlt,
+// } from "react-icons/fa";
+
+// const heroImages = [
+//   // Teamwork at hackathon
+//   "https://wallpaperaccess.com/full/9254947.jpg",
+
+//   // Programmer at night
+//   "https://th.bing.com/th/id/R.8dfb89a4fce2e4e8f095cd50f9d52601?rik=NKO%2bcDVu%2bLUNAQ&pid=ImgRaw&r=0",
+
+//   // People collaborating with laptops
+//   "/shwe.jpg",
+
+//   // Dark coding setup
+//   "/frame.png",
+
+//   // Event tech atmosphere
+//   "/mh.png",
+// ];
+
+// export default function Competition() {
+//   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+//     }, 5000);
+//     return () => clearInterval(interval);
+//   }, []);
+
+//   return (
+//     <div className="min-h-screen bg-gray-900 relative overflow-hidden">
+//       {/* Technical Grid Background */}
+//       <div className="fixed inset-0 opacity-5">
+//         <div
+//           className="absolute inset-0"
+//           style={{
+//             backgroundImage: `
+//             linear-gradient(rgba(255,165,0,0.1) 1px, transparent 1px),
+//             linear-gradient(90deg, rgba(255,165,0,0.1) 1px, transparent 1px)
+//           `,
+//             backgroundSize: "50px 50px",
+//           }}
+//         />
+//       </div>
+
+//       {/* Navigation */}
+//       <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-gray-900/80 border-b border-orange-500/20">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//           <div className="flex justify-between items-center h-16">
+//             <div className="flex items-center space-x-2">
+//               <div className="w-8 h-8 backdrop-blur-sm bg-gray-800/80 rounded-lg flex items-center justify-center border border-orange-500/30 shadow-lg shadow-orange-500/20">
+//                 <span className="text-white font-bold text-sm">M</span>
+//               </div>
+//               <span
+//                 className="text-white font-bold text-xl"
+//                 style={{ fontFamily: "Orbitron, sans-serif" }}
+//               >
+//                 MindHack
+//               </span>
+//               <span className="text-orange-400 text-sm font-mono glow-text">
+//                 2025
+//               </span>
+//             </div>
+
+//             {/* Desktop Navigation */}
+//             <div className="hidden md:flex space-x-8 flex-1 justify-start ml-16">
+//               <a
+//                 href="/"
+//                 className="text-white/80 hover:text-orange-400 transition-colors font-medium hover:glow-text"
+//               >
+//                 Home
+//               </a>
+
+//               {/* Competitions Dropdown */}
+//               <div className="relative group">
+//                 <button className="text-orange-400 font-medium flex items-center space-x-1 glow-text">
+//                   <span>Competitions</span>
+//                   <FaChevronRight className="h-3 w-3 transform group-hover:rotate-90 transition-transform duration-200" />
+//                 </button>
+//                 <div className="absolute top-full left-0 mt-2 w-64 backdrop-blur-xl bg-gray-800/95 border border-orange-500/30 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-2xl shadow-orange-500/20">
+//                   <div className="p-2">
+//                     <a
+//                       href="/mindhack-2025"
+//                       className="block px-4 py-3 text-orange-400 bg-orange-500/10 rounded-lg glow-text"
+//                     >
+//                       <div className="font-semibold">MindHack 2025</div>
+//                       <div className="text-sm text-orange-400/60">
+//                         Current Competition
+//                       </div>
+//                     </a>
+//                     <a
+//                       href="/past-events"
+//                       className="block px-4 py-3 text-white/80 hover:text-orange-400 hover:bg-orange-500/5 rounded-lg transition-colors"
+//                     >
+//                       <div className="font-semibold">Past Events Recap</div>
+//                       <div className="text-sm text-white/60">
+//                         Previous Competitions
+//                       </div>
+//                     </a>
+//                   </div>
+//                 </div>
+//               </div>
+
+//               <a
+//                 href="#"
+//                 className="text-white/80 hover:text-orange-400 transition-colors font-medium hover:glow-text"
+//               >
+//                 Timeline
+//               </a>
+//               <a
+//                 href="#"
+//                 className="text-white/80 hover:text-orange-400 transition-colors font-medium hover:glow-text"
+//               >
+//                 Register
+//               </a>
+//             </div>
+
+//             <div className="flex items-center space-x-4">
+//               <button
+//                 className="md:hidden text-white"
+//                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+//               >
+//                 {mobileMenuOpen ? (
+//                   <FaTimes className="h-6 w-6" />
+//                 ) : (
+//                   <FaBars className="h-6 w-6" />
+//                 )}
+//               </button>
+//             </div>
+//           </div>
+
+//           {/* Mobile Navigation */}
+//           <AnimatePresence>
+//             {mobileMenuOpen && (
+//               <motion.div
+//                 initial={{ opacity: 0, height: 0 }}
+//                 animate={{ opacity: 1, height: "auto" }}
+//                 exit={{ opacity: 0, height: 0 }}
+//                 transition={{ duration: 0.3, ease: "easeInOut" }}
+//                 className="md:hidden backdrop-blur-xl bg-gray-800/90 border-t border-orange-500/20 overflow-hidden"
+//               >
+//                 <motion.div
+//                   initial={{ y: -20 }}
+//                   animate={{ y: 0 }}
+//                   exit={{ y: -20 }}
+//                   transition={{ duration: 0.3, delay: 0.1 }}
+//                   className="px-2 pt-4 pb-6 space-y-2"
+//                 >
+//                   {[
+//                     "Home",
+//                     "MindHack 2025",
+//                     "Past Events",
+//                     "Timeline",
+//                     "Register",
+//                   ].map((item, index) => (
+//                     <motion.a
+//                       key={item}
+//                       href="#"
+//                       initial={{ opacity: 0, x: -20 }}
+//                       animate={{ opacity: 1, x: 0 }}
+//                       exit={{ opacity: 0, x: -20 }}
+//                       transition={{ duration: 0.2, delay: index * 0.1 }}
+//                       className="block px-4 py-3 text-white/80 hover:text-orange-400 transition-colors rounded-lg hover:bg-orange-500/5"
+//                     >
+//                       {item}
+//                     </motion.a>
+//                   ))}
+//                 </motion.div>
+//               </motion.div>
+//             )}
+//           </AnimatePresence>
+//         </div>
+//       </nav>
+
+//       {/* Hero Banner */}
+//       <section className="relative h-screen overflow-hidden">
+//         <div className="absolute inset-0">
+//           <AnimatePresence>
+//             <motion.div
+//               key={currentImageIndex}
+//               initial={{ opacity: 0 }}
+//               animate={{ opacity: 1 }}
+//               exit={{ opacity: 0 }}
+//               transition={{ duration: 1.5, ease: "easeInOut" }}
+//               className="absolute inset-0"
+//             >
+//               <div
+//                 className="w-full h-full bg-cover bg-center"
+//                 style={{
+//                   backgroundImage: `url(${heroImages[currentImageIndex]})`,
+//                 }}
+//               />
+//             </motion.div>
+//           </AnimatePresence>
+//           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/30" />
+//           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-gray-900/40" />
+//         </div>
+
+//         {/* Hero Content - Bottom Left */}
+//         <div className="absolute bottom-16 left-8 md:left-16 z-10 max-w-2xl">
+//           <motion.div
+//             initial={{ y: 50, opacity: 0 }}
+//             animate={{ y: 0, opacity: 1 }}
+//             transition={{ duration: 0.8, delay: 0.3 }}
+//             className="text-left"
+//           >
+//             <div className="flex items-center space-x-3 mb-4">
+//               {/* <div className="w-3 h-3 bg-orange-400 rounded-full animate-pulse glow-dot" /> */}
+//               <span className="text-orange-400 font-mono text-sm uppercase tracking-wider glow-text">
+//                 Technical Competition
+//               </span>
+//             </div>
+//             <h1
+//               className="text-4xl md:text-6xl font-bold text-white mb-4 glow-text-strong"
+//               style={{ fontFamily: "Orbitron, sans-serif" }}
+//             >
+//               MIND HACK{" "}
+//               <span className="text-orange-400 glow-text-orange">2025</span>
+//             </h1>
+//             <h2
+//               className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent mb-6 glow-text-gradient"
+//               style={{ fontFamily: "Orbitron, sans-serif" }}
+//             >
+//               Ancient Revival
+//             </h2>
+//             <p className="text-lg text-white/90 mb-8 leading-relaxed max-w-xl">
+//               Join the ultimate technical competition where ancient wisdom meets
+//               cutting-edge innovation. Compete in 3D Design, Programming, and
+//               Robotics while bridging the gap between tradition and technology.
+//             </p>
+//             <div className="flex flex-col sm:flex-row gap-4">
+//               <button className="backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-8 py-3 text-lg border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25">
+//                 <span>Register Now</span>
+//                 <FaChevronRight className="h-4 w-4" />
+//               </button>
+//               <button className="border border-orange-500/30 text-white hover:bg-orange-500/10 font-bold px-8 py-3 text-lg rounded-lg transition-all duration-300 flex items-center space-x-2 hover:border-orange-400/50">
+//                 <FaPlay className="h-4 w-4" />
+//                 <span>Watch 2022 Highlights</span>
+//               </button>
+//             </div>
+//           </motion.div>
+//         </div>
+//       </section>
+
+//       {/* Awards Section */}
+//       <section className="py-24 px-4 bg-gray-900 relative">
+//         <div className="max-w-7xl mx-auto">
+//           <div className="text-center mb-16">
+//             <motion.h2
+//               initial={{ y: 50, opacity: 0 }}
+//               whileInView={{ y: 0, opacity: 1 }}
+//               transition={{ duration: 0.8 }}
+//               viewport={{ once: false }}
+//               className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
+//               style={{ fontFamily: "Orbitron, sans-serif" }}
+//             >
+//               Competition{" "}
+//               <span className="text-orange-400 glow-text-orange">Awards</span>
+//             </motion.h2>
+//           </div>
+
+//           <div className="grid md:grid-cols-3 gap-8">
+//             {[
+//               {
+//                 icon: FaCrown,
+//                 title: "Grand Prize",
+//                 amount: "$25,000",
+//                 desc: "Overall winner across all categories",
+//                 color: "text-yellow-400",
+//                 bgColor: "bg-yellow-400/10",
+//                 borderColor: "border-yellow-400/30",
+//                 glowColor: "shadow-yellow-400/20",
+//               },
+//               {
+//                 icon: FaMedal,
+//                 title: "Category Winners",
+//                 amount: "$10,000",
+//                 desc: "First place in each competition category",
+//                 color: "text-orange-400",
+//                 bgColor: "bg-orange-400/10",
+//                 borderColor: "border-orange-400/30",
+//                 glowColor: "shadow-orange-400/20",
+//               },
+//               {
+//                 icon: FaAward,
+//                 title: "Special Recognition",
+//                 amount: "$5,000",
+//                 desc: "Innovation and impact awards",
+//                 color: "text-amber-400",
+//                 bgColor: "bg-amber-400/10",
+//                 borderColor: "border-amber-400/30",
+//                 glowColor: "shadow-amber-400/20",
+//               },
+//             ].map((award, index) => (
+//               <motion.div
+//                 key={index}
+//                 initial={{ y: 50, opacity: 0 }}
+//                 whileInView={{ y: 0, opacity: 1 }}
+//                 transition={{ duration: 0.6, delay: index * 0.2 }}
+//                 viewport={{ once: false }}
+//                 className="group"
+//               >
+//                 <div
+//                   className={`backdrop-blur-xl bg-gray-800/40 border ${award.borderColor} hover:bg-gray-700/50 transition-all duration-500 group-hover:scale-105 h-full relative overflow-hidden rounded-2xl hover:shadow-2xl ${award.glowColor}`}
+//                 >
+//                   <div
+//                     className={`absolute inset-0 ${award.bgColor} opacity-5`}
+//                   />
+//                   <div className="p-8 text-center h-full flex flex-col relative z-10">
+//                     <div
+//                       className={`w-20 h-20 bg-gray-800/60 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 border ${award.borderColor} hover:shadow-lg ${award.glowColor}`}
+//                     >
+//                       <award.icon className={`h-10 w-10 ${award.color}`} />
+//                     </div>
+//                     <h3
+//                       className="text-2xl font-bold text-white mb-2"
+//                       style={{ fontFamily: "Orbitron, sans-serif" }}
+//                     >
+//                       {award.title}
+//                     </h3>
+//                     <div
+//                       className={`text-3xl font-bold ${award.color} mb-4`}
+//                       style={{ fontFamily: "Orbitron, sans-serif" }}
+//                     >
+//                       {award.amount}
+//                     </div>
+//                     <p className="text-white/70 leading-relaxed flex-grow">
+//                       {award.desc}
+//                     </p>
+//                   </div>
+//                 </div>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Competition Categories - Updated Design */}
+//       <section className="py-24 px-4 bg-gray-800 relative">
+//         <div className="max-w-7xl mx-auto">
+//           <div className="text-center mb-16">
+//             <motion.h2
+//               initial={{ y: 50, opacity: 0 }}
+//               whileInView={{ y: 0, opacity: 1 }}
+//               transition={{ duration: 0.8 }}
+//               viewport={{ once: false }}
+//               className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
+//               style={{ fontFamily: "Orbitron, sans-serif" }}
+//             >
+//               Competition{" "}
+//               <span className="text-orange-400 glow-text-orange">
+//                 Categories
+//               </span>
+//             </motion.h2>
+//           </div>
+
+//           <div className="grid lg:grid-cols-3 gap-8">
+//             {[
+//               {
+//                 icon: FaMicrochip,
+//                 title: "3D Design & Modeling",
+//                 desc: "Create stunning 3D models, architectural designs, and immersive visualizations using industry-standard software.",
+//                 tools: ["Blender", "AutoCAD", "Fusion 360", "Maya"],
+//                 gradient: "from-orange-500/20 to-amber-500/20",
+//                 iconColor: "text-orange-400",
+//                 borderColor: "border-orange-400/30",
+//                 glowColor: "shadow-orange-500/20",
+//               },
+//               {
+//                 icon: FaCode,
+//                 title: "Scratch Programming",
+//                 desc: "Build interactive games, animations, and applications using visual programming languages.",
+//                 tools: ["Scratch", "App Inventor", "Blockly", "Snap!"],
+//                 gradient: "from-amber-500/20 to-yellow-500/20",
+//                 iconColor: "text-amber-400",
+//                 borderColor: "border-amber-400/30",
+//                 glowColor: "shadow-amber-500/20",
+//               },
+//               {
+//                 icon: FaBolt,
+//                 title: "Electronics & Robotics",
+//                 desc: "Design and build autonomous robots, IoT devices, and electronic circuits for real-world applications.",
+//                 tools: ["Arduino", "Raspberry Pi", "Sensors", "Motors"],
+//                 gradient: "from-yellow-500/20 to-orange-500/20",
+//                 iconColor: "text-yellow-400",
+//                 borderColor: "border-yellow-400/30",
+//                 glowColor: "shadow-yellow-500/20",
+//               },
+//             ].map((category, index) => (
+//               <motion.div
+//                 key={index}
+//                 initial={{ y: 50, opacity: 0 }}
+//                 whileInView={{ y: 0, opacity: 1 }}
+//                 transition={{ duration: 0.6, delay: index * 0.2 }}
+//                 viewport={{ once: false }}
+//                 className="group cursor-pointer"
+//               >
+//                 <div
+//                   className={`relative overflow-hidden rounded-3xl border ${category.borderColor} bg-gradient-to-br ${category.gradient} backdrop-blur-xl hover:scale-105 transition-all duration-500 hover:shadow-2xl ${category.glowColor}`}
+//                 >
+//                   {/* Background Pattern */}
+//                   <div className="absolute inset-0 opacity-5">
+//                     <div className="absolute top-4 right-4 w-32 h-32 border border-orange-400/20 rounded-full" />
+//                     <div className="absolute bottom-4 left-4 w-24 h-24 border border-orange-400/20 rotate-45" />
+//                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-orange-400/10 rounded-full" />
+//                   </div>
+
+//                   <div className="relative z-10 p-8">
+//                     {/* Icon Section */}
+//                     <div className="flex items-center justify-between mb-6">
+//                       <div
+//                         className={`w-16 h-16 rounded-2xl bg-gray-800/50 backdrop-blur-sm border ${category.borderColor} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 hover:shadow-lg ${category.glowColor}`}
+//                       >
+//                         <category.icon
+//                           className={`h-8 w-8 ${category.iconColor}`}
+//                         />
+//                       </div>
+//                       <div className="text-right">
+//                         <div className="text-2xl font-bold text-orange-400/20 font-mono">
+//                           0{index + 1}
+//                         </div>
+//                       </div>
+//                     </div>
+
+//                     {/* Content */}
+//                     <h3
+//                       className="text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors duration-300"
+//                       style={{ fontFamily: "Orbitron, sans-serif" }}
+//                     >
+//                       {category.title}
+//                     </h3>
+
+//                     <p className="text-white/70 leading-relaxed mb-6 text-sm">
+//                       {category.desc}
+//                     </p>
+
+//                     {/* Action Button */}
+//                     <div className="mt-6 pt-6 border-t border-orange-500/10">
+//                       <button
+//                         className={`w-full py-3 px-4 rounded-xl bg-gray-800/50 backdrop-blur-sm border ${category.borderColor} text-white font-semibold hover:bg-gray-700/50 transition-all duration-300 flex items-center justify-center space-x-2 hover:shadow-lg ${category.glowColor}`}
+//                       >
+//                         <span>Learn More</span>
+//                         <FaChevronRight className="h-4 w-4" />
+//                       </button>
+//                     </div>
+//                   </div>
+//                 </div>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Age Groups */}
+//       <section className="py-24 px-4 bg-gray-900 relative">
+//         <div className="max-w-7xl mx-auto">
+//           <div className="text-center mb-16">
+//             <motion.h2
+//               initial={{ y: 50, opacity: 0 }}
+//               whileInView={{ y: 0, opacity: 1 }}
+//               transition={{ duration: 0.8 }}
+//               viewport={{ once: false }}
+//               className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
+//               style={{ fontFamily: "Orbitron, sans-serif" }}
+//             >
+//               Age{" "}
+//               <span className="text-orange-400 glow-text-orange">Groups</span>
+//             </motion.h2>
+//           </div>
+
+//           <div className="grid md:grid-cols-3 gap-8">
+//             {[
+//               {
+//                 icon: FaChild,
+//                 title: "Wizards",
+//                 age: "12 - 15 years",
+//                 desc: "Young innovators taking their first steps into the world of technology and creativity.",
+//                 color: "text-orange-300",
+//                 bgColor: "bg-orange-300/10",
+//                 borderColor: "border-orange-300/30",
+//                 glowColor: "shadow-orange-300/20",
+//               },
+//               {
+//                 icon: FaUserGraduate,
+//                 title: "Heroes",
+//                 age: "16 - 19 years",
+//                 desc: "Teenage tech enthusiasts ready to showcase their advanced skills and innovative thinking.",
+//                 color: "text-orange-400",
+//                 bgColor: "bg-orange-400/10",
+//                 borderColor: "border-orange-400/30",
+//                 glowColor: "shadow-orange-400/20",
+//               },
+//               {
+//                 icon: FaUserTie,
+//                 title: "Masters",
+//                 age: "20 - 25 years",
+//                 desc: "Young professionals and students demonstrating mastery in their chosen technical domains.",
+//                 color: "text-amber-400",
+//                 bgColor: "bg-amber-400/10",
+//                 borderColor: "border-amber-400/30",
+//                 glowColor: "shadow-amber-400/20",
+//               },
+//             ].map((group, index) => (
+//               <motion.div
+//                 key={index}
+//                 initial={{ y: 50, opacity: 0 }}
+//                 whileInView={{ y: 0, opacity: 1 }}
+//                 transition={{ duration: 0.6, delay: index * 0.2 }}
+//                 viewport={{ once: false }}
+//                 className="group"
+//               >
+//                 <div
+//                   className={`backdrop-blur-xl bg-gray-800/40 border ${group.borderColor} hover:bg-gray-700/50 transition-all duration-500 group-hover:scale-105 h-full relative overflow-hidden rounded-2xl hover:shadow-2xl ${group.glowColor}`}
+//                 >
+//                   <div
+//                     className={`absolute inset-0 ${group.bgColor} opacity-5`}
+//                   />
+//                   <div className="p-8 text-center h-full flex flex-col relative z-10">
+//                     <div
+//                       className={`w-20 h-20 bg-gray-800/60 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 border ${group.borderColor} hover:shadow-lg ${group.glowColor}`}
+//                     >
+//                       <group.icon className={`h-10 w-10 ${group.color}`} />
+//                     </div>
+//                     <h3
+//                       className="text-2xl font-bold text-white mb-2"
+//                       style={{ fontFamily: "Orbitron, sans-serif" }}
+//                     >
+//                       {group.title}
+//                     </h3>
+//                     <div
+//                       className={`text-xl font-bold ${group.color} mb-4`}
+//                       style={{ fontFamily: "Orbitron, sans-serif" }}
+//                     >
+//                       {group.age}
+//                     </div>
+//                     <p className="text-white/70 leading-relaxed flex-grow">
+//                       {group.desc}
+//                     </p>
+//                   </div>
+//                 </div>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Judging Criteria */}
+//       <section className="py-24 px-4 bg-gray-800 relative">
+//         <div className="max-w-7xl mx-auto">
+//           <div className="text-center mb-16">
+//             <motion.h2
+//               initial={{ y: 50, opacity: 0 }}
+//               whileInView={{ y: 0, opacity: 1 }}
+//               transition={{ duration: 0.8 }}
+//               viewport={{ once: false }}
+//               className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
+//               style={{ fontFamily: "Orbitron, sans-serif" }}
+//             >
+//               Judging{" "}
+//               <span className="text-orange-400 glow-text-orange">Criteria</span>
+//             </motion.h2>
+//           </div>
+
+//           <div className="grid lg:grid-cols-3 gap-8">
+//             {[
+//               {
+//                 icon: FaLightbulb,
+//                 title: "Innovation",
+//                 percentage: 40,
+//                 subtitle: "Implementation",
+//                 desc: "Originality, creativity, and novel approaches to problem-solving.",
+//                 color: "text-yellow-400",
+//                 bgColor: "bg-yellow-400",
+//                 glowColor: "shadow-yellow-400/30",
+//               },
+//               {
+//                 icon: FaCogs,
+//                 title: "Technical",
+//                 percentage: 40,
+//                 subtitle: "Complexity",
+//                 desc: "Technical skill, code quality, and sophisticated implementation.",
+//                 color: "text-orange-400",
+//                 bgColor: "bg-orange-400",
+//                 glowColor: "shadow-orange-400/30",
+//               },
+//               {
+//                 icon: FaChalkboardTeacher,
+//                 title: "Impact Presentation",
+//                 percentage: 20,
+//                 subtitle: "User Experience",
+//                 desc: "Presentation quality, user experience, and real-world impact potential.",
+//                 color: "text-amber-400",
+//                 bgColor: "bg-amber-400",
+//                 glowColor: "shadow-amber-400/30",
+//               },
+//             ].map((criteria, index) => (
+//               <motion.div
+//                 key={index}
+//                 initial={{ y: 50, opacity: 0 }}
+//                 whileInView={{ y: 0, opacity: 1 }}
+//                 transition={{ duration: 0.6, delay: index * 0.2 }}
+//                 viewport={{ once: false }}
+//                 className={`backdrop-blur-xl bg-gray-800/40 border border-orange-500/20 rounded-2xl p-8 hover:shadow-2xl ${criteria.glowColor} transition-all duration-500`}
+//               >
+//                 <div className="text-center mb-6">
+//                   <div
+//                     className={`w-16 h-16 bg-gray-800/60 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-4 border border-orange-500/20 hover:shadow-lg ${criteria.glowColor}`}
+//                   >
+//                     <criteria.icon className={`h-8 w-8 ${criteria.color}`} />
+//                   </div>
+//                   <h3
+//                     className="text-2xl font-bold text-white mb-2"
+//                     style={{ fontFamily: "Orbitron, sans-serif" }}
+//                   >
+//                     {criteria.title}
+//                   </h3>
+//                   <div
+//                     className={`text-3xl font-bold ${criteria.color} mb-2`}
+//                     style={{ fontFamily: "Orbitron, sans-serif" }}
+//                   >
+//                     {criteria.percentage}%
+//                   </div>
+//                   <div className="text-lg font-semibold text-white/80 mb-4">
+//                     {criteria.subtitle}
+//                   </div>
+//                 </div>
+
+//                 {/* Animated Progress Bar */}
+//                 <div className="mb-6">
+//                   <div className="w-full bg-gray-700/50 rounded-full h-3 border border-orange-500/20">
+//                     <motion.div
+//                       initial={{ width: 0 }}
+//                       whileInView={{ width: `${criteria.percentage}%` }}
+//                       transition={{ duration: 1.5, delay: index * 0.3 }}
+//                       viewport={{ once: false }}
+//                       className={`h-full ${criteria.bgColor} rounded-full relative overflow-hidden shadow-lg ${criteria.glowColor}`}
+//                     >
+//                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse" />
+//                     </motion.div>
+//                   </div>
+//                 </div>
+
+//                 <p className="text-white/70 leading-relaxed text-center">
+//                   {criteria.desc}
+//                 </p>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Key Dates & Location */}
+//       <section className="py-24 px-4 bg-gray-900 relative">
+//         <div className="max-w-7xl mx-auto">
+//           <div className="grid lg:grid-cols-2 gap-16">
+//             {/* Key Dates */}
+//             <motion.div
+//               initial={{ x: -50, opacity: 0 }}
+//               whileInView={{ x: 0, opacity: 1 }}
+//               transition={{ duration: 0.8 }}
+//               viewport={{ once: false }}
+//             >
+//               <h2
+//                 className="text-4xl font-bold text-white mb-8 glow-text-strong"
+//                 style={{ fontFamily: "Orbitron, sans-serif" }}
+//               >
+//                 Key{" "}
+//                 <span className="text-orange-400 glow-text-orange">Dates</span>
+//               </h2>
+//               <div className="space-y-6">
+//                 {[
+//                   {
+//                     date: "March 1, 2025",
+//                     event: "Registration Opens",
+//                     icon: FaCalendarAlt,
+//                   },
+//                   {
+//                     date: "March 10, 2025",
+//                     event: "Onboarding Session",
+//                     icon: FaBook,
+//                   },
+//                   {
+//                     date: "March 20, 2025",
+//                     event: "First Stage Competition",
+//                     icon: FaRocket,
+//                   },
+//                   {
+//                     date: "March 21, 2025",
+//                     event: "Finalist Announcement",
+//                     icon: FaBullseye,
+//                   },
+//                   {
+//                     date: "March 22, 2025",
+//                     event: "Final Competition",
+//                     icon: FaTrophy,
+//                   },
+//                 ].map((item, index) => (
+//                   <motion.div
+//                     key={index}
+//                     initial={{ x: -30, opacity: 0 }}
+//                     whileInView={{ x: 0, opacity: 1 }}
+//                     transition={{ duration: 0.6, delay: index * 0.1 }}
+//                     viewport={{ once: false }}
+//                     className="flex items-center space-x-4 p-4 backdrop-blur-xl bg-gray-800/40 border border-orange-500/20 rounded-lg hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300"
+//                   >
+//                     <div className="w-12 h-12 bg-gray-800/60 backdrop-blur-sm rounded-lg flex items-center justify-center border border-orange-500/20 shadow-lg shadow-orange-500/20">
+//                       <item.icon className="h-6 w-6 text-orange-400" />
+//                     </div>
+//                     <div>
+//                       <div className="text-white font-semibold">
+//                         {item.event}
+//                       </div>
+//                       <div className="text-orange-400 text-sm font-mono glow-text">
+//                         {item.date}
+//                       </div>
+//                     </div>
+//                   </motion.div>
+//                 ))}
+//               </div>
+//             </motion.div>
+
+//             {/* Location with Real Google Map */}
+//             <motion.div
+//               initial={{ x: 50, opacity: 0 }}
+//               whileInView={{ x: 0, opacity: 1 }}
+//               transition={{ duration: 0.8 }}
+//               viewport={{ once: false }}
+//             >
+//               <h2
+//                 className="text-4xl font-bold text-white mb-8 glow-text-strong"
+//                 style={{ fontFamily: "Orbitron, sans-serif" }}
+//               >
+//                 Event{" "}
+//                 <span className="text-orange-400 glow-text-orange">
+//                   Location
+//                 </span>
+//               </h2>
+//               <div className="backdrop-blur-xl bg-gray-800/40 border border-orange-500/20 rounded-2xl p-6 mb-6 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300">
+//                 <div className="flex items-start space-x-4 mb-4">
+//                   <FaMapPin className="h-6 w-6 text-orange-400 mt-1 glow-text" />
+//                   <div>
+//                     <h3 className="text-xl font-bold text-white mb-2">
+//                       Tech Innovation Center
+//                     </h3>
+//                     <p className="text-white/80">
+//                       123 Innovation Drive, Tech District
+//                     </p>
+//                     <p className="text-white/80">Yangon, Myanmar</p>
+//                   </div>
+//                 </div>
+//               </div>
+
+//               {/* Real Google Map */}
+//               <div className="backdrop-blur-xl bg-gray-800/40 border border-orange-500/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
+//                 <a
+//                   href="https://www.google.com/maps?q=16.8409,96.1735"
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="block relative group"
+//                 >
+//                   <div className="h-64 bg-gray-700/50 relative overflow-hidden">
+//                     {/* Google Maps Static Image */}
+//                     <img
+//                       src="https://maps.googleapis.com/maps/api/staticmap?center=16.8409,96.1735&zoom=15&size=600x300&maptype=roadmap&markers=color:orange%7C16.8409,96.1735&key=YOUR_API_KEY"
+//                       alt="Event Location Map"
+//                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+//                       onError={(e) => {
+//                         // Fallback if Google Maps API key is not available
+//                         e.currentTarget.style.display = "none";
+//                         e.currentTarget.nextElementSibling.style.display =
+//                           "flex";
+//                       }}
+//                     />
+//                     {/* Fallback content */}
+//                     <div
+//                       className="absolute inset-0 bg-gray-700/50 flex items-center justify-center"
+//                       style={{ display: "none" }}
+//                     >
+//                       <div className="text-center">
+//                         <FaMapPin className="h-12 w-12 text-orange-400 mx-auto mb-4 glow-text" />
+//                         <p className="text-white/80 font-semibold">
+//                           View on Google Maps
+//                         </p>
+//                         <p className="text-white/60 text-sm">Yangon, Myanmar</p>
+//                       </div>
+//                     </div>
+//                     {/* Overlay */}
+//                     <div className="absolute inset-0 bg-gray-900/20 group-hover:bg-gray-900/10 transition-colors duration-300 flex items-center justify-center">
+//                       <div className="bg-orange-500/20 backdrop-blur-sm border border-orange-400/50 rounded-lg px-4 py-2 flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg shadow-orange-500/20">
+//                         <FaExternalLinkAlt className="h-4 w-4 text-orange-400" />
+//                         <span className="text-white font-semibold">
+//                           Open in Google Maps
+//                         </span>
+//                       </div>
+//                     </div>
+//                   </div>
+//                 </a>
+//               </div>
+//             </motion.div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Benefits Section - Full Width */}
+//       <section className="py-24 bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 relative overflow-hidden">
+//         <div className="absolute inset-0 opacity-10">
+//           <div className="absolute top-8 left-8 w-24 h-24 border-2 border-orange-400 rotate-45" />
+//           <div className="absolute bottom-8 right-8 w-32 h-32 border-2 border-amber-400 rounded-full" />
+//         </div>
+//         <div className="max-w-7xl mx-auto px-4 relative z-10">
+//           <motion.div
+//             initial={{ y: 50, opacity: 0 }}
+//             whileInView={{ y: 0, opacity: 1 }}
+//             transition={{ duration: 0.8 }}
+//             viewport={{ once: false }}
+//             className="text-center mb-16"
+//           >
+//             <h2
+//               className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
+//               style={{ fontFamily: "Orbitron, sans-serif" }}
+//             >
+//               Benefits of{" "}
+//               <span className="text-orange-400 glow-text-orange">
+//                 Participating
+//               </span>
+//             </h2>
+//           </motion.div>
+
+//           <div className="grid md:grid-cols-4 gap-8">
+//             {[
+//               {
+//                 icon: FaGraduationCap,
+//                 title: "Skill Development",
+//                 desc: "Enhance your technical abilities and learn cutting-edge technologies from industry experts.",
+//               },
+//               {
+//                 icon: FaNetworkWired,
+//                 title: "Networking",
+//                 desc: "Connect with like-minded innovators, mentors, and potential collaborators from around the world.",
+//               },
+//               {
+//                 icon: FaBriefcase,
+//                 title: "Career Opportunities",
+//                 desc: "Gain exposure to top tech companies and unlock internship and job opportunities.",
+//               },
+//               {
+//                 icon: FaGlobe,
+//                 title: "Cultural Impact",
+//                 desc: "Contribute to preserving and revitalizing ancient wisdom through modern technology.",
+//               },
+//             ].map((benefit, index) => (
+//               <motion.div
+//                 key={index}
+//                 initial={{ y: 50, opacity: 0 }}
+//                 whileInView={{ y: 0, opacity: 1 }}
+//                 transition={{ duration: 0.6, delay: index * 0.2 }}
+//                 viewport={{ once: false }}
+//                 className="text-center group"
+//               >
+//                 <div className="w-20 h-20 bg-gray-800/60 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 border border-orange-500/20 hover:shadow-lg hover:shadow-orange-500/20">
+//                   <benefit.icon className="h-10 w-10 text-orange-400" />
+//                 </div>
+//                 <h3
+//                   className="text-2xl font-bold text-white mb-4"
+//                   style={{ fontFamily: "Orbitron, sans-serif" }}
+//                 >
+//                   {benefit.title}
+//                 </h3>
+//                 <p className="text-white/70 leading-relaxed">{benefit.desc}</p>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Testimonials */}
+//       <section className="py-24 px-4 bg-gray-900 relative">
+//         <div className="max-w-7xl mx-auto">
+//           <div className="text-center mb-16">
+//             <motion.h2
+//               initial={{ y: 50, opacity: 0 }}
+//               whileInView={{ y: 0, opacity: 1 }}
+//               transition={{ duration: 0.8 }}
+//               viewport={{ once: false }}
+//               className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
+//               style={{ fontFamily: "Orbitron, sans-serif" }}
+//             >
+//               What Our{" "}
+//               <span className="text-orange-400 glow-text-orange">
+//                 Participants Say
+//               </span>
+//             </motion.h2>
+//           </div>
+
+//           <div className="grid lg:grid-cols-2 gap-8">
+//             {[
+//               {
+//                 video: "dQw4w9WgXcQ", // YouTube video ID
+//                 name: "Sarah Chen",
+//                 title: "MindHack 2022 Winner",
+//                 category: "3D Design",
+//               },
+//               {
+//                 video: "dQw4w9WgXcQ", // YouTube video ID
+//                 name: "Alex Rodriguez",
+//                 title: "MindHack 2023 Finalist",
+//                 category: "Robotics",
+//               },
+//             ].map((testimonial, index) => (
+//               <motion.div
+//                 key={index}
+//                 initial={{ y: 50, opacity: 0 }}
+//                 whileInView={{ y: 0, opacity: 1 }}
+//                 transition={{ duration: 0.6, delay: index * 0.2 }}
+//                 viewport={{ once: false }}
+//                 className="backdrop-blur-xl bg-gray-800/40 border border-orange-500/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500"
+//               >
+//                 <div className="aspect-video">
+//                   <iframe
+//                     src={`https://www.youtube.com/embed/${testimonial.video}`}
+//                     title={`${testimonial.name} Testimonial`}
+//                     className="w-full h-full"
+//                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+//                     allowFullScreen
+//                   />
+//                 </div>
+//                 <div className="p-6">
+//                   <h3
+//                     className="text-xl font-bold text-white mb-2"
+//                     style={{ fontFamily: "Orbitron, sans-serif" }}
+//                   >
+//                     {testimonial.name}
+//                   </h3>
+//                   <p className="text-orange-400 mb-2 glow-text">
+//                     {testimonial.title}
+//                   </p>
+//                   <p className="text-white/70">
+//                     {testimonial.category} Category
+//                   </p>
+//                 </div>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Ready to Join */}
+//       <section className="py-24 px-4 bg-gray-800 relative">
+//         <div className="max-w-7xl mx-auto text-center">
+//           <motion.div
+//             initial={{ y: 50, opacity: 0 }}
+//             whileInView={{ y: 0, opacity: 1 }}
+//             transition={{ duration: 0.8 }}
+//             viewport={{ once: false }}
+//           >
+//             <h2
+//               className="text-4xl md:text-6xl font-bold text-white mb-8 glow-text-strong"
+//               style={{ fontFamily: "Orbitron, sans-serif" }}
+//             >
+//               Ready to Join{" "}
+//               <span className="text-orange-400 glow-text-orange">
+//                 MindHack 2025
+//               </span>
+//               ?
+//             </h2>
+//             <p className="text-white/90 text-xl mb-12 max-w-4xl mx-auto leading-relaxed">
+//               Take the first step towards innovation and join thousands of
+//               participants in the ultimate technical competition.
+//             </p>
+//             <div className="flex flex-col sm:flex-row gap-6 justify-center">
+//               <button className="backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-12 py-4 text-lg border border-orange-400/50 rounded-lg transition-all duration-300 glow-button hover:shadow-2xl hover:shadow-orange-500/25">
+//                 Register as Participant
+//               </button>
+//               <button className="backdrop-blur-sm bg-amber-500/20 hover:bg-amber-500/30 text-white font-bold px-12 py-4 text-lg border border-amber-400/50 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/25">
+//                 Partner School
+//               </button>
+//               <button className="backdrop-blur-sm bg-yellow-500/20 hover:bg-yellow-500/30 text-white font-bold px-12 py-4 text-lg border border-yellow-400/50 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/25">
+//                 Sponsor the Event
+//               </button>
+//             </div>
+//           </motion.div>
+//         </div>
+//       </section>
+
+//       {/* Partner Schools */}
+//       <section className="py-24 px-4 bg-gray-900 relative">
+//         <div className="max-w-7xl mx-auto">
+//           <div className="text-center mb-16">
+//             <motion.h2
+//               initial={{ y: 50, opacity: 0 }}
+//               whileInView={{ y: 0, opacity: 1 }}
+//               transition={{ duration: 0.8 }}
+//               viewport={{ once: false }}
+//               className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
+//               style={{ fontFamily: "Orbitron, sans-serif" }}
+//             >
+//               Our{" "}
+//               <span className="text-orange-400 glow-text-orange">
+//                 Partner Schools
+//               </span>
+//             </motion.h2>
+//           </div>
+
+//           <div className="grid md:grid-cols-4 gap-8 mb-12">
+//             {[
+//               "Tech Academy",
+//               "Innovation High",
+//               "Future Leaders School",
+//               "Digital Arts Institute",
+//               "STEM Excellence Center",
+//               "Creative Tech School",
+//               "Advanced Learning Hub",
+//               "Tomorrow's Engineers",
+//             ].map((school, index) => (
+//               <motion.div
+//                 key={index}
+//                 initial={{ y: 50, opacity: 0 }}
+//                 whileInView={{ y: 0, opacity: 1 }}
+//                 transition={{ duration: 0.6, delay: index * 0.1 }}
+//                 viewport={{ once: false }}
+//                 className="backdrop-blur-xl bg-gray-800/40 border border-orange-500/20 rounded-lg p-6 text-center hover:bg-gray-700/50 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20"
+//               >
+//                 <div className="w-16 h-16 bg-gray-800/60 backdrop-blur-sm rounded-lg flex items-center justify-center mx-auto mb-4 border border-orange-500/20 shadow-lg shadow-orange-500/20">
+//                   <FaGraduationCap className="h-8 w-8 text-orange-400" />
+//                 </div>
+//                 <h3 className="text-white font-semibold">{school}</h3>
+//               </motion.div>
+//             ))}
+//           </div>
+
+//           <div className="text-center">
+//             <button className="backdrop-blur-sm bg-gray-800/50 hover:bg-gray-700/60 text-white font-bold px-12 py-4 text-lg border border-orange-500/20 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20">
+//               Become a Partner
+//             </button>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Origins of MindHack */}
+//       <section className="py-24 px-4 bg-gray-800 relative">
+//         <div className="max-w-7xl mx-auto">
+//           <div className="grid lg:grid-cols-2 gap-16 items-center">
+//             <motion.div
+//               initial={{ x: -50, opacity: 0 }}
+//               whileInView={{ x: 0, opacity: 1 }}
+//               transition={{ duration: 0.8 }}
+//               viewport={{ once: false }}
+//             >
+//               <h2
+//                 className="text-4xl font-bold text-white mb-8 glow-text-strong"
+//                 style={{ fontFamily: "Orbitron, sans-serif" }}
+//               >
+//                 The Origins of{" "}
+//                 <span className="text-orange-400 glow-text-orange">
+//                   MindHack
+//                 </span>
+//               </h2>
+//               <div className="space-y-6 text-white/80 leading-relaxed">
+//                 <p>
+//                   MindHack was born from a vision to bridge the gap between
+//                   ancient wisdom and modern technology. Founded in 2020, our
+//                   competition has grown from a small local event to an
+//                   international phenomenon.
+//                 </p>
+//                 <p>
+//                   We believe that the principles and knowledge systems developed
+//                   by our ancestors contain timeless insights that can guide and
+//                   enhance modern technological innovation. Through MindHack, we
+//                   create a platform where young minds can explore this
+//                   intersection.
+//                 </p>
+//                 <p>
+//                   Our mission is to inspire the next generation of innovators to
+//                   not just create technology, but to create technology with
+//                   purpose, wisdom, and cultural awareness. Every year, we
+//                   witness incredible projects that demonstrate how ancient
+//                   principles can solve modern problems.
+//                 </p>
+//                 <p>
+//                   Join us in this journey of discovery, innovation, and cultural
+//                   revival. Together, we're not just building the future – we're
+//                   honoring the past while creating tomorrow.
+//                 </p>
+//               </div>
+//             </motion.div>
+
+//             <motion.div
+//               initial={{ x: 50, opacity: 0 }}
+//               whileInView={{ x: 0, opacity: 1 }}
+//               transition={{ duration: 0.8 }}
+//               viewport={{ once: false }}
+//               className="backdrop-blur-xl bg-gray-800/40 border border-orange-500/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500"
+//             >
+//               <div className="aspect-video">
+//                 <iframe
+//                   src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+//                   title="Origins of MindHack"
+//                   className="w-full h-full"
+//                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+//                   allowFullScreen
+//                 />
+//               </div>
+//               <div className="p-6">
+//                 <h3
+//                   className="text-xl font-bold text-white mb-2"
+//                   style={{ fontFamily: "Orbitron, sans-serif" }}
+//                 >
+//                   The MindHack Story
+//                 </h3>
+//                 <p className="text-white/70">
+//                   Discover how ancient wisdom meets modern innovation
+//                 </p>
+//               </div>
+//             </motion.div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Footer */}
+//       <footer className="backdrop-blur-xl bg-gray-800/20 border-t border-orange-500/20 py-16 px-4">
+//         <div className="max-w-7xl mx-auto">
+//           <motion.div
+//             initial={{ y: 50, opacity: 0 }}
+//             whileInView={{ y: 0, opacity: 1 }}
+//             transition={{ duration: 0.8 }}
+//             viewport={{ once: false }}
+//             className="grid md:grid-cols-4 gap-12"
+//           >
+//             <div>
+//               <div className="flex items-center space-x-2 mb-6">
+//                 <div className="w-10 h-10 backdrop-blur-sm bg-gray-800/50 rounded-lg flex items-center justify-center border border-orange-500/20 shadow-lg shadow-orange-500/20">
+//                   <span className="text-white font-bold">M</span>
+//                 </div>
+//                 <span
+//                   className="text-white font-bold text-2xl"
+//                   style={{ fontFamily: "Orbitron, sans-serif" }}
+//                 >
+//                   MindHack
+//                 </span>
+//                 <span className="text-orange-400 text-sm font-mono glow-text">
+//                   2025
+//                 </span>
+//               </div>
+//               <p className="text-white/70 leading-relaxed mb-6">
+//                 The premier technical competition for 3D Design, Scratch
+//                 Programming, and Robotics. Where innovation meets ancient wisdom
+//                 through cutting-edge technology.
+//               </p>
+//             </div>
+
+//             <div>
+//               <h4
+//                 className="text-white font-bold text-lg mb-6"
+//                 style={{ fontFamily: "Orbitron, sans-serif" }}
+//               >
+//                 Competitions
+//               </h4>
+//               <div className="space-y-3">
+//                 {[
+//                   "3D Design & Modeling",
+//                   "Scratch Programming",
+//                   "Electronics & Robotics",
+//                   "Competition Rules",
+//                 ].map((link) => (
+//                   <a
+//                     key={link}
+//                     href="#"
+//                     className="block text-white/70 hover:text-orange-400 transition-colors"
+//                   >
+//                     {link}
+//                   </a>
+//                 ))}
+//               </div>
+//             </div>
+
+//             <div>
+//               <h4
+//                 className="text-white font-bold text-lg mb-6"
+//                 style={{ fontFamily: "Orbitron, sans-serif" }}
+//               >
+//                 Resources
+//               </h4>
+//               <div className="space-y-3">
+//                 {[
+//                   "Technical Guidelines",
+//                   "Software Downloads",
+//                   "Hardware Kits",
+//                   "Mentorship Program",
+//                 ].map((link) => (
+//                   <a
+//                     key={link}
+//                     href="#"
+//                     className="block text-white/70 hover:text-orange-400 transition-colors"
+//                   >
+//                     {link}
+//                   </a>
+//                 ))}
+//               </div>
+//             </div>
+
+//             <div>
+//               <h4
+//                 className="text-white font-bold text-lg mb-6"
+//                 style={{ fontFamily: "Orbitron, sans-serif" }}
+//               >
+//                 Contact
+//               </h4>
+//               <div className="space-y-4">
+//                 <div className="flex items-center space-x-3 text-white/70">
+//                   <FaEnvelope className="h-5 w-5 flex-shrink-0 text-orange-400" />
+//                   <span>tech@mindhack.com</span>
+//                 </div>
+//                 <div className="flex items-center space-x-3 text-white/70">
+//                   <FaPhone className="h-5 w-5 flex-shrink-0 text-amber-400" />
+//                   <span>+1 (555) TECH-2025</span>
+//                 </div>
+//                 <div className="flex items-center space-x-3 text-white/70">
+//                   <FaMapMarkerAlt className="h-5 w-5 flex-shrink-0 text-yellow-400" />
+//                   <span>Tech Hub, Innovation District</span>
+//                 </div>
+//               </div>
+//             </div>
+//           </motion.div>
+
+//           <motion.div
+//             initial={{ y: 30, opacity: 0 }}
+//             whileInView={{ y: 0, opacity: 1 }}
+//             transition={{ duration: 0.8, delay: 0.2 }}
+//             viewport={{ once: false }}
+//             className="border-t border-orange-500/20 mt-12 pt-8"
+//           >
+//             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+//               <p className="text-white/60 text-center md:text-left">
+//                 © 2025 MindHack Technical Competition. All rights reserved.
+//               </p>
+//               <div className="flex space-x-6">
+//                 <a
+//                   href="#"
+//                   className="text-white/60 hover:text-orange-400 transition-colors"
+//                 >
+//                   Privacy Policy
+//                 </a>
+//                 <a
+//                   href="#"
+//                   className="text-white/60 hover:text-orange-400 transition-colors"
+//                 >
+//                   Terms of Service
+//                 </a>
+//                 <a
+//                   href="#"
+//                   className="text-white/60 hover:text-orange-400 transition-colors"
+//                 >
+//                   Competition Rules
+//                 </a>
+//               </div>
+//             </div>
+//           </motion.div>
+//         </div>
+//       </footer>
+
+//       {/* Custom Styles */}
+//       <style jsx>{`
+//         .glow-text {
+//           text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+//         }
+//         .glow-text-strong {
+//           text-shadow: 0 0 20px rgba(255, 165, 0, 0.6),
+//             0 0 30px rgba(255, 165, 0, 0.4);
+//         }
+//         .glow-text-orange {
+//           text-shadow: 0 0 15px rgba(255, 165, 0, 0.8),
+//             0 0 25px rgba(255, 165, 0, 0.5);
+//         }
+//         .glow-text-gradient {
+//           filter: drop-shadow(0 0 10px rgba(255, 165, 0, 0.5));
+//         }
+//         .glow-dot {
+//           box-shadow: 0 0 15px rgba(255, 165, 0, 0.8),
+//             0 0 25px rgba(255, 165, 0, 0.5);
+//         }
+//         .glow-button {
+//           box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+//         }
+//         .glow-button:hover {
+//           box-shadow: 0 0 30px rgba(255, 165, 0, 0.5),
+//             0 0 40px rgba(255, 165, 0, 0.3);
+//         }
+//       `}</style>
+//     </div>
+//   );
+// }
 "use client";
 
 import { useState, useEffect } from "react";
@@ -35,21 +1362,17 @@ import {
   FaExternalLinkAlt,
 } from "react-icons/fa";
 
+// Add this new import
+// Remove this line:
+// const orbitron = Inter({
+//   subsets: ["latin"],
+//   variable: "--font-orbitron",
+// })
+
 const heroImages = [
-  // Teamwork at hackathon
-  "https://wallpaperaccess.com/full/9254947.jpg",
-
-  // Programmer at night
-  "https://th.bing.com/th/id/R.8dfb89a4fce2e4e8f095cd50f9d52601?rik=NKO%2bcDVu%2bLUNAQ&pid=ImgRaw&r=0",
-
-  // People collaborating with laptops
-  "/shwe.jpg",
-
-  // Dark coding setup
-  "/frame.png",
-
-  // Event tech atmosphere
-  "/mh.png",
+  "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=1920&h=1080&fit=crop",
+  "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop",
+  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop",
 ];
 
 export default function MindHack2025() {
@@ -64,15 +1387,18 @@ export default function MindHack2025() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
+    // Change this:
+    // <div className="min-h-screen bg-gray-950 relative overflow-hidden font-orbitron">
+    // To this:
+    <div className="min-h-screen bg-gray-950 relative overflow-hidden">
       {/* Technical Grid Background */}
       <div className="fixed inset-0 opacity-5">
         <div
           className="absolute inset-0"
           style={{
             backgroundImage: `
-            linear-gradient(rgba(0,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,255,255,0.1) 1px, transparent 1px)
+            linear-gradient(rgba(255,165,0,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,165,0,0.1) 1px, transparent 1px)
           `,
             backgroundSize: "50px 50px",
           }}
@@ -80,51 +1406,48 @@ export default function MindHack2025() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/20 border-b border-white/10">
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-gradient-to-r from-gray-950/80 via-orange-950/20 to-gray-950/80 border-b border-orange-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 backdrop-blur-sm bg-gray-800/50 rounded-lg flex items-center justify-center border border-white/20">
+              <div className="w-8 h-8 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-lg flex items-center justify-center border border-orange-500/30 shadow-lg shadow-orange-500/20">
                 <span className="text-white font-bold text-sm">M</span>
               </div>
-              <span
-                className="text-white font-bold text-xl"
-                style={{ fontFamily: "Orbitron, sans-serif" }}
-              >
-                MindHack
+              <span className="text-white font-bold text-xl">MindHack</span>
+              <span className="text-orange-400 text-sm font-mono glow-text">
+                2025
               </span>
-              <span className="text-cyan-400 text-sm font-mono">2025</span>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8 flex-1 justify-start ml-16">
               <a
                 href="/"
-                className="text-white/80 hover:text-cyan-400 transition-colors font-medium"
+                className="text-white/80 hover:text-orange-400 transition-colors font-medium hover:glow-text"
               >
                 Home
               </a>
 
               {/* Competitions Dropdown */}
               <div className="relative group">
-                <button className="text-cyan-400 font-medium flex items-center space-x-1">
+                <button className="text-orange-400 font-medium flex items-center space-x-1 glow-text">
                   <span>Competitions</span>
                   <FaChevronRight className="h-3 w-3 transform group-hover:rotate-90 transition-transform duration-200" />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-64 backdrop-blur-xl bg-gray-900/95 border border-white/20 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div className="absolute top-full left-0 mt-2 w-64 backdrop-blur-xl bg-gradient-to-br from-gray-900/95 via-orange-900/20 to-gray-900/95 border border-orange-500/30 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-2xl shadow-orange-500/20">
                   <div className="p-2">
                     <a
                       href="/mindhack-2025"
-                      className="block px-4 py-3 text-cyan-400 bg-white/5 rounded-lg"
+                      className="block px-4 py-3 text-orange-400 bg-orange-500/10 rounded-lg glow-text"
                     >
                       <div className="font-semibold">MindHack 2025</div>
-                      <div className="text-sm text-cyan-400/60">
+                      <div className="text-sm text-orange-400/60">
                         Current Competition
                       </div>
                     </a>
                     <a
                       href="/past-events"
-                      className="block px-4 py-3 text-white/80 hover:text-cyan-400 hover:bg-white/5 rounded-lg transition-colors"
+                      className="block px-4 py-3 text-white/80 hover:text-orange-400 hover:bg-orange-500/5 rounded-lg transition-colors"
                     >
                       <div className="font-semibold">Past Events Recap</div>
                       <div className="text-sm text-white/60">
@@ -137,13 +1460,13 @@ export default function MindHack2025() {
 
               <a
                 href="#"
-                className="text-white/80 hover:text-cyan-400 transition-colors font-medium"
+                className="text-white/80 hover:text-orange-400 transition-colors font-medium hover:glow-text"
               >
                 Timeline
               </a>
               <a
                 href="#"
-                className="text-white/80 hover:text-cyan-400 transition-colors font-medium"
+                className="text-white/80 hover:text-orange-400 transition-colors font-medium hover:glow-text"
               >
                 Register
               </a>
@@ -171,7 +1494,7 @@ export default function MindHack2025() {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="md:hidden backdrop-blur-xl bg-black/90 border-t border-white/10 overflow-hidden"
+                className="md:hidden backdrop-blur-xl bg-gradient-to-br from-gray-900/90 via-orange-900/30 to-gray-900/90 border-t border-orange-500/20 overflow-hidden"
               >
                 <motion.div
                   initial={{ y: -20 }}
@@ -194,7 +1517,7 @@ export default function MindHack2025() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.2, delay: index * 0.1 }}
-                      className="block px-4 py-3 text-white/80 hover:text-cyan-400 transition-colors rounded-lg hover:bg-white/5"
+                      className="block px-4 py-3 text-white/80 hover:text-orange-400 transition-colors rounded-lg hover:bg-orange-500/5"
                     >
                       {item}
                     </motion.a>
@@ -226,8 +1549,8 @@ export default function MindHack2025() {
               />
             </motion.div>
           </AnimatePresence>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-950/90 via-gray-950/70 to-gray-950/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-gray-950/40" />
         </div>
 
         {/* Hero Content - Bottom Left */}
@@ -239,21 +1562,16 @@ export default function MindHack2025() {
             className="text-left"
           >
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-3 h-3 bg-cyan-400 rounded-full animate-pulse" />
-              <span className="text-cyan-400 font-mono text-sm uppercase tracking-wider">
+              <div className="w-3 h-3 bg-orange-400 rounded-full animate-pulse glow-dot" />
+              <span className="text-orange-400 font-mono text-sm uppercase tracking-wider glow-text">
                 Technical Competition
               </span>
             </div>
-            <h1
-              className="text-4xl md:text-6xl font-bold text-white mb-4"
-              style={{ fontFamily: "Orbitron, sans-serif" }}
-            >
-              MIND HACK <span className="text-cyan-400">2025</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 glow-text-strong">
+              MIND HACK{" "}
+              <span className="text-orange-400 glow-text-orange">2025</span>
             </h1>
-            <h2
-              className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-6"
-              style={{ fontFamily: "Orbitron, sans-serif" }}
-            >
+            <h2 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent mb-6 glow-text-gradient">
               Ancient Revival
             </h2>
             <p className="text-lg text-white/90 mb-8 leading-relaxed max-w-xl">
@@ -262,63 +1580,96 @@ export default function MindHack2025() {
               Robotics while bridging the gap between tradition and technology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="backdrop-blur-sm bg-cyan-500/20 hover:bg-cyan-500/30 text-white font-bold px-8 py-3 text-lg border border-cyan-400/50 rounded-lg transition-all duration-300 flex items-center space-x-2">
+              <button className="backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-8 py-3 text-lg border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25">
                 <span>Register Now</span>
                 <FaChevronRight className="h-4 w-4" />
               </button>
-              <button className="border border-white/30 text-white hover:bg-white/10 font-bold px-8 py-3 text-lg rounded-lg transition-all duration-300 flex items-center space-x-2">
+              <button className="border border-orange-500/30 text-white hover:bg-orange-500/10 font-bold px-8 py-3 text-lg rounded-lg transition-all duration-300 flex items-center space-x-2 hover:border-orange-400/50">
                 <FaPlay className="h-4 w-4" />
-                <span>Watch 2022 Highlights</span>
+                <span>Watch 2023 Highlights</span>
               </button>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Awards Section */}
-      <section className="py-24 px-4 bg-black relative">
-        <div className="max-w-7xl mx-auto">
+      {/* Awards Section - Using Reference Image */}
+      <section className="py-24 px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-orange-950/20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-amber-500/5" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <motion.h2
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
-              className="text-4xl md:text-5xl font-bold text-white mb-6"
-              style={{ fontFamily: "Orbitron, sans-serif" }}
+              className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
             >
-              Competition <span className="text-cyan-400">Awards</span>
+              Competition{" "}
+              <span className="text-orange-400 glow-text-orange">Awards</span>
             </motion.h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Prize Pool Image */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: false }}
+            className="relative mb-16"
+          >
+            <div className="relative rounded-3xl overflow-hidden border border-orange-500/30 shadow-2xl shadow-orange-500/20">
+              <img
+                src="/prizepool.jpg"
+                alt="Prize Pool - $10,000 American Dollar"
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-950/20 via-transparent to-gray-950/20" />
+            </div>
+          </motion.div>
+
+          {/* 4 Awards Grid */}
+          <div className="grid md:grid-cols-4 gap-8">
             {[
               {
                 icon: FaCrown,
                 title: "Grand Prize",
-                amount: "$25,000",
+                amount: "$4,000",
                 desc: "Overall winner across all categories",
                 color: "text-yellow-400",
                 bgColor: "bg-yellow-400/10",
                 borderColor: "border-yellow-400/30",
+                glowColor: "shadow-yellow-400/20",
               },
               {
                 icon: FaMedal,
-                title: "Category Winners",
-                amount: "$10,000",
-                desc: "First place in each competition category",
-                color: "text-blue-400",
-                bgColor: "bg-blue-400/10",
-                borderColor: "border-blue-400/30",
+                title: "3D Design Winner",
+                amount: "$2,500",
+                desc: "Best 3D Design & Modeling project",
+                color: "text-orange-400",
+                bgColor: "bg-orange-400/10",
+                borderColor: "border-orange-400/30",
+                glowColor: "shadow-orange-400/20",
               },
               {
                 icon: FaAward,
-                title: "Special Recognition",
-                amount: "$5,000",
-                desc: "Innovation and impact awards",
-                color: "text-purple-400",
-                bgColor: "bg-purple-400/10",
-                borderColor: "border-purple-400/30",
+                title: "Coding Winner",
+                amount: "$2,500",
+                desc: "Best Scratch Programming project",
+                color: "text-amber-400",
+                bgColor: "bg-amber-400/10",
+                borderColor: "border-amber-400/30",
+                glowColor: "shadow-amber-400/20",
+              },
+              {
+                icon: FaTrophy,
+                title: "Electronics Winner",
+                amount: "$1,000",
+                desc: "Best Electronics & Robotics project",
+                color: "text-orange-300",
+                bgColor: "bg-orange-300/10",
+                borderColor: "border-orange-300/30",
+                glowColor: "shadow-orange-300/20",
               },
             ].map((award, index) => (
               <motion.div
@@ -330,27 +1681,29 @@ export default function MindHack2025() {
                 className="group"
               >
                 <div
-                  className={`backdrop-blur-xl bg-gray-900/40 border ${award.borderColor} hover:bg-gray-800/50 transition-all duration-500 group-hover:scale-105 h-full relative overflow-hidden rounded-2xl`}
+                  className={`backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border ${award.borderColor} hover:bg-gradient-to-br hover:from-gray-800/50 hover:via-orange-800/30 hover:to-gray-800/50 transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-4 h-full relative overflow-hidden rounded-2xl hover:shadow-2xl ${award.glowColor} transform perspective-1000 hover:rotate-x-5 hover:rotate-y-5`}
+                  style={{
+                    background: `linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 50%, ${award.bgColor
+                      .replace("bg-", "rgba(")
+                      .replace("/10", ", 0.1)")} 100%)`,
+                    boxShadow: `0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px ${award.glowColor
+                      .replace("shadow-", "rgba(")
+                      .replace("/20", ", 0.3)")}`,
+                  }}
                 >
                   <div
                     className={`absolute inset-0 ${award.bgColor} opacity-5`}
                   />
                   <div className="p-8 text-center h-full flex flex-col relative z-10">
                     <div
-                      className={`w-20 h-20 bg-gray-800/60 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 border ${award.borderColor}`}
+                      className={`w-20 h-20 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 border ${award.borderColor} hover:shadow-lg ${award.glowColor}`}
                     >
                       <award.icon className={`h-10 w-10 ${award.color}`} />
                     </div>
-                    <h3
-                      className="text-2xl font-bold text-white mb-2"
-                      style={{ fontFamily: "Orbitron, sans-serif" }}
-                    >
+                    <h3 className="text-2xl font-bold text-white mb-2">
                       {award.title}
                     </h3>
-                    <div
-                      className={`text-3xl font-bold ${award.color} mb-4`}
-                      style={{ fontFamily: "Orbitron, sans-serif" }}
-                    >
+                    <div className={`text-3xl font-bold ${award.color} mb-4`}>
                       {award.amount}
                     </div>
                     <p className="text-white/70 leading-relaxed flex-grow">
@@ -365,18 +1718,21 @@ export default function MindHack2025() {
       </section>
 
       {/* Competition Categories - Updated Design */}
-      <section className="py-24 px-4 bg-black relative">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-orange-900/20 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-amber-500/10" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <motion.h2
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
-              className="text-4xl md:text-5xl font-bold text-white mb-6"
-              style={{ fontFamily: "Orbitron, sans-serif" }}
+              className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
             >
-              Competition <span className="text-cyan-400">Categories</span>
+              Competition{" "}
+              <span className="text-orange-400 glow-text-orange">
+                Categories
+              </span>
             </motion.h2>
           </div>
 
@@ -386,28 +1742,28 @@ export default function MindHack2025() {
                 icon: FaMicrochip,
                 title: "3D Design & Modeling",
                 desc: "Create stunning 3D models, architectural designs, and immersive visualizations using industry-standard software.",
-                tools: ["Blender", "AutoCAD", "Fusion 360", "Maya"],
-                gradient: "from-cyan-500/20 to-blue-500/20",
-                iconColor: "text-cyan-400",
-                borderColor: "border-cyan-400/30",
+                gradient: "from-orange-500/20 to-amber-500/20",
+                iconColor: "text-orange-400",
+                borderColor: "border-orange-400/30",
+                glowColor: "shadow-orange-500/20",
               },
               {
                 icon: FaCode,
                 title: "Scratch Programming",
                 desc: "Build interactive games, animations, and applications using visual programming languages.",
-                tools: ["Scratch", "App Inventor", "Blockly", "Snap!"],
-                gradient: "from-green-500/20 to-emerald-500/20",
-                iconColor: "text-green-400",
-                borderColor: "border-green-400/30",
+                gradient: "from-amber-500/20 to-yellow-500/20",
+                iconColor: "text-amber-400",
+                borderColor: "border-amber-400/30",
+                glowColor: "shadow-amber-500/20",
               },
               {
                 icon: FaBolt,
                 title: "Electronics & Robotics",
                 desc: "Design and build autonomous robots, IoT devices, and electronic circuits for real-world applications.",
-                tools: ["Arduino", "Raspberry Pi", "Sensors", "Motors"],
-                gradient: "from-purple-500/20 to-pink-500/20",
-                iconColor: "text-purple-400",
-                borderColor: "border-purple-400/30",
+                gradient: "from-yellow-500/20 to-orange-500/20",
+                iconColor: "text-yellow-400",
+                borderColor: "border-yellow-400/30",
+                glowColor: "shadow-yellow-500/20",
               },
             ].map((category, index) => (
               <motion.div
@@ -419,72 +1775,50 @@ export default function MindHack2025() {
                 className="group cursor-pointer"
               >
                 <div
-                  className={`relative overflow-hidden rounded-3xl border ${category.borderColor} bg-gradient-to-br ${category.gradient} backdrop-blur-xl hover:scale-105 transition-all duration-500`}
+                  className={`relative overflow-hidden rounded-3xl border ${category.borderColor} bg-gradient-to-br ${category.gradient} backdrop-blur-xl hover:scale-105 transition-all duration-500 hover:shadow-2xl ${category.glowColor}`}
+                  style={{
+                    background: `linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 30%, ${
+                      category.gradient.includes("orange")
+                        ? "rgba(251, 146, 60, 0.1)"
+                        : category.gradient.includes("amber")
+                        ? "rgba(245, 158, 11, 0.1)"
+                        : "rgba(234, 179, 8, 0.1)"
+                    } 100%)`,
+                  }}
                 >
                   {/* Background Pattern */}
                   <div className="absolute inset-0 opacity-5">
-                    <div className="absolute top-4 right-4 w-32 h-32 border border-white/20 rounded-full" />
-                    <div className="absolute bottom-4 left-4 w-24 h-24 border border-white/20 rotate-45" />
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-white/10 rounded-full" />
+                    <div className="absolute top-4 right-4 w-32 h-32 border border-orange-400/20 rounded-full" />
+                    <div className="absolute bottom-4 left-4 w-24 h-24 border border-orange-400/20 rotate-45" />
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-orange-400/10 rounded-full" />
                   </div>
 
                   <div className="relative z-10 p-8">
-                    {/* Icon Section */}
-                    <div className="flex items-center justify-between mb-6">
+                    {/* Header with Icon and Title side by side */}
+                    <div className="flex items-center space-x-4 mb-6">
                       <div
-                        className={`w-16 h-16 rounded-2xl bg-gray-900/50 backdrop-blur-sm border ${category.borderColor} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                        className={`w-16 h-16 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-2xl flex items-center justify-center border ${category.borderColor} flex-shrink-0 group-hover:scale-110 transition-transform duration-300 hover:shadow-lg ${category.glowColor}`}
                       >
                         <category.icon
                           className={`h-8 w-8 ${category.iconColor}`}
                         />
                       </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-white/20 font-mono">
-                          0{index + 1}
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold text-white group-hover:text-orange-400 transition-colors duration-300">
+                          {category.title}
+                        </h3>
+                        <div className="text-right mt-2">
+                          <div className="text-2xl font-bold text-orange-400/20 font-mono">
+                            0{index + 1}
+                          </div>
                         </div>
                       </div>
                     </div>
 
                     {/* Content */}
-                    <h3
-                      className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors duration-300"
-                      style={{ fontFamily: "Orbitron, sans-serif" }}
-                    >
-                      {category.title}
-                    </h3>
-
-                    <p className="text-white/70 leading-relaxed mb-6 text-sm">
+                    <p className="text-white/70 leading-relaxed text-sm">
                       {category.desc}
                     </p>
-
-                    {/* Tools Section */}
-                    <div className="space-y-3">
-                      <div
-                        className={`text-sm font-semibold ${category.iconColor} uppercase tracking-wider`}
-                      >
-                        Tools & Platforms
-                      </div>
-                      <div className="grid grid-cols-2 gap-2">
-                        {category.tools.map((tool, toolIndex) => (
-                          <div
-                            key={toolIndex}
-                            className="px-3 py-2 bg-gray-900/50 backdrop-blur-sm text-white/80 text-xs rounded-lg border border-white/10 hover:border-white/30 transition-colors duration-300"
-                          >
-                            {tool}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Action Button */}
-                    <div className="mt-6 pt-6 border-t border-white/10">
-                      <button
-                        className={`w-full py-3 px-4 rounded-xl bg-gray-900/50 backdrop-blur-sm border ${category.borderColor} text-white font-semibold hover:bg-gray-800/50 transition-all duration-300 flex items-center justify-center space-x-2`}
-                      >
-                        <span>Learn More</span>
-                        <FaChevronRight className="h-4 w-4" />
-                      </button>
-                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -494,7 +1828,7 @@ export default function MindHack2025() {
       </section>
 
       {/* Age Groups */}
-      <section className="py-24 px-4 bg-black relative">
+      <section className="py-24 px-4 bg-gray-950 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <motion.h2
@@ -502,10 +1836,10 @@ export default function MindHack2025() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
-              className="text-4xl md:text-5xl font-bold text-white mb-6"
-              style={{ fontFamily: "Orbitron, sans-serif" }}
+              className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
             >
-              Age <span className="text-cyan-400">Groups</span>
+              Age{" "}
+              <span className="text-orange-400 glow-text-orange">Groups</span>
             </motion.h2>
           </div>
 
@@ -516,27 +1850,30 @@ export default function MindHack2025() {
                 title: "Wizards",
                 age: "12 - 15 years",
                 desc: "Young innovators taking their first steps into the world of technology and creativity.",
-                color: "text-green-400",
-                bgColor: "bg-green-400/10",
-                borderColor: "border-green-400/30",
+                color: "text-orange-300",
+                bgColor: "bg-orange-300/10",
+                borderColor: "border-orange-300/30",
+                glowColor: "shadow-orange-300/20",
               },
               {
                 icon: FaUserGraduate,
                 title: "Heroes",
                 age: "16 - 19 years",
                 desc: "Teenage tech enthusiasts ready to showcase their advanced skills and innovative thinking.",
-                color: "text-blue-400",
-                bgColor: "bg-blue-400/10",
-                borderColor: "border-blue-400/30",
+                color: "text-orange-400",
+                bgColor: "bg-orange-400/10",
+                borderColor: "border-orange-400/30",
+                glowColor: "shadow-orange-400/20",
               },
               {
                 icon: FaUserTie,
                 title: "Masters",
                 age: "20 - 25 years",
                 desc: "Young professionals and students demonstrating mastery in their chosen technical domains.",
-                color: "text-purple-400",
-                bgColor: "bg-purple-400/10",
-                borderColor: "border-purple-400/30",
+                color: "text-amber-400",
+                bgColor: "bg-amber-400/10",
+                borderColor: "border-amber-400/30",
+                glowColor: "shadow-amber-400/20",
               },
             ].map((group, index) => (
               <motion.div
@@ -548,27 +1885,21 @@ export default function MindHack2025() {
                 className="group"
               >
                 <div
-                  className={`backdrop-blur-xl bg-gray-900/40 border ${group.borderColor} hover:bg-gray-800/50 transition-all duration-500 group-hover:scale-105 h-full relative overflow-hidden rounded-2xl`}
+                  className={`backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border ${group.borderColor} hover:bg-gradient-to-br hover:from-gray-800/50 hover:via-orange-800/30 hover:to-gray-800/50 transition-all duration-500 group-hover:scale-105 h-full relative overflow-hidden rounded-2xl hover:shadow-2xl ${group.glowColor}`}
                 >
                   <div
                     className={`absolute inset-0 ${group.bgColor} opacity-5`}
                   />
                   <div className="p-8 text-center h-full flex flex-col relative z-10">
                     <div
-                      className={`w-20 h-20 bg-gray-800/60 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 border ${group.borderColor}`}
+                      className={`w-20 h-20 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 border ${group.borderColor} hover:shadow-lg ${group.glowColor}`}
                     >
                       <group.icon className={`h-10 w-10 ${group.color}`} />
                     </div>
-                    <h3
-                      className="text-2xl font-bold text-white mb-2"
-                      style={{ fontFamily: "Orbitron, sans-serif" }}
-                    >
+                    <h3 className="text-2xl font-bold text-white mb-2">
                       {group.title}
                     </h3>
-                    <div
-                      className={`text-xl font-bold ${group.color} mb-4`}
-                      style={{ fontFamily: "Orbitron, sans-serif" }}
-                    >
+                    <div className={`text-xl font-bold ${group.color} mb-4`}>
                       {group.age}
                     </div>
                     <p className="text-white/70 leading-relaxed flex-grow">
@@ -582,107 +1913,216 @@ export default function MindHack2025() {
         </div>
       </section>
 
-      {/* Judging Criteria */}
-      <section className="py-24 px-4 bg-black relative">
-        <div className="max-w-7xl mx-auto">
+      {/* Judging Criteria - Enhanced with Progress Bars */}
+      <section className="py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-orange-900/20 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-amber-500/10" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <motion.h2
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
-              className="text-4xl md:text-5xl font-bold text-white mb-6"
-              style={{ fontFamily: "Orbitron, sans-serif" }}
+              className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
             >
-              Judging <span className="text-cyan-400">Criteria</span>
+              Judging{" "}
+              <span className="text-orange-400 glow-text-orange">Criteria</span>
             </motion.h2>
+            <p className="text-white/70 text-lg max-w-3xl mx-auto">
+              Projects will be evaluated based on comprehensive criteria
+              designed to assess both technical excellence and innovative
+              thinking
+            </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: FaLightbulb,
-                title: "Innovation",
-                percentage: 40,
-                subtitle: "Implementation",
-                desc: "Originality, creativity, and novel approaches to problem-solving.",
-                color: "text-yellow-400",
-                bgColor: "bg-yellow-400",
-              },
-              {
-                icon: FaCogs,
-                title: "Technical",
-                percentage: 40,
-                subtitle: "Complexity",
-                desc: "Technical skill, code quality, and sophisticated implementation.",
-                color: "text-blue-400",
-                bgColor: "bg-blue-400",
-              },
-              {
-                icon: FaChalkboardTeacher,
-                title: "Impact Presentation",
-                percentage: 20,
-                subtitle: "User Experience",
-                desc: "Presentation quality, user experience, and real-world impact potential.",
-                color: "text-green-400",
-                bgColor: "bg-green-400",
-              },
-            ].map((criteria, index) => (
-              <motion.div
-                key={index}
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: false }}
-                className="backdrop-blur-xl bg-gray-900/40 border border-white/20 rounded-2xl p-8"
-              >
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-gray-800/60 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-4 border border-white/20">
-                    <criteria.icon className={`h-8 w-8 ${criteria.color}`} />
-                  </div>
-                  <h3
-                    className="text-2xl font-bold text-white mb-2"
-                    style={{ fontFamily: "Orbitron, sans-serif" }}
-                  >
-                    {criteria.title}
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: false }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="backdrop-blur-xl bg-gradient-to-br from-gray-900/60 via-orange-900/20 to-gray-900/60 border border-orange-500/30 rounded-3xl p-8 md:p-12 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 relative overflow-hidden">
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-8 right-8 w-32 h-32 border border-orange-400/30 rounded-full" />
+                <div className="absolute bottom-8 left-8 w-24 h-24 border border-orange-400/30 rotate-45" />
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-orange-400/10 rounded-full" />
+              </div>
+
+              <div className="relative z-10">
+                <div className="text-center mb-12">
+                  <h3 className="text-3xl font-bold text-white mb-4">
+                    Evaluation{" "}
+                    <span className="text-orange-400">Framework</span>
                   </h3>
-                  <div
-                    className={`text-3xl font-bold ${criteria.color} mb-2`}
-                    style={{ fontFamily: "Orbitron, sans-serif" }}
-                  >
-                    {criteria.percentage}%
-                  </div>
-                  <div className="text-lg font-semibold text-white/80 mb-4">
-                    {criteria.subtitle}
-                  </div>
+                  <p className="text-white/70 text-lg">
+                    Each project is scored across six key dimensions to ensure
+                    comprehensive assessment
+                  </p>
                 </div>
 
-                {/* Animated Progress Bar */}
-                <div className="mb-6">
-                  <div className="w-full bg-gray-800/50 rounded-full h-3 border border-white/20">
+                <div className="space-y-8">
+                  {[
+                    {
+                      icon: FaLightbulb,
+                      title: "Innovation & Creativity",
+                      percentage: 40,
+                      desc: "Originality of ideas, creative problem-solving approaches, and unique implementation methods",
+                      color: "text-yellow-400",
+                      bgColor: "bg-yellow-400",
+                      glowColor: "shadow-yellow-400/30",
+                      borderColor: "border-yellow-400/30",
+                    },
+                    {
+                      icon: FaCogs,
+                      title: "Technical Excellence",
+                      percentage: 40,
+                      desc: "Code quality, technical complexity, proper implementation, and use of best practices",
+                      color: "text-orange-400",
+                      bgColor: "bg-orange-400",
+                      glowColor: "shadow-orange-400/30",
+                      borderColor: "border-orange-400/30",
+                    },
+                    {
+                      icon: FaChalkboardTeacher,
+                      title: "Impact & Presentation",
+                      percentage: 20,
+                      desc: "Real-world impact, presentation quality, and ability to communicate technical concepts effectively",
+                      color: "text-amber-400",
+                      bgColor: "bg-amber-400",
+                      glowColor: "shadow-amber-400/30",
+                      borderColor: "border-amber-400/30",
+                    },
+                  ].map((criteria, index) => (
                     <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${criteria.percentage}%` }}
-                      transition={{ duration: 1.5, delay: index * 0.3 }}
+                      key={index}
+                      initial={{ x: -50, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
                       viewport={{ once: false }}
-                      className={`h-full ${criteria.bgColor} rounded-full relative overflow-hidden`}
+                      className="group"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse" />
+                      <div
+                        className={`backdrop-blur-sm bg-gradient-to-br from-gray-800/30 via-orange-800/20 to-gray-800/30 border ${criteria.borderColor} rounded-2xl p-6 hover:bg-gradient-to-br hover:from-gray-800/50 hover:via-orange-800/30 hover:to-gray-800/50 transition-all duration-300 hover:shadow-lg ${criteria.glowColor}`}
+                      >
+                        <div className="flex items-start space-x-6">
+                          {/* Icon */}
+                          <div
+                            className={`w-16 h-16 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-xl flex items-center justify-center border ${criteria.borderColor} group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}
+                          >
+                            <criteria.icon
+                              className={`h-8 w-8 ${criteria.color}`}
+                            />
+                          </div>
+
+                          {/* Content */}
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between mb-3">
+                              <h4 className="text-xl font-bold text-white group-hover:text-orange-400 transition-colors duration-300">
+                                {criteria.title}
+                              </h4>
+                              <div
+                                className={`text-2xl font-bold ${criteria.color} ml-4`}
+                              >
+                                {criteria.percentage}%
+                              </div>
+                            </div>
+
+                            <p className="text-white/70 text-sm leading-relaxed mb-4">
+                              {criteria.desc}
+                            </p>
+
+                            {/* Progress Bar */}
+                            <div className="relative">
+                              <div className="w-full bg-gray-700/50 rounded-full h-3 border border-gray-600/30 overflow-hidden">
+                                <motion.div
+                                  initial={{ width: 0 }}
+                                  whileInView={{
+                                    width: `${criteria.percentage}%`,
+                                  }}
+                                  transition={{
+                                    duration: 1.5,
+                                    delay: index * 0.2,
+                                    ease: "easeOut",
+                                  }}
+                                  viewport={{ once: false }}
+                                  className={`h-full ${criteria.bgColor} relative overflow-hidden shadow-lg ${criteria.glowColor}`}
+                                  style={{
+                                    background: `linear-gradient(90deg, ${criteria.bgColor.replace(
+                                      "bg-",
+                                      ""
+                                    )} 0%, ${criteria.bgColor
+                                      .replace("bg-", "")
+                                      .replace("-400", "-300")} 100%)`,
+                                  }}
+                                >
+                                  {/* Animated shine effect */}
+                                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
+
+                                  {/* Glow effect */}
+                                  <div
+                                    className={`absolute inset-0 ${criteria.bgColor} opacity-50 blur-sm`}
+                                  />
+                                </motion.div>
+                              </div>
+
+                              {/* Percentage indicator */}
+                              <motion.div
+                                initial={{ opacity: 0, scale: 0 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{
+                                  duration: 0.5,
+                                  delay: index * 0.2 + 1,
+                                }}
+                                viewport={{ once: false }}
+                                className={`absolute -top-8 bg-gray-800/90 backdrop-blur-sm border ${criteria.borderColor} rounded-lg px-3 py-1 text-sm font-bold ${criteria.color} shadow-lg ${criteria.glowColor}`}
+                                style={{
+                                  left: `${criteria.percentage}%`,
+                                  transform: "translateX(-50%)",
+                                  fontFamily: "Orbitron, sans-serif",
+                                }}
+                              >
+                                {criteria.percentage}%
+                                <div
+                                  className={`absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800/90`}
+                                />
+                              </motion.div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </motion.div>
-                  </div>
+                  ))}
                 </div>
 
-                <p className="text-white/70 leading-relaxed text-center">
-                  {criteria.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+                {/* Summary */}
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  viewport={{ once: false }}
+                  className="mt-12 text-center"
+                >
+                  <div className="backdrop-blur-sm bg-gradient-to-br from-gray-800/30 via-orange-800/20 to-gray-800/30 border border-orange-500/20 rounded-2xl p-6">
+                    <h4 className="text-xl font-bold text-white mb-3">
+                      Total Score: <span className="text-orange-400">100%</span>
+                    </h4>
+                    <p className="text-white/70">
+                      All criteria are carefully weighted to ensure fair and
+                      comprehensive evaluation of each project's strengths and
+                      innovation potential.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Key Dates & Location */}
-      <section className="py-24 px-4 bg-black relative">
+      <section className="py-24 px-4 bg-gray-950 relative">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Key Dates */}
@@ -692,11 +2132,9 @@ export default function MindHack2025() {
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
             >
-              <h2
-                className="text-4xl font-bold text-white mb-8"
-                style={{ fontFamily: "Orbitron, sans-serif" }}
-              >
-                Key <span className="text-cyan-400">Dates</span>
+              <h2 className="text-4xl font-bold text-white mb-8 glow-text-strong">
+                Key{" "}
+                <span className="text-orange-400 glow-text-orange">Dates</span>
               </h2>
               <div className="space-y-6">
                 {[
@@ -732,16 +2170,16 @@ export default function MindHack2025() {
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: false }}
-                    className="flex items-center space-x-4 p-4 backdrop-blur-xl bg-gray-900/40 border border-white/20 rounded-lg"
+                    className="flex items-center space-x-4 p-4 backdrop-blur-xl bg-gradient-to-r from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-lg hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300"
                   >
-                    <div className="w-12 h-12 bg-gray-800/60 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/20">
-                      <item.icon className="h-6 w-6 text-cyan-400" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-lg flex items-center justify-center border border-orange-500/20 shadow-lg shadow-orange-500/20">
+                      <item.icon className="h-6 w-6 text-orange-400" />
                     </div>
                     <div>
                       <div className="text-white font-semibold">
                         {item.event}
                       </div>
-                      <div className="text-cyan-400 text-sm font-mono">
+                      <div className="text-orange-400 text-sm font-mono glow-text">
                         {item.date}
                       </div>
                     </div>
@@ -757,15 +2195,15 @@ export default function MindHack2025() {
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
             >
-              <h2
-                className="text-4xl font-bold text-white mb-8"
-                style={{ fontFamily: "Orbitron, sans-serif" }}
-              >
-                Event <span className="text-cyan-400">Location</span>
+              <h2 className="text-4xl font-bold text-white mb-8 glow-text-strong">
+                Event{" "}
+                <span className="text-orange-400 glow-text-orange">
+                  Location
+                </span>
               </h2>
-              <div className="backdrop-blur-xl bg-gray-900/40 border border-white/20 rounded-2xl p-6 mb-6">
+              <div className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-2xl p-6 mb-6 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300">
                 <div className="flex items-start space-x-4 mb-4">
-                  <FaMapPin className="h-6 w-6 text-cyan-400 mt-1" />
+                  <FaMapPin className="h-6 w-6 text-orange-400 mt-1 glow-text" />
                   <div>
                     <h3 className="text-xl font-bold text-white mb-2">
                       Tech Innovation Center
@@ -779,7 +2217,7 @@ export default function MindHack2025() {
               </div>
 
               {/* Real Google Map */}
-              <div className="backdrop-blur-xl bg-gray-900/40 border border-white/20 rounded-2xl overflow-hidden">
+              <div className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
                 <a
                   href="https://www.google.com/maps?q=16.8409,96.1735"
                   target="_blank"
@@ -789,7 +2227,7 @@ export default function MindHack2025() {
                   <div className="h-64 bg-gray-800/50 relative overflow-hidden">
                     {/* Google Maps Static Image */}
                     <img
-                      src="https://maps.googleapis.com/maps/api/staticmap?center=16.8409,96.1735&zoom=15&size=600x300&maptype=roadmap&markers=color:cyan%7C16.8409,96.1735&key=YOUR_API_KEY"
+                      src="https://maps.googleapis.com/maps/api/staticmap?center=16.8409,96.1735&zoom=15&size=600x300&maptype=roadmap&markers=color:orange%7C16.8409,96.1735&key=YOUR_API_KEY"
                       alt="Event Location Map"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       onError={(e) => {
@@ -805,7 +2243,7 @@ export default function MindHack2025() {
                       style={{ display: "none" }}
                     >
                       <div className="text-center">
-                        <FaMapPin className="h-12 w-12 text-cyan-400 mx-auto mb-4" />
+                        <FaMapPin className="h-12 w-12 text-orange-400 mx-auto mb-4 glow-text" />
                         <p className="text-white/80 font-semibold">
                           View on Google Maps
                         </p>
@@ -813,9 +2251,9 @@ export default function MindHack2025() {
                       </div>
                     </div>
                     {/* Overlay */}
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-                      <div className="bg-cyan-500/20 backdrop-blur-sm border border-cyan-400/50 rounded-lg px-4 py-2 flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <FaExternalLinkAlt className="h-4 w-4 text-cyan-400" />
+                    <div className="absolute inset-0 bg-gray-950/20 group-hover:bg-gray-950/10 transition-colors duration-300 flex items-center justify-center">
+                      <div className="bg-orange-500/20 backdrop-blur-sm border border-orange-400/50 rounded-lg px-4 py-2 flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg shadow-orange-500/20">
+                        <FaExternalLinkAlt className="h-4 w-4 text-orange-400" />
                         <span className="text-white font-semibold">
                           Open in Google Maps
                         </span>
@@ -830,11 +2268,8 @@ export default function MindHack2025() {
       </section>
 
       {/* Benefits Section - Full Width */}
-      <section className="py-24 bg-gradient-to-r from-gray-900 via-black to-gray-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-8 left-8 w-24 h-24 border-2 border-cyan-400 rotate-45" />
-          <div className="absolute bottom-8 right-8 w-32 h-32 border-2 border-blue-400 rounded-full" />
-        </div>
+      <section className="py-24 bg-gradient-to-br from-gray-950 via-gray-900 to-orange-950/20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-amber-500/5" />
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -843,11 +2278,11 @@ export default function MindHack2025() {
             viewport={{ once: false }}
             className="text-center mb-16"
           >
-            <h2
-              className="text-4xl md:text-5xl font-bold text-white mb-6"
-              style={{ fontFamily: "Orbitron, sans-serif" }}
-            >
-              Benefits of <span className="text-cyan-400">Participating</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong">
+              Benefits of{" "}
+              <span className="text-orange-400 glow-text-orange">
+                Participating
+              </span>
             </h2>
           </motion.div>
 
@@ -882,13 +2317,10 @@ export default function MindHack2025() {
                 viewport={{ once: false }}
                 className="text-center group"
               >
-                <div className="w-20 h-20 bg-gray-800/60 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 border border-white/20">
-                  <benefit.icon className="h-10 w-10 text-cyan-400" />
+                <div className="w-20 h-20 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 border border-orange-500/20 hover:shadow-lg hover:shadow-orange-500/20">
+                  <benefit.icon className="h-10 w-10 text-orange-400" />
                 </div>
-                <h3
-                  className="text-2xl font-bold text-white mb-4"
-                  style={{ fontFamily: "Orbitron, sans-serif" }}
-                >
+                <h3 className="text-2xl font-bold text-white mb-4">
                   {benefit.title}
                 </h3>
                 <p className="text-white/70 leading-relaxed">{benefit.desc}</p>
@@ -898,8 +2330,8 @@ export default function MindHack2025() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 px-4 bg-black relative">
+      {/* Testimonials - 3 YouTube Videos */}
+      <section className="py-24 px-4 bg-gray-950 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <motion.h2
@@ -907,14 +2339,16 @@ export default function MindHack2025() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
-              className="text-4xl md:text-5xl font-bold text-white mb-6"
-              style={{ fontFamily: "Orbitron, sans-serif" }}
+              className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
             >
-              What Our <span className="text-cyan-400">Participants Say</span>
+              What Our{" "}
+              <span className="text-orange-400 glow-text-orange">
+                Participants Say
+              </span>
             </motion.h2>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8">
             {[
               {
                 video: "dQw4w9WgXcQ", // YouTube video ID
@@ -928,6 +2362,12 @@ export default function MindHack2025() {
                 title: "MindHack 2023 Finalist",
                 category: "Robotics",
               },
+              {
+                video: "dQw4w9WgXcQ", // YouTube video ID
+                name: "Maya Patel",
+                title: "MindHack 2024 Champion",
+                category: "Coding",
+              },
             ].map((testimonial, index) => (
               <motion.div
                 key={index}
@@ -935,7 +2375,7 @@ export default function MindHack2025() {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: false }}
-                className="backdrop-blur-xl bg-gray-900/40 border border-white/20 rounded-2xl overflow-hidden"
+                className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500"
               >
                 <div className="aspect-video">
                   <iframe
@@ -947,13 +2387,12 @@ export default function MindHack2025() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3
-                    className="text-xl font-bold text-white mb-2"
-                    style={{ fontFamily: "Orbitron, sans-serif" }}
-                  >
+                  <h3 className="text-xl font-bold text-white mb-2">
                     {testimonial.name}
                   </h3>
-                  <p className="text-cyan-400 mb-2">{testimonial.title}</p>
+                  <p className="text-orange-400 mb-2 glow-text">
+                    {testimonial.title}
+                  </p>
                   <p className="text-white/70">
                     {testimonial.category} Category
                   </p>
@@ -964,7 +2403,7 @@ export default function MindHack2025() {
         </div>
       </section>
 
-      {/* Ready to Join */}
+      {/* Ready to Join - Full Black Background */}
       <section className="py-24 px-4 bg-black relative">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
@@ -973,11 +2412,11 @@ export default function MindHack2025() {
             transition={{ duration: 0.8 }}
             viewport={{ once: false }}
           >
-            <h2
-              className="text-4xl md:text-6xl font-bold text-white mb-8"
-              style={{ fontFamily: "Orbitron, sans-serif" }}
-            >
-              Ready to Join <span className="text-cyan-400">MindHack 2025</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 glow-text-strong">
+              Ready to Join{" "}
+              <span className="text-orange-400 glow-text-orange">
+                MindHack 2025
+              </span>
               ?
             </h2>
             <p className="text-white/90 text-xl mb-12 max-w-4xl mx-auto leading-relaxed">
@@ -985,13 +2424,13 @@ export default function MindHack2025() {
               participants in the ultimate technical competition.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="backdrop-blur-sm bg-cyan-500/20 hover:bg-cyan-500/30 text-white font-bold px-12 py-4 text-lg border border-cyan-400/50 rounded-lg transition-all duration-300">
+              <button className="backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-12 py-4 text-lg border border-orange-400/50 rounded-lg transition-all duration-300 glow-button hover:shadow-2xl hover:shadow-orange-500/25">
                 Register as Participant
               </button>
-              <button className="backdrop-blur-sm bg-blue-500/20 hover:bg-blue-500/30 text-white font-bold px-12 py-4 text-lg border border-blue-400/50 rounded-lg transition-all duration-300">
+              <button className="backdrop-blur-sm bg-amber-500/20 hover:bg-amber-500/30 text-white font-bold px-12 py-4 text-lg border border-amber-400/50 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/25">
                 Partner School
               </button>
-              <button className="backdrop-blur-sm bg-purple-500/20 hover:bg-purple-500/30 text-white font-bold px-12 py-4 text-lg border border-purple-400/50 rounded-lg transition-all duration-300">
+              <button className="backdrop-blur-sm bg-yellow-500/20 hover:bg-yellow-500/30 text-white font-bold px-12 py-4 text-lg border border-yellow-400/50 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/25">
                 Sponsor the Event
               </button>
             </div>
@@ -1000,7 +2439,7 @@ export default function MindHack2025() {
       </section>
 
       {/* Partner Schools */}
-      <section className="py-24 px-4 bg-black relative">
+      <section className="py-24 px-4 bg-gray-950 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <motion.h2
@@ -1008,10 +2447,12 @@ export default function MindHack2025() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
-              className="text-4xl md:text-5xl font-bold text-white mb-6"
-              style={{ fontFamily: "Orbitron, sans-serif" }}
+              className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
             >
-              Our <span className="text-cyan-400">Partner Schools</span>
+              Our{" "}
+              <span className="text-orange-400 glow-text-orange">
+                Partner Schools
+              </span>
             </motion.h2>
           </div>
 
@@ -1032,10 +2473,10 @@ export default function MindHack2025() {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: false }}
-                className="backdrop-blur-xl bg-gray-900/40 border border-white/20 rounded-lg p-6 text-center hover:bg-gray-800/50 transition-all duration-300"
+                className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-lg p-6 text-center hover:bg-gradient-to-br hover:from-gray-800/50 hover:via-orange-800/30 hover:to-gray-800/50 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20"
               >
-                <div className="w-16 h-16 bg-gray-800/60 backdrop-blur-sm rounded-lg flex items-center justify-center mx-auto mb-4 border border-white/20">
-                  <FaGraduationCap className="h-8 w-8 text-cyan-400" />
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-lg flex items-center justify-center mx-auto mb-4 border border-orange-500/20 shadow-lg shadow-orange-500/20">
+                  <FaGraduationCap className="h-8 w-8 text-orange-400" />
                 </div>
                 <h3 className="text-white font-semibold">{school}</h3>
               </motion.div>
@@ -1043,7 +2484,7 @@ export default function MindHack2025() {
           </div>
 
           <div className="text-center">
-            <button className="backdrop-blur-sm bg-gray-800/50 hover:bg-gray-700/60 text-white font-bold px-12 py-4 text-lg border border-white/20 rounded-lg transition-all duration-300">
+            <button className="backdrop-blur-sm bg-gradient-to-r from-gray-800/50 via-orange-800/20 to-gray-800/50 hover:bg-gradient-to-r hover:from-gray-700/60 hover:via-orange-700/30 hover:to-gray-700/60 text-white font-bold px-12 py-4 text-lg border border-orange-500/20 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20">
               Become a Partner
             </button>
           </div>
@@ -1051,8 +2492,9 @@ export default function MindHack2025() {
       </section>
 
       {/* Origins of MindHack */}
-      <section className="py-24 px-4 bg-black relative">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-orange-950/20 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-amber-500/5" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ x: -50, opacity: 0 }}
@@ -1060,11 +2502,11 @@ export default function MindHack2025() {
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
             >
-              <h2
-                className="text-4xl font-bold text-white mb-8"
-                style={{ fontFamily: "Orbitron, sans-serif" }}
-              >
-                The Origins of <span className="text-cyan-400">MindHack</span>
+              <h2 className="text-4xl font-bold text-white mb-8 glow-text-strong">
+                The Origins of{" "}
+                <span className="text-orange-400 glow-text-orange">
+                  MindHack
+                </span>
               </h2>
               <div className="space-y-6 text-white/80 leading-relaxed">
                 <p>
@@ -1100,7 +2542,7 @@ export default function MindHack2025() {
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: false }}
-              className="backdrop-blur-xl bg-gray-900/40 border border-white/20 rounded-2xl overflow-hidden"
+              className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500"
             >
               <div className="aspect-video">
                 <iframe
@@ -1112,10 +2554,7 @@ export default function MindHack2025() {
                 />
               </div>
               <div className="p-6">
-                <h3
-                  className="text-xl font-bold text-white mb-2"
-                  style={{ fontFamily: "Orbitron, sans-serif" }}
-                >
+                <h3 className="text-xl font-bold text-white mb-2">
                   The MindHack Story
                 </h3>
                 <p className="text-white/70">
@@ -1128,7 +2567,7 @@ export default function MindHack2025() {
       </section>
 
       {/* Footer */}
-      <footer className="backdrop-blur-xl bg-gray-900/20 border-t border-white/10 py-16 px-4">
+      <footer className="backdrop-blur-xl bg-gradient-to-br from-gray-900/20 via-orange-900/10 to-gray-900/20 border-t border-orange-500/20 py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -1139,16 +2578,13 @@ export default function MindHack2025() {
           >
             <div>
               <div className="flex items-center space-x-2 mb-6">
-                <div className="w-10 h-10 backdrop-blur-sm bg-gray-800/50 rounded-lg flex items-center justify-center border border-white/20">
+                <div className="w-10 h-10 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-lg flex items-center justify-center border border-orange-500/20 shadow-lg shadow-orange-500/20">
                   <span className="text-white font-bold">M</span>
                 </div>
-                <span
-                  className="text-white font-bold text-2xl"
-                  style={{ fontFamily: "Orbitron, sans-serif" }}
-                >
-                  MindHack
+                <span className="text-white font-bold text-2xl">MindHack</span>
+                <span className="text-orange-400 text-sm font-mono glow-text">
+                  2025
                 </span>
-                <span className="text-cyan-400 text-sm font-mono">2025</span>
               </div>
               <p className="text-white/70 leading-relaxed mb-6">
                 The premier technical competition for 3D Design, Scratch
@@ -1158,10 +2594,7 @@ export default function MindHack2025() {
             </div>
 
             <div>
-              <h4
-                className="text-white font-bold text-lg mb-6"
-                style={{ fontFamily: "Orbitron, sans-serif" }}
-              >
+              <h4 className="text-white font-bold text-lg mb-6">
                 Competitions
               </h4>
               <div className="space-y-3">
@@ -1174,7 +2607,7 @@ export default function MindHack2025() {
                   <a
                     key={link}
                     href="#"
-                    className="block text-white/70 hover:text-cyan-400 transition-colors"
+                    className="block text-white/70 hover:text-orange-400 transition-colors"
                   >
                     {link}
                   </a>
@@ -1183,12 +2616,7 @@ export default function MindHack2025() {
             </div>
 
             <div>
-              <h4
-                className="text-white font-bold text-lg mb-6"
-                style={{ fontFamily: "Orbitron, sans-serif" }}
-              >
-                Resources
-              </h4>
+              <h4 className="text-white font-bold text-lg mb-6">Resources</h4>
               <div className="space-y-3">
                 {[
                   "Technical Guidelines",
@@ -1199,7 +2627,7 @@ export default function MindHack2025() {
                   <a
                     key={link}
                     href="#"
-                    className="block text-white/70 hover:text-cyan-400 transition-colors"
+                    className="block text-white/70 hover:text-orange-400 transition-colors"
                   >
                     {link}
                   </a>
@@ -1208,23 +2636,18 @@ export default function MindHack2025() {
             </div>
 
             <div>
-              <h4
-                className="text-white font-bold text-lg mb-6"
-                style={{ fontFamily: "Orbitron, sans-serif" }}
-              >
-                Contact
-              </h4>
+              <h4 className="text-white font-bold text-lg mb-6">Contact</h4>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 text-white/70">
-                  <FaEnvelope className="h-5 w-5 flex-shrink-0 text-cyan-400" />
+                  <FaEnvelope className="h-5 w-5 flex-shrink-0 text-orange-400" />
                   <span>tech@mindhack.com</span>
                 </div>
                 <div className="flex items-center space-x-3 text-white/70">
-                  <FaPhone className="h-5 w-5 flex-shrink-0 text-blue-400" />
+                  <FaPhone className="h-5 w-5 flex-shrink-0 text-amber-400" />
                   <span>+1 (555) TECH-2025</span>
                 </div>
                 <div className="flex items-center space-x-3 text-white/70">
-                  <FaMapMarkerAlt className="h-5 w-5 flex-shrink-0 text-purple-400" />
+                  <FaMapMarkerAlt className="h-5 w-5 flex-shrink-0 text-yellow-400" />
                   <span>Tech Hub, Innovation District</span>
                 </div>
               </div>
@@ -1236,7 +2659,7 @@ export default function MindHack2025() {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: false }}
-            className="border-t border-white/10 mt-12 pt-8"
+            className="border-t border-orange-500/20 mt-12 pt-8"
           >
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-white/60 text-center md:text-left">
@@ -1245,19 +2668,19 @@ export default function MindHack2025() {
               <div className="flex space-x-6">
                 <a
                   href="#"
-                  className="text-white/60 hover:text-cyan-400 transition-colors"
+                  className="text-white/60 hover:text-orange-400 transition-colors"
                 >
                   Privacy Policy
                 </a>
                 <a
                   href="#"
-                  className="text-white/60 hover:text-cyan-400 transition-colors"
+                  className="text-white/60 hover:text-orange-400 transition-colors"
                 >
                   Terms of Service
                 </a>
                 <a
                   href="#"
-                  className="text-white/60 hover:text-cyan-400 transition-colors"
+                  className="text-white/60 hover:text-orange-400 transition-colors"
                 >
                   Competition Rules
                 </a>
@@ -1266,6 +2689,41 @@ export default function MindHack2025() {
           </motion.div>
         </div>
       </footer>
+
+      {/* Custom Styles */}
+      <style jsx global>{`
+        @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+
+        * {
+          font-family: "Orbitron", monospace !important;
+        }
+
+        .glow-text {
+          text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+        }
+        .glow-text-strong {
+          text-shadow: 0 0 20px rgba(255, 165, 0, 0.6),
+            0 0 30px rgba(255, 165, 0, 0.4);
+        }
+        .glow-text-orange {
+          text-shadow: 0 0 15px rgba(255, 165, 0, 0.8),
+            0 0 25px rgba(255, 165, 0, 0.5);
+        }
+        .glow-text-gradient {
+          filter: drop-shadow(0 0 10px rgba(255, 165, 0, 0.5));
+        }
+        .glow-dot {
+          box-shadow: 0 0 15px rgba(255, 165, 0, 0.8),
+            0 0 25px rgba(255, 165, 0, 0.5);
+        }
+        .glow-button {
+          box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+        }
+        .glow-button:hover {
+          box-shadow: 0 0 30px rgba(255, 165, 0, 0.5),
+            0 0 40px rgba(255, 165, 0, 0.3);
+        }
+      `}</style>
     </div>
   );
 }
