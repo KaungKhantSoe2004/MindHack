@@ -1412,7 +1412,7 @@
 // }
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaChevronRight,
@@ -1445,6 +1445,7 @@ import {
   FaUserGraduate,
   FaUserTie,
   FaExternalLinkAlt,
+  FaStar,
 } from "react-icons/fa";
 
 // Add this new import
@@ -1488,13 +1489,13 @@ export default function MindHack2025() {
     <div className="min-h-screen bg-gray-950 relative overflow-hidden">
       {/* Background Image - Behind everything with 10% opacity */}
       <div
-        className="fixed inset-0 z-50"
+        className="fixed inset-0 z-25"
         style={{
           backgroundImage: `url("/kv.png")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          opacity: 0.02,
+          opacity: 1,
         }}
       />
 
@@ -1707,126 +1708,215 @@ export default function MindHack2025() {
         </section>
 
         {/* Awards Section - Using Reference Image */}
-        <section className="py-24 px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-orange-950/20 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-amber-500/5" />
-          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="text-center mb-16">
+        <section className="py-28 px-4 relative overflow-hidden bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
+          {/* Subtle animated background elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/5 blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-amber-500/5 blur-3xl animate-pulse delay-1000" />
+          </div>
+
+          <div className="max-w-7xl mx-auto relative z-30">
+            <div className="text-center mb-20">
               <motion.h2
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8 }}
-                viewport={{ once: false }}
-                className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
+                viewport={{ once: true }}
+                className="text-5xl md:text-6xl font-bold text-white mb-6"
               >
                 Competition{" "}
-                <span className="text-orange-400 glow-text-orange">Awards</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">
+                  Awards
+                </span>
               </motion.h2>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="text-white/80 text-xl max-w-3xl mx-auto font-light"
+              >
+                Celebrating excellence across all categories with substantial
+                prizes
+              </motion.p>
             </div>
 
-            {/* Prize Pool Image */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: false }}
-              className="relative mb-16"
-            >
-              <div className="relative rounded-3xl overflow-hidden border border-orange-500/30 shadow-2xl shadow-orange-500/20">
-                <img
-                  src="/prizepool.jpg"
-                  alt="Prize Pool - $10,000 American Dollar"
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/20 via-transparent to-gray-950/20" />
-              </div>
-            </motion.div>
-
-            {/* 4 Awards Grid */}
-            <div className="grid md:grid-cols-4 gap-8">
+            {/* Award Cards Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
-                  icon: FaCrown,
                   title: "Grand Prize",
+                  ageGroup: "All Categories",
                   amount: "$4,000",
-                  desc: "Overall winner across all categories",
-                  color: "text-yellow-400",
-                  bgColor: "bg-yellow-400/10",
+                  color: "from-yellow-400 to-amber-400",
+                  bgColor:
+                    "bg-gradient-to-br from-yellow-400/10 via-amber-400/5 to-yellow-400/10",
                   borderColor: "border-yellow-400/30",
-                  glowColor: "shadow-yellow-400/20",
+                  categories: [
+                    "Overall Winner",
+                    "Best Innovation",
+                    "Technical Excellence",
+                    "Impact & Presentation",
+                  ],
+                  icon: <FaTrophy className="w-12 h-12" />,
                 },
                 {
-                  icon: FaMedal,
-                  title: "3D Design Winner",
+                  title: "Wizards Awards",
+                  ageGroup: "12 - 15 years",
                   amount: "$2,500",
-                  desc: "Best 3D Design & Modeling project",
-                  color: "text-orange-400",
-                  bgColor: "bg-orange-400/10",
-                  borderColor: "border-orange-400/30",
-                  glowColor: "shadow-orange-400/20",
-                },
-                {
-                  icon: FaAward,
-                  title: "Coding Winner",
-                  amount: "$2,500",
-                  desc: "Best Scratch Programming project",
-                  color: "text-amber-400",
-                  bgColor: "bg-amber-400/10",
-                  borderColor: "border-amber-400/30",
-                  glowColor: "shadow-amber-400/20",
-                },
-                {
-                  icon: FaTrophy,
-                  title: "Electronics Winner",
-                  amount: "$1,000",
-                  desc: "Best Electronics & Robotics project",
-                  color: "text-orange-300",
-                  bgColor: "bg-orange-300/10",
+                  color: "from-orange-300 to-amber-300",
+                  bgColor:
+                    "bg-gradient-to-br from-orange-300/10 via-amber-300/5 to-orange-300/10",
                   borderColor: "border-orange-300/30",
-                  glowColor: "shadow-orange-300/20",
+                  categories: [
+                    "Coding",
+                    "3D Design",
+                    "Electronics",
+                    "Age Category",
+                  ],
+                  icon: <FaMedal className="w-10 h-10" />,
+                },
+                {
+                  title: "Heroes Awards",
+                  ageGroup: "16 - 19 years",
+                  amount: "$2,500",
+                  color: "from-orange-400 to-amber-400",
+                  bgColor:
+                    "bg-gradient-to-br from-orange-400/10 via-amber-400/5 to-orange-400/10",
+                  borderColor: "border-orange-400/30",
+                  categories: [
+                    "Coding",
+                    "3D Design",
+                    "Electronics",
+                    "Age Category",
+                  ],
+                  icon: <FaAward className="w-10 h-10" />,
+                },
+                {
+                  title: "Masters Awards",
+                  ageGroup: "20 - 25 years",
+                  amount: "$1,000",
+                  color: "from-amber-400 to-orange-400",
+                  bgColor:
+                    "bg-gradient-to-br from-amber-400/10 via-orange-400/5 to-amber-400/10",
+                  borderColor: "border-amber-400/30",
+                  categories: [
+                    "Coding",
+                    "3D Design",
+                    "Electronics",
+                    "Age Category",
+                  ],
+                  icon: <FaStar className="w-10 h-10" />,
                 },
               ].map((award, index) => (
                 <motion.div
                   key={index}
                   initial={{ y: 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  viewport={{ once: false }}
-                  className="group"
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  viewport={{ once: true }}
+                  className="group h-full"
                 >
                   <div
-                    className={`backdrop-blur-xl bg-gradient-to-br from-gray-900/20 via-orange-900/10 to-gray-900/20 border ${award.borderColor} hover:bg-gradient-to-br hover:from-gray-800/30 hover:via-orange-800/10 hover:to-gray-800/30 transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-4 h-full relative overflow-hidden rounded-2xl hover:shadow-2xl ${award.glowColor} transform perspective-1000 hover:rotate-x-5 hover:rotate-y-5`}
-                    style={{
-                      background: `linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 50%, ${award.bgColor
-                        .replace("bg-", "rgba(")
-                        .replace("/10", ", 0.1)")} 100%)`,
-                      boxShadow: `0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px ${award.glowColor
-                        .replace("shadow-", "rgba(")
-                        .replace("/20", ", 0.3)")}`,
-                    }}
+                    className={`relative h-full rounded-xl overflow-hidden border ${award.borderColor} transition-all duration-500 group-hover:shadow-xl group-hover:shadow-orange-500/10`}
                   >
+                    {/* Card background */}
                     <div
-                      className={`absolute inset-0 ${award.bgColor} opacity-5`}
+                      className={`absolute inset-0 ${award.bgColor} opacity-80`}
                     />
-                    <div className="p-8 text-center h-full flex flex-col relative z-10">
-                      <div
-                        className={`w-20 h-20 bg-gradient-to-br from-gray-800/30 via-orange-800/10 to-gray-800/30 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 border ${award.borderColor} hover:shadow-lg ${award.glowColor}`}
-                      >
-                        <award.icon className={`h-10 w-10 ${award.color}`} />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-950/80" />
+
+                    {/* Card content */}
+                    <div className="relative z-10 h-full flex flex-col p-6">
+                      {/* Header */}
+                      <div className="mb-6">
+                        <h3 className="text-2xl font-bold text-white mb-1">
+                          {award.title}
+                        </h3>
+                        <p
+                          className={`text-sm font-medium bg-gradient-to-r ${award.color} bg-clip-text text-transparent`}
+                        >
+                          {award.ageGroup}
+                        </p>
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-2">
-                        {award.title}
-                      </h3>
-                      <div className={`text-3xl font-bold ${award.color} mb-4`}>
-                        {award.amount}
+
+                      {/* Medal/Centerpiece */}
+                      <div className="flex-1 flex flex-col items-center justify-center mb-8">
+                        <div
+                          className={`relative mb-6 w-28 h-28 rounded-full flex items-center justify-center bg-gradient-to-br ${award.color} shadow-lg`}
+                        >
+                          <div className="absolute inset-2 rounded-full bg-gray-900 flex items-center justify-center">
+                            {React.cloneElement(award.icon, {
+                              className: `w-10 h-10 ${award.color
+                                .replace("from-", "text-")
+                                .replace(" to-", " ")}`,
+                            })}
+                          </div>
+                        </div>
+
+                        {/* Categories */}
+                        <div className="grid grid-cols-2 gap-2 w-full max-w-xs">
+                          {award.categories.map((category, i) => (
+                            <div
+                              key={i}
+                              className="text-xs text-center text-white/70 bg-gray-900/50 px-2 py-1 rounded border border-gray-700"
+                            >
+                              {category}
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <p className="text-white/70 leading-relaxed flex-grow">
-                        {award.desc}
-                      </p>
+
+                      {/* Prize amount */}
+                      <div className="text-center">
+                        <p className="text-white/60 text-sm mb-1">Prize</p>
+                        <p
+                          className={`text-3xl font-bold bg-gradient-to-r ${award.color} bg-clip-text text-transparent`}
+                        >
+                          {award.amount}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </div>
+
+            {/* Total Prize Pool */}
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="mt-20"
+            >
+              <div className="relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 rounded-2xl p-8 max-w-4xl mx-auto border border-orange-500/20 overflow-hidden">
+                {/* Decorative elements */}
+                <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-orange-500/5 blur-3xl" />
+                <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-amber-500/5 blur-3xl" />
+
+                <div className="relative z-10 text-center">
+                  <h3 className="text-3xl font-bold text-white mb-3">
+                    Total Prize Pool:{" "}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">
+                      $10,000
+                    </span>
+                  </h3>
+                  <p className="text-white/80 text-lg max-w-2xl mx-auto font-light">
+                    Distributed across all age groups to recognize excellence in
+                    3D Design, Programming, and Electronics & Robotics.
+                  </p>
+                  <div className="mt-6 flex justify-center gap-4">
+                    <div className="px-4 py-2 bg-orange-500/10 border border-orange-500/20 rounded-full text-orange-400 text-sm font-medium">
+                      3 Age Categories
+                    </div>
+                    <div className="px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-sm font-medium">
+                      4 Competition Tracks
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
