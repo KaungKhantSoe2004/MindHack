@@ -9,6 +9,7 @@ import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import "./App.css";
 import MindHackHomepage from "./pages/new";
+import Competition from "./pages/currentCompetition";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="new" element={<MindHackHomepage />} />
+            <Route path="mindhack-2025" element={<Competition />} />
             <Route path="/" element={<Home />} />
             <Route path="/events" element={<Events />} />
             <Route path="/gallery" element={<Gallery />} />

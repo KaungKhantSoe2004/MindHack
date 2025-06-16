@@ -80,21 +80,60 @@ export default function MindHackHomepage() {
               <span className="text-cyan-400 text-sm font-mono">2025</span>
             </div>
 
-            {/* Desktop Navigation - Moved to left */}
+            {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8 flex-1 justify-start ml-16">
-              {["Home", "Competitions", "Timeline", "Register"].map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="text-white/80 hover:text-cyan-400 transition-colors font-medium"
-                >
-                  {item}
-                </a>
-              ))}
+              <a
+                href="/"
+                className="text-white/80 hover:text-cyan-400 transition-colors font-medium"
+              >
+                Home
+              </a>
+
+              {/* Competitions Dropdown */}
+              <div className="relative group">
+                <button className="text-cyan-400 font-medium flex items-center space-x-1">
+                  <span>Competitions</span>
+                  <FaChevronRight className="h-3 w-3 transform group-hover:rotate-90 transition-transform duration-200" />
+                </button>
+                <div className="absolute top-full left-0 mt-2 w-64 backdrop-blur-xl bg-gray-900/95 border border-white/20 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <div className="p-2">
+                    <a
+                      href="/mindhack-2025"
+                      className="block px-4 py-3 text-cyan-400 bg-white/5 rounded-lg"
+                    >
+                      <div className="font-semibold">MindHack 2025</div>
+                      <div className="text-sm text-cyan-400/60">
+                        Current Competition
+                      </div>
+                    </a>
+                    <a
+                      href="/past-events"
+                      className="block px-4 py-3 text-white/80 hover:text-cyan-400 hover:bg-white/5 rounded-lg transition-colors"
+                    >
+                      <div className="font-semibold">Past Events Recap</div>
+                      <div className="text-sm text-white/60">
+                        Previous Competitions
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="#"
+                className="text-white/80 hover:text-cyan-400 transition-colors font-medium"
+              >
+                Timeline
+              </a>
+              <a
+                href="#"
+                className="text-white/80 hover:text-cyan-400 transition-colors font-medium"
+              >
+                Register
+              </a>
             </div>
 
             <div className="flex items-center space-x-4">
-              {/* Mobile menu button */}
               <button
                 className="md:hidden text-white"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -125,21 +164,25 @@ export default function MindHackHomepage() {
                   transition={{ duration: 0.3, delay: 0.1 }}
                   className="px-2 pt-4 pb-6 space-y-2"
                 >
-                  {["Home", "Competitions", "Timeline", "Register"].map(
-                    (item, index) => (
-                      <motion.a
-                        key={item}
-                        href="#"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
-                        transition={{ duration: 0.2, delay: index * 0.1 }}
-                        className="block px-4 py-3 text-white/80 hover:text-cyan-400 transition-colors rounded-lg hover:bg-white/5"
-                      >
-                        {item}
-                      </motion.a>
-                    )
-                  )}
+                  {[
+                    "Home",
+                    "MindHack 2025",
+                    "Past Events",
+                    "Timeline",
+                    "Register",
+                  ].map((item, index) => (
+                    <motion.a
+                      key={item}
+                      href="#"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.2, delay: index * 0.1 }}
+                      className="block px-4 py-3 text-white/80 hover:text-cyan-400 transition-colors rounded-lg hover:bg-white/5"
+                    >
+                      {item}
+                    </motion.a>
+                  ))}
                 </motion.div>
               </motion.div>
             )}
