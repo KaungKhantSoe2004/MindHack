@@ -316,7 +316,40 @@ export default function MindHack2025() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: "Grand Prize",
+                title: "Wizards Champion",
+                ageGroup: "12 - 15 years",
+                amount: "$2,500",
+                color: "from-yellow-400 to-amber-400",
+                bgColor:
+                  "bg-gradient-to-br from-yellow-400/10 via-amber-400/5 to-yellow-400/10",
+                borderColor: "border-yellow-400/30",
+                categories: ["Coding", "3D Design", "Electronics"],
+                icon: <FaTrophy className="w-10 h-10" />,
+              },
+              {
+                title: "Heroes Champion",
+                ageGroup: "16 - 19 years",
+                amount: "$2,500",
+                color: "from-yellow-400 to-amber-400",
+                bgColor:
+                  "bg-gradient-to-br from-orange-400/10 via-amber-400/5 to-orange-400/10",
+                borderColor: "border-orange-400/30",
+                categories: ["Coding", "3D Design", "Electronics"],
+                icon: <FaTrophy className="w-10 h-10" />,
+              },
+              {
+                title: "Masters Awards",
+                ageGroup: "20 - 25 years",
+                amount: "$1,000",
+                color: "from-yellow-400 to-amber-400",
+                bgColor:
+                  "bg-gradient-to-br from-amber-400/10 via-orange-400/5 to-amber-400/10",
+                borderColor: "border-amber-400/30",
+                categories: ["Coding", "3D Design", "Electronics"],
+                icon: <FaTrophy className="w-10 h-10" />,
+              },
+              {
+                title: "People Choice",
                 ageGroup: "All Categories",
                 amount: "$4,000",
                 color: "from-yellow-400 to-amber-400",
@@ -327,57 +360,8 @@ export default function MindHack2025() {
                   "Overall Winner",
                   "Best Innovation",
                   "Technical Excellence",
-                  "Impact & Presentation",
                 ],
                 icon: <FaTrophy className="w-12 h-12" />,
-              },
-              {
-                title: "Wizards Awards",
-                ageGroup: "12 - 15 years",
-                amount: "$2,500",
-                color: "from-orange-300 to-amber-300",
-                bgColor:
-                  "bg-gradient-to-br from-orange-300/10 via-amber-300/5 to-orange-300/10",
-                borderColor: "border-orange-300/30",
-                categories: [
-                  "Coding",
-                  "3D Design",
-                  "Electronics",
-                  "Age Category",
-                ],
-                icon: <FaMedal className="w-10 h-10" />,
-              },
-              {
-                title: "Heroes Awards",
-                ageGroup: "16 - 19 years",
-                amount: "$2,500",
-                color: "from-orange-400 to-amber-400",
-                bgColor:
-                  "bg-gradient-to-br from-orange-400/10 via-amber-400/5 to-orange-400/10",
-                borderColor: "border-orange-400/30",
-                categories: [
-                  "Coding",
-                  "3D Design",
-                  "Electronics",
-                  "Age Category",
-                ],
-                icon: <FaAward className="w-10 h-10" />,
-              },
-              {
-                title: "Masters Awards",
-                ageGroup: "20 - 25 years",
-                amount: "$1,000",
-                color: "from-amber-400 to-orange-400",
-                bgColor:
-                  "bg-gradient-to-br from-amber-400/10 via-orange-400/5 to-amber-400/10",
-                borderColor: "border-amber-400/30",
-                categories: [
-                  "Coding",
-                  "3D Design",
-                  "Electronics",
-                  "Age Category",
-                ],
-                icon: <FaStar className="w-10 h-10" />,
               },
             ].map((award, index) => (
               <motion.div
@@ -440,12 +424,12 @@ export default function MindHack2025() {
 
                     {/* Prize amount */}
                     <div className="text-center">
-                      <p className="text-white/60 text-sm mb-1">Prize</p>
+                      {/* <p className="text-white/60 text-sm mb-1">Prize</p>
                       <p
                         className={`text-3xl font-bold bg-gradient-to-r ${award.color} bg-clip-text text-transparent`}
                       >
                         {award.amount}
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                 </div>
@@ -467,12 +451,12 @@ export default function MindHack2025() {
               <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-amber-500/5 blur-3xl" />
 
               <div className="relative z-10 text-center">
-                <h3 className="text-3xl font-bold text-white mb-3">
+                {/* <h3 className="text-3xl font-bold text-white mb-3">
                   Total Prize Pool:{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">
                     $10,000
                   </span>
-                </h3>
+                </h3> */}
                 <p className="text-white/80 text-lg max-w-2xl mx-auto font-light">
                   Distributed across all age groups to recognize excellence in
                   3D Design, Programming, and Electronics & Robotics.
