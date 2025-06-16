@@ -1370,11 +1370,21 @@ import {
 // })
 
 const heroImages = [
-  "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=1920&h=1080&fit=crop",
-  "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop",
-  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop",
-];
+  // Teamwork at hackathon
+  "https://wallpaperaccess.com/full/9254947.jpg",
 
+  // Programmer at night
+  "https://th.bing.com/th/id/R.8dfb89a4fce2e4e8f095cd50f9d52601?rik=NKO%2bcDVu%2bLUNAQ&pid=ImgRaw&r=0",
+
+  // People collaborating with laptops
+  "/shwe.jpg",
+
+  // Dark coding setup
+  "/frame.png",
+
+  // Event tech atmosphere
+  "/mh.png",
+];
 export default function MindHack2025() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -1562,7 +1572,7 @@ export default function MindHack2025() {
             className="text-left"
           >
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-3 h-3 bg-orange-400 rounded-full animate-pulse glow-dot" />
+              {/* <div className="w-3 h-3 bg-orange-400 rounded-full animate-pulse glow-dot" /> */}
               <span className="text-orange-400 font-mono text-sm uppercase tracking-wider glow-text">
                 Technical Competition
               </span>
@@ -1586,7 +1596,7 @@ export default function MindHack2025() {
               </button>
               <button className="border border-orange-500/30 text-white hover:bg-orange-500/10 font-bold px-8 py-3 text-lg rounded-lg transition-all duration-300 flex items-center space-x-2 hover:border-orange-400/50">
                 <FaPlay className="h-4 w-4" />
-                <span>Watch 2023 Highlights</span>
+                <span>Watch 2022 Highlights</span>
               </button>
             </div>
           </motion.div>
@@ -2359,7 +2369,7 @@ export default function MindHack2025() {
               {
                 video: "dQw4w9WgXcQ", // YouTube video ID
                 name: "Alex Rodriguez",
-                title: "MindHack 2023 Finalist",
+                title: "MindHack 2022 Finalist",
                 category: "Robotics",
               },
               {
