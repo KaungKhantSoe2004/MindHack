@@ -8,14 +8,16 @@ import History from "./pages/History";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import "./App.css";
+import MindHackHomepage from "./pages/new";
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
-        <Header />
+        {/* <Header /> */}
         <main className="flex-grow">
           <Routes>
+            <Route path="new" element={<MindHackHomepage />} />
             <Route path="/" element={<Home />} />
             <Route path="/events" element={<Events />} />
             <Route path="/gallery" element={<Gallery />} />
