@@ -1,0 +1,167 @@
+"use client";
+
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaChevronRight, FaBars, FaTimes } from "react-icons/fa";
+
+const Navbar = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
+
+  return (
+    <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-gradient-to-r from-gray-950/80 via-orange-950/20 to-gray-950/80 border-b border-orange-500/20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <Link to="/" className="flex items-center space-x-2">
+            <div className="w-20 h-18 flex items-center justify-center">
+              <img src="./logo.png" alt="MindHack Logo" />
+            </div>
+            <span className="text-orange-400 text-sm font-mono glow-text">
+              2025
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-8 flex-1 justify-start ml-16">
+            <Link
+              to="/"
+              className={`font-medium transition-colors hover:glow-text ${
+                isActive("/")
+                  ? "text-orange-400 glow-text"
+                  : "text-white/80 hover:text-orange-400"
+              }`}
+            >
+              Home
+            </Link>
+
+            {/* Competitions Dropdown */}
+            <div className="relative group">
+              <button className="text-orange-400 font-medium flex items-center space-x-1 glow-text">
+                <span>Competitions</span>
+                <FaChevronRight className="h-3 w-3 transform group-hover:rotate-90 transition-transform duration-200" />
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-64 backdrop-blur-xl bg-gradient-to-br from-gray-900/95 via-orange-900/20 to-gray-900/95 border border-orange-500/30 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-2xl shadow-orange-500/20">
+                <div className="p-2">
+                  <Link
+                    to="/mindhack-2025"
+                    className={`block px-4 py-3 rounded-lg transition-colors ${
+                      isActive("/mindhack-2025")
+                        ? "text-orange-400 bg-orange-500/10 glow-text"
+                        : "text-white/80 hover:text-orange-400 hover:bg-orange-500/5"
+                    }`}
+                  >
+                    <div className="font-semibold">MindHack 2025</div>
+                    <div className="text-sm text-orange-400/60">
+                      Current Competition
+                    </div>
+                  </Link>
+                  <Link
+                    to="/past-events"
+                    className={`block px-4 py-3 rounded-lg transition-colors ${
+                      isActive("/past-events")
+                        ? "text-orange-400 bg-orange-500/10 glow-text"
+                        : "text-white/80 hover:text-orange-400 hover:bg-orange-500/5"
+                    }`}
+                  >
+                    <div className="font-semibold">Past Events Recap</div>
+                    <div className="text-sm text-white/60">
+                      Previous Competitions
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <Link
+              to="/timeline"
+              className={`font-medium transition-colors hover:glow-text ${
+                isActive("/timeline")
+                  ? "text-orange-400 glow-text"
+                  : "text-white/80 hover:text-orange-400"
+              }`}
+            >
+              Timeline
+            </Link>
+            <Link
+              to="/register"
+              className={`font-medium transition-colors hover:glow-text ${
+                isActive("/register")
+                  ? "text-orange-400 glow-text"
+                  : "text-white/80 hover:text-orange-400"
+              }`}
+            >
+              Register
+            </Link>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <button
+              className="md:hidden text-white"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? (
+                <FaTimes className="h-6 w-6" />
+              ) : (
+                <FaBars className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden backdrop-blur-xl bg-gradient-to-br from-gray-900/90 via-orange-900/30 to-gray-900/90 border-t border-orange-500/20 overflow-hidden"
+            >
+              <motion.div
+                initial={{ y: -20 }}
+                animate={{ y: 0 }}
+                exit={{ y: -20 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className="px-2 pt-4 pb-6 space-y-2"
+              >
+                {[
+                  { name: "Home", path: "/" },
+                  { name: "MindHack 2025", path: "/mindhack-2025" },
+                  { name: "Past Events", path: "/past-events" },
+                  { name: "Timeline", path: "/timeline" },
+                  { name: "Register", path: "/register" },
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.2, delay: index * 0.1 }}
+                  >
+                    <Link
+                      to={item.path}
+                      className={`block px-4 py-3 rounded-lg transition-colors ${
+                        isActive(item.path)
+                          ? "text-orange-400 bg-orange-500/10 glow-text"
+                          : "text-white/80 hover:text-orange-400 hover:bg-orange-500/5"
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
