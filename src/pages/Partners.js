@@ -1,0 +1,469 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { FaChevronRight, FaHandshake, FaRocket, FaGlobe } from "react-icons/fa"
+
+export default function Partners() {
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  }
+
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -60 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  }
+
+  const scaleIn = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  }
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  }
+
+  const staggerItem = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  }
+
+  return (
+    <div className="relative pt-16">
+      {/* Header Section */}
+      <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 relative">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/5 blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-amber-500/5 blur-3xl animate-pulse delay-1000" />
+        </div>
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            className="flex items-center justify-center space-x-3 mb-6"
+          >
+            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-orange-400" />
+            <span className="text-orange-400 font-mono text-sm uppercase tracking-wider glow-text">Partnership</span>
+            <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-orange-400" />
+          </motion.div>
+
+          <motion.h1
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 glow-text-strong leading-tight"
+          >
+            Our <span className="text-orange-400 glow-text-orange">Partners</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-sm xs:text-base sm:text-lg text-white/90 leading-relaxed max-w-3xl mx-auto"
+          >
+            MindHack 2025 is made possible through the generous support of our partners who share our vision of
+            empowering young creators.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Together We Innovate Banner */}
+      <section className="relative min-h-[70vh] overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <motion.img
+            initial={{ scale: 1.1 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 1.5 }}
+            viewport={{ once: true }}
+            src="./3.JPG"
+            alt="Partnership background"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-orange-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-gray-900/60" />
+        </div>
+
+        <div className="relative z-10 h-full min-h-[70vh] flex items-center">
+          <motion.div
+            variants={fadeInLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="p-6 sm:p-8 md:p-12 lg:p-16 w-full max-w-2xl"
+          >
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400" />
+              <span className="text-orange-300 font-mono text-xs uppercase tracking-widest">COLLABORATION</span>
+            </div>
+
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              Together We <span className="text-orange-400 glow-text-orange">Innovate</span>
+            </h2>
+
+            <p className="text-white/90 text-base sm:text-lg leading-relaxed max-w-lg">
+              Our partners are essential to creating an impactful experience for all MindHack participants. Through
+              their support, we build bridges between tradition and innovation.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Main Sponsors */}
+      <section className="py-16 sm:py-24 px-4 bg-black relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
+              Main <span className="text-orange-400 glow-text-orange">Sponsors</span>
+            </h2>
+            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
+              Our premier partners who make MindHack 2025 possible
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid md:grid-cols-3 gap-8 sm:gap-12"
+          >
+            {[1, 2, 3].map((index) => (
+              <motion.div
+                key={index}
+                variants={staggerItem}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.3 },
+                }}
+                className="group"
+              >
+                <div className="bg-white/5 backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20">
+                  <img
+                    src="/placeholder.svg?height=120&width=300"
+                    alt={`Main Sponsor ${index}`}
+                    className="w-full h-24 sm:h-32 object-contain mx-auto filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-500"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Diamond Sponsors */}
+      <section className="py-16 sm:py-24 px-4 relative overflow-hidden">
+        {/* Glass-like gradient background with orange glow */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/60 via-orange-900/30 to-gray-900/60 backdrop-blur-xl"></div>
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/20 blur-3xl animate-pulse"
+          />
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 2, delay: 0.3, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-amber-500/15 blur-3xl animate-pulse delay-1000"
+          />
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 2, delay: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="absolute top-1/2 right-1/4 w-48 h-48 rounded-full bg-orange-400/10 blur-2xl animate-pulse delay-500"
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
+              Diamond <span className="text-orange-400 glow-text-orange">Sponsors</span>
+            </h2>
+            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
+              Prestigious partners supporting innovation and excellence
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8"
+          >
+            {[1, 2, 3, 4, 5, 6].map((index) => (
+              <motion.div
+                key={index}
+                variants={staggerItem}
+                whileHover={{
+                  scale: 1.05,
+                  rotateY: 5,
+                  transition: { duration: 0.3 },
+                }}
+                className="group"
+              >
+                <div className="backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-orange-800/20 to-gray-800/50 border border-orange-500/30 rounded-xl p-6 sm:p-8 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500">
+                  <img
+                    src="/placeholder.svg?height=80&width=200"
+                    alt={`Diamond Sponsor ${index}`}
+                    className="w-full h-16 sm:h-20 object-contain mx-auto filter brightness-90 group-hover:brightness-110 transition-all duration-500"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Sponsor MindHack Section */}
+      <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 relative">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <div className="flex items-center justify-center space-x-3 mb-6">
+              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-orange-400" />
+              <span className="text-orange-400 font-mono text-sm uppercase tracking-wider glow-text">Join Us</span>
+              <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-orange-400" />
+            </div>
+
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong">
+              Sponsor <span className="text-orange-400 glow-text-orange">MindHack</span>
+            </h2>
+
+            <p className="text-white/80 text-sm xs:text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-8">
+              Partner with us to shape the future of Myanmar's tech ecosystem. By sponsoring MindHack, you're investing
+              in the next generation of innovators and creators who will drive technological advancement while
+              preserving cultural heritage.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mt-12">
+              {[
+                {
+                  icon: FaGlobe,
+                  title: "Global Impact",
+                  description: "Reach international audiences and showcase your commitment to innovation",
+                  color: "text-orange-400",
+                },
+                {
+                  icon: FaHandshake,
+                  title: "Community Building",
+                  description: "Connect with Myanmar's brightest young minds and tech leaders",
+                  color: "text-amber-400",
+                },
+                {
+                  icon: FaRocket,
+                  title: "Innovation Leadership",
+                  description: "Position your brand at the forefront of technological advancement",
+                  color: "text-yellow-400",
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ y: 50, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: index * 0.2 + 0.3 }}
+                  viewport={{ once: true }}
+                  className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-xl p-6 text-center"
+                >
+                  <div className="w-16 h-16 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-orange-400/30">
+                    <item.icon className={`h-8 w-8 ${item.color}`} />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-white/70 text-sm">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Become a Sponsor Banner */}
+      <section className="relative min-h-[80vh] overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <motion.img
+            initial={{ scale: 1.1 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 1.5 }}
+            viewport={{ once: true }}
+            src="./4.JPG"
+            alt="Become a sponsor background"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-orange-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-gray-900/80" />
+        </div>
+
+        <div className="relative z-10 h-full min-h-[80vh] flex flex-col justify-center py-16 sm:py-24">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="p-4 xs:p-6 sm:p-8 md:p-12 max-w-4xl mx-auto"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400" />
+              <span className="text-orange-300 font-mono text-xs uppercase tracking-widest">
+                PARTNERSHIP OPPORTUNITY
+              </span>
+            </div>
+
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+              Become a <span className="text-orange-400 glow-text-orange">Sponsor</span>
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="space-y-6">
+                {[
+                  {
+                    title: "Business Exposure",
+                    description:
+                      "Gain visibility among 500+ participants, industry leaders, and media coverage across Myanmar and internationally.",
+                  },
+                  {
+                    title: "Cultural Legacy",
+                    description:
+                      "Support the preservation and evolution of Myanmar's cultural heritage through innovative technology solutions.",
+                  },
+                  {
+                    title: "Innovation Edge",
+                    description:
+                      "Connect with cutting-edge projects and discover emerging talent in 3D design, programming, and robotics.",
+                  },
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ x: -30, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: index * 0.2 + 0.3 }}
+                    viewport={{ once: true }}
+                    className="flex items-start gap-3"
+                  >
+                    <div className="w-2 h-2 mt-2.5 rounded-full bg-gradient-to-r from-orange-400 to-amber-400 flex-shrink-0" />
+                    <div>
+                      <h3 className="text-orange-400 font-semibold mb-2">{item.title}</h3>
+                      <p className="text-white/80 text-sm sm:text-base">{item.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.div
+                initial={{ x: 30, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                viewport={{ once: true }}
+                className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-xl p-6 sm:p-8"
+              >
+                <h3 className="text-xl font-bold text-white mb-4">Ready to Partner?</h3>
+                <p className="text-white/80 text-sm mb-6">
+                  Join us in shaping the future of Myanmar's tech landscape. Contact our partnership team to explore
+                  sponsorship opportunities.
+                </p>
+                <button className="w-full backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-6 py-3 border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25">
+                  <span>Contact Partnership Team</span>
+                  <FaChevronRight className="h-4 w-4" />
+                </button>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Previous Sponsors */}
+      <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
+              Previous <span className="text-orange-400 glow-text-orange">Sponsors</span>
+            </h2>
+            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
+              Trusted partners who have supported MindHack's journey
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid md:grid-cols-3 gap-8 sm:gap-12"
+          >
+            {[1, 2, 3].map((index) => (
+              <motion.div
+                key={index}
+                variants={staggerItem}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.3 },
+                }}
+                className="group"
+              >
+                <div className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500">
+                  <img
+                    src="/placeholder.svg?height=100&width=250"
+                    alt={`Previous Sponsor ${index}`}
+                    className="w-full h-20 sm:h-24 object-contain mx-auto filter brightness-90 group-hover:brightness-110 transition-all duration-500"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  )
+}

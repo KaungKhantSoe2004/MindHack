@@ -39,7 +39,7 @@ const Navbar = () => {
 
             {/* Competitions Dropdown */}
             <div className="relative group">
-              <button className="text-orange-400 font-medium flex items-center space-x-1 glow-text">
+              <button className="text-white/80 hover:text-orange-400 font-medium flex items-center space-x-1 transition-colors">
                 <span>Competitions</span>
                 <FaChevronRight className="h-3 w-3 transform group-hover:rotate-90 transition-transform duration-200" />
               </button>
@@ -59,16 +59,16 @@ const Navbar = () => {
                     </div>
                   </Link>
                   <Link
-                    to="/past-events"
+                    to="/mindhack-2023"
                     className={`block px-4 py-3 rounded-lg transition-colors ${
-                      isActive("/past-events")
+                      isActive("/mindhack-2023")
                         ? "text-orange-400 bg-orange-500/10 glow-text"
                         : "text-white/80 hover:text-orange-400 hover:bg-orange-500/5"
                     }`}
                   >
-                    <div className="font-semibold">Past Events Recap</div>
+                    <div className="font-semibold">MindHack 2023</div>
                     <div className="text-sm text-white/60">
-                      Previous Competitions
+                      Past Event Recap
                     </div>
                   </Link>
                 </div>
@@ -76,24 +76,34 @@ const Navbar = () => {
             </div>
 
             <Link
-              to="/timeline"
+              to="/partners"
               className={`font-medium transition-colors hover:glow-text ${
-                isActive("/timeline")
+                isActive("/partners")
                   ? "text-orange-400 glow-text"
                   : "text-white/80 hover:text-orange-400"
               }`}
             >
-              Timeline
+              Partners
             </Link>
             <Link
-              to="/register"
+              to="/faq"
               className={`font-medium transition-colors hover:glow-text ${
-                isActive("/register")
+                isActive("/faq")
                   ? "text-orange-400 glow-text"
                   : "text-white/80 hover:text-orange-400"
               }`}
             >
-              Register
+              FAQ
+            </Link>
+            <Link
+              to="/join-us"
+              className={`font-medium transition-colors hover:glow-text ${
+                isActive("/join-us")
+                  ? "text-orange-400 glow-text"
+                  : "text-white/80 hover:text-orange-400"
+              }`}
+            >
+              Join Us
             </Link>
           </div>
 
@@ -131,9 +141,10 @@ const Navbar = () => {
                 {[
                   { name: "Home", path: "/" },
                   { name: "MindHack 2025", path: "/mindhack-2025" },
-                  { name: "Past Events", path: "/past-events" },
-                  { name: "Timeline", path: "/timeline" },
-                  { name: "Register", path: "/register" },
+                  { name: "MindHack 2023", path: "/mindhack-2023" },
+                  { name: "Partners", path: "/partners" },
+                  { name: "FAQ", path: "/faq" },
+                  { name: "Join Us", path: "/join-us" },
                 ].map((item, index) => (
                   <motion.div
                     key={item.name}

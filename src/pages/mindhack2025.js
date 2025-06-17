@@ -16,9 +16,6 @@ import {
   FaTrophy,
   FaBullseye,
   FaRocket,
-  FaAward,
-  FaMedal,
-  FaCrown,
   FaLightbulb,
   FaCogs,
   FaChalkboardTeacher,
@@ -33,7 +30,6 @@ import {
   FaUserGraduate,
   FaUserTie,
   FaExternalLinkAlt,
-  FaStar,
 } from "react-icons/fa";
 
 // Add this new import
@@ -130,7 +126,7 @@ export default function MindHack2025() {
                       </div>
                     </a>
                     <a
-                      href="/past-events"
+                      href="/mindhack-2023"
                       className="block px-4 py-3 text-white/80 hover:text-orange-400 hover:bg-orange-500/5 rounded-lg transition-colors"
                     >
                       <div className="font-semibold">Past Events Recap</div>
@@ -484,7 +480,7 @@ export default function MindHack2025() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
             >
               Competition{" "}
@@ -529,7 +525,7 @@ export default function MindHack2025() {
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 className="group cursor-pointer"
               >
                 <div
@@ -593,7 +589,7 @@ export default function MindHack2025() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
             >
               Age{" "}
@@ -639,7 +635,7 @@ export default function MindHack2025() {
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 className="group"
               >
                 <div
@@ -680,7 +676,7 @@ export default function MindHack2025() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
             >
               Judging{" "}
@@ -697,7 +693,7 @@ export default function MindHack2025() {
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             className="max-w-5xl mx-auto"
           >
             <div className="backdrop-blur-xl bg-gradient-to-br from-gray-900/60 via-orange-900/20 to-gray-900/60 border border-orange-500/30 rounded-3xl p-8 md:p-12 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 relative overflow-hidden">
@@ -758,7 +754,7 @@ export default function MindHack2025() {
                       initial={{ x: -50, opacity: 0 }}
                       whileInView={{ x: 0, opacity: 1 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: false }}
+                      viewport={{ once: true }}
                       className="group"
                     >
                       <div
@@ -804,7 +800,7 @@ export default function MindHack2025() {
                                     delay: index * 0.2,
                                     ease: "easeOut",
                                   }}
-                                  viewport={{ once: false }}
+                                  viewport={{ once: true }}
                                   className={`h-full ${criteria.bgColor} relative overflow-hidden shadow-lg ${criteria.glowColor}`}
                                   style={{
                                     background: `linear-gradient(90deg, ${criteria.bgColor.replace(
@@ -833,7 +829,7 @@ export default function MindHack2025() {
                                   duration: 0.5,
                                   delay: index * 0.2 + 1,
                                 }}
-                                viewport={{ once: false }}
+                                viewport={{ once: true }}
                                 className={`absolute -top-8 bg-gray-800/90 backdrop-blur-sm border ${criteria.borderColor} rounded-lg px-3 py-1 text-sm font-bold ${criteria.color} shadow-lg ${criteria.glowColor}`}
                                 style={{
                                   left: `${criteria.percentage}%`,
@@ -859,7 +855,7 @@ export default function MindHack2025() {
                   initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
-                  viewport={{ once: false }}
+                  viewport={{ once: true }}
                   className="mt-12 text-center"
                 >
                   <div className="backdrop-blur-sm bg-gradient-to-br from-gray-800/30 via-orange-800/20 to-gray-800/30 border border-orange-500/20 rounded-2xl p-6">
@@ -888,7 +884,7 @@ export default function MindHack2025() {
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
             >
               <h2 className="text-4xl font-bold text-white mb-8 glow-text-strong">
                 Key{" "}
@@ -927,7 +923,7 @@ export default function MindHack2025() {
                     initial={{ x: -30, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className="flex items-center space-x-4 p-4 backdrop-blur-xl bg-gradient-to-r from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-lg hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300"
                   >
                     <div className="w-12 h-12 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-lg flex items-center justify-center border border-orange-500/20 shadow-lg shadow-orange-500/20">
@@ -951,7 +947,7 @@ export default function MindHack2025() {
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
             >
               <h2 className="text-4xl font-bold text-white mb-8 glow-text-strong">
                 Event{" "}
@@ -1033,7 +1029,7 @@ export default function MindHack2025() {
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong">
@@ -1072,7 +1068,7 @@ export default function MindHack2025() {
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 className="text-center group"
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 border border-orange-500/20 hover:shadow-lg hover:shadow-orange-500/20">
@@ -1096,7 +1092,7 @@ export default function MindHack2025() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
             >
               What Our{" "}
@@ -1132,7 +1128,7 @@ export default function MindHack2025() {
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500"
               >
                 <div className="aspect-video">
@@ -1168,7 +1164,7 @@ export default function MindHack2025() {
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 glow-text-strong">
               Ready to Join{" "}
@@ -1204,7 +1200,7 @@ export default function MindHack2025() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong"
             >
               Our{" "}
@@ -1230,7 +1226,7 @@ export default function MindHack2025() {
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-lg p-6 text-center hover:bg-gradient-to-br hover:from-gray-800/50 hover:via-orange-800/30 hover:to-gray-800/50 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-lg flex items-center justify-center mx-auto mb-4 border border-orange-500/20 shadow-lg shadow-orange-500/20">
@@ -1258,7 +1254,7 @@ export default function MindHack2025() {
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
             >
               <h2 className="text-4xl font-bold text-white mb-8 glow-text-strong">
                 The Origins of{" "}
@@ -1299,7 +1295,7 @@ export default function MindHack2025() {
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500"
             >
               <div className="aspect-video">
@@ -1331,7 +1327,7 @@ export default function MindHack2025() {
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             className="grid md:grid-cols-4 gap-12"
           >
             <div>
@@ -1416,7 +1412,7 @@ export default function MindHack2025() {
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             className="border-t border-orange-500/20 mt-12 pt-8"
           >
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">

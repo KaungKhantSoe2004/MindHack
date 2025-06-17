@@ -4,6 +4,10 @@ import "./App.css";
 import MindHack2025 from "./pages/mindhack2025";
 import MindHackHomepage from "./pages/Home";
 import Navbar from "./pages/NavBar";
+import MindHack2023 from "./pages/mindhack2023";
+import Partners from "./pages/Partners";
+import JoinUs from "./pages/JoinUs";
+import FAQ from "./pages/faq";
 
 function App() {
   return (
@@ -28,6 +32,10 @@ function App() {
         <Routes>
           <Route path="/" element={<MindHackHomepage />} />
           <Route path="/mindhack-2025" element={<MindHack2025 />} />
+          <Route path="/mindhack-2023" element={<MindHack2023 />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/join-us" element={<JoinUs />} />
+          <Route path="/faq" element={<FAQ />} />
           {/* <Route path="/past-events" element={<PastEvents />} />
           <Route path="/timeline" element={<Timeline />} />
           <Route path="/register" element={<Register />} /> */}

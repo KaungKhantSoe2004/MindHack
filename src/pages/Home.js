@@ -800,7 +800,7 @@ const heroImages = [
   "./hotel.jpg",
   "/shwe.jpg",
   "/BONUS.jpg",
-  "/hotel.png",
+  "/hotel.jpg",
 ];
 
 export default function Homepage() {
@@ -927,7 +927,7 @@ export default function Homepage() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="flex items-center justify-center space-x-2 sm:space-x-3 mb-4 sm:mb-6"
             >
               <div className="w-8 sm:w-12 h-0.5 bg-gradient-to-r from-transparent to-orange-400" />
@@ -940,7 +940,7 @@ export default function Homepage() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 glow-text-strong leading-tight"
             >
               What is{" "}
@@ -951,7 +951,7 @@ export default function Homepage() {
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="text-white/70 max-w-4xl mx-auto text-sm xs:text-base sm:text-lg leading-relaxed mb-8 sm:mb-12 md:mb-16 px-2 sm:px-0"
             >
               MindHack is a groundbreaking technical competition that bridges
@@ -970,7 +970,7 @@ export default function Homepage() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="flex items-center justify-center space-x-2 sm:space-x-3 mb-4 sm:mb-6"
             >
               <div className="w-8 sm:w-12 h-0.5 bg-gradient-to-r from-transparent to-orange-400" />
@@ -983,7 +983,7 @@ export default function Homepage() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 glow-text-strong leading-tight"
             >
               Technical{" "}
@@ -1028,7 +1028,7 @@ export default function Homepage() {
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 className="group cursor-pointer"
               >
                 <div
@@ -1131,7 +1131,7 @@ export default function Homepage() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="flex items-center justify-center space-x-2 sm:space-x-3 mb-4 sm:mb-6"
             >
               <div className="w-8 sm:w-12 h-0.5 bg-gradient-to-r from-transparent to-orange-400" />
@@ -1144,7 +1144,7 @@ export default function Homepage() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 glow-text-strong leading-tight"
             >
               Competition{" "}
@@ -1210,7 +1210,7 @@ export default function Homepage() {
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 className="group"
               >
                 <div
@@ -1317,7 +1317,7 @@ export default function Homepage() {
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6 sm:mb-8 glow-text-strong leading-tight">
               Ready to{" "}
@@ -1376,7 +1376,7 @@ export default function Homepage() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="flex items-center justify-center space-x-2 sm:space-x-3 mb-4 sm:mb-6"
             >
               <div className="w-8 sm:w-12 h-0.5 bg-gradient-to-r from-transparent to-orange-400" />
@@ -1389,7 +1389,7 @@ export default function Homepage() {
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 glow-text-strong leading-tight"
             >
               Past MindHack{" "}
@@ -1415,7 +1415,7 @@ export default function Homepage() {
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: false }}
+                viewport={{ once: true }}
                 className="group cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-lg sm:rounded-2xl backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 hover:bg-gradient-to-br hover:from-gray-800/50 hover:via-orange-800/30 hover:to-gray-800/50 transition-all duration-500 group-hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
@@ -1438,7 +1438,7 @@ export default function Homepage() {
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             className="grid gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-4"
           >
             <div>
@@ -1542,7 +1542,7 @@ export default function Homepage() {
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             className="border-t border-orange-500/20 mt-8 sm:mt-12 pt-6 sm:pt-8"
           >
             <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
