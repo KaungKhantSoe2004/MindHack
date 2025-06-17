@@ -21,7 +21,7 @@
 
 // const heroImages = [
 //   // Teamwork at hackathon
-//   "./kv.png",
+//   "./kv.jpg",
 
 //   // Programmer at night
 //   "./hotel.jpg",
@@ -30,7 +30,7 @@
 //   "/shwe.jpg",
 
 //   // Dark coding setup
-//   "/BONUS.png",
+//   "/BONUS.jpg",
 
 //   // Event tech atmosphere
 //   "/hotel.png",
@@ -1082,10 +1082,10 @@ import {
 } from "react-icons/fa";
 
 const heroImages = [
-  "./kv.png",
+  "./kv.jpg",
   "./hotel.jpg",
   "/shwe.jpg",
-  "/BONUS.png",
+  "/BONUS.jpg",
   "/hotel.png",
 ];
 

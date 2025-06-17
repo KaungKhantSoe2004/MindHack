@@ -54,10 +54,10 @@ const heroImages = [
   "/shwe.jpg",
 
   // Dark coding setup
-  "/frame.png",
+  "/frame.jpg",
 
   // Event tech atmosphere
-  "/mh.png",
+  "/mh.jpg",
 ];
 export default function MindHack2025() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
