@@ -1,15 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import Events from "./pages/Events";
-import Gallery from "./pages/Gallery";
-import History from "./pages/History";
-import FAQ from "./pages/FAQ";
-import Contact from "./pages/Contact";
 import "./App.css";
-import MindHackHomepage from "./pages/new";
-import Competition from "./pages/currentCompetition";
+import MindHack2025 from "./pages/mindhack2025";
+import MindHackHomepage from "./pages/Home";
 
 function App() {
   return (
@@ -18,14 +11,14 @@ function App() {
         {/* <Header /> */}
         <main className="flex-grow">
           <Routes>
-            <Route path="new" element={<MindHackHomepage />} />
-            <Route path="mindhack-2025" element={<Competition />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<MindHackHomepage />} />
+            <Route path="mindhack-2025" element={<MindHack2025 />} />
+            {/* <Route path="/" element={<Home />} />
             <Route path="/events" element={<Events />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/history" element={<History />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} /> */}
           </Routes>
         </main>
         <Footer />
