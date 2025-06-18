@@ -17,6 +17,7 @@ import {
   FaRocket,
   FaEnvelope,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function JoinUs() {
   // Animation variants
@@ -66,7 +67,16 @@ export default function JoinUs() {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
-
+  const navigate = useNavigate();
+  const toRegister = () => {
+    navigate("/register/participant");
+  };
+  const toPartner = () => {
+    navigate("/register/partner");
+  };
+  const toSponsor = () => {
+    navigate("/register/sponsor");
+  };
   return (
     <div className="relative pt-16">
       {/* Header Section */}
@@ -174,7 +184,12 @@ export default function JoinUs() {
                   ))}
                 </div>
 
-                <button className="w-full backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-6 py-3 border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25">
+                <button
+                  onClick={() => {
+                    toRegister();
+                  }}
+                  className="w-full backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-6 py-3 border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25"
+                >
                   <span>Register Now</span>
                   <FaChevronRight className="h-4 w-4" />
                 </button>
@@ -231,7 +246,12 @@ export default function JoinUs() {
                   ))}
                 </div>
 
-                <button className="w-full backdrop-blur-sm bg-amber-500/20 hover:bg-amber-500/30 text-white font-bold px-6 py-3 border border-amber-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-amber-500/25">
+                <button
+                  onClick={() => {
+                    toPartner();
+                  }}
+                  className="w-full backdrop-blur-sm bg-amber-500/20 hover:bg-amber-500/30 text-white font-bold px-6 py-3 border border-amber-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-amber-500/25"
+                >
                   <span>Partner with Us</span>
                   <FaChevronRight className="h-4 w-4" />
                 </button>
@@ -285,7 +305,12 @@ export default function JoinUs() {
                   ))}
                 </div>
 
-                <button className="w-full backdrop-blur-sm bg-yellow-500/20 hover:bg-yellow-500/30 text-white font-bold px-6 py-3 border border-yellow-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-yellow-500/25">
+                <button
+                  onClick={() => {
+                    toSponsor();
+                  }}
+                  className="w-full backdrop-blur-sm bg-yellow-500/20 hover:bg-yellow-500/30 text-white font-bold px-6 py-3 border border-yellow-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-yellow-500/25"
+                >
                   <span>Become a Sponsor</span>
                   <FaChevronRight className="h-4 w-4" />
                 </button>

@@ -7,8 +7,13 @@ import {
   FaUsers,
   FaChevronRight,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function MindHack2023() {
+  const navigate = useNavigate();
+  const toJoinUs = () => {
+    navigate("join-us");
+  };
   return (
     <div className="relative pt-16">
       {/* Banner Section */}
@@ -36,10 +41,12 @@ export default function MindHack2023() {
               2023
             </h1>
             <p className="text-sm xs:text-base sm:text-lg text-white/90 mb-6 leading-relaxed max-w-2xl mx-auto">
-              The 2023 edition of MindHack brought together Myanmar's brightest
-              young minds to compete in cutting-edge technical challenges. With
-              expanded categories and increased participation, MindHack 2023 set
-              new standards for technical competitions in the region.
+              By 2023, the competition grew to include 900 participants and over
+              30 schools, introducing new categories like electronic and
+              roboticsToday, Mind Hack is a national symbol of innovation,
+              driven by the passion and potential of Myanmar’s young talent.
+              Each year, it continues to grow, inspiring students and creating
+              opportunities for the next generation of tech leaders.
             </p>
           </motion.div>
         </div>
@@ -85,7 +92,7 @@ export default function MindHack2023() {
             <div className="relative pb-[56.25%] h-0">
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                src="https://www.youtube.com/embed/8b5UOrrKTR8"
                 title="MindHack 2023 Highlights"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -197,7 +204,7 @@ export default function MindHack2023() {
               2023
             </h2>
             <p className="text-white/80 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed mb-8">
-              MindHack started with a bold vision: to transform Myanmar's tech
+              Mind Hack started with a bold vision: to transform Myanmar’s tech
               scene by empowering its youth. The first event in 2022 brought
               together 100 students to compete in coding challenges. The success
               of this event laid the groundwork for a larger, more ambitious
@@ -209,11 +216,11 @@ export default function MindHack2023() {
             {[
               {
                 city: "Mandalay",
-                videoId: "dQw4w9WgXcQ",
+                videoId: "https://www.youtube.com/embed/c-wbSGQDOOs",
               },
               {
                 city: "Yangon",
-                videoId: "dQw4w9WgXcQ",
+                videoId: "https://www.youtube.com/embed/rXf4QTdv_fA",
               },
             ].map((item, index) => (
               <motion.div
@@ -227,7 +234,7 @@ export default function MindHack2023() {
                 <div className="relative pb-[56.25%] h-0">
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
-                    src={`https://www.youtube.com/embed/${item.videoId}`}
+                    src={`${item.videoId}`}
                     title={`MindHack 2023 ${item.city}`}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

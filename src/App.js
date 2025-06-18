@@ -8,6 +8,9 @@ import MindHack2023 from "./pages/mindhack2023";
 import Partners from "./pages/Partners";
 import JoinUs from "./pages/JoinUs";
 import FAQ from "./pages/faq";
+import ParticipantRegistration from "./pages/participantRegister";
+import SponsorRegistration from "./pages/sponsorRegister";
+import PartnerRegistration from "./pages/partnerRegister";
 
 function App() {
   return (
@@ -38,15 +41,15 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route
             path="/register/participant"
-            element={<div>Participant</div>}
+            element={<ParticipantRegistration />}
           />
-          <Route path="/register/sponsor" element={<div>Sponsor</div>} />
-          <Route path="/register/partner" element={<div>Partner</div>} />
+          <Route path="/register/sponsor" element={<SponsorRegistration />} />
+          <Route path="/register/partner" element={<PartnerRegistration />} />
           {/* <Route path="/past-events" element={<PastEvents />} />
           <Route path="/timeline" element={<Timeline />} />
           <Route path="/register" element={<Register />} /> */}
         </Routes>
-
+        <Footer />
         {/* Custom Styles */}
         <style jsx global>{`
           @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");

@@ -31,6 +31,7 @@ import {
   FaUserTie,
   FaExternalLinkAlt,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 // Add this new import
 // Remove this line:
@@ -39,21 +40,21 @@ import {
 //   variable: "--font-orbitron",
 // })
 
+// const heroImages = [
+
+//   "https://wallpaperaccess.com/full/9254947.jpg",
+
+//   "https://th.bing.com/th/id/R.8dfb89a4fce2e4e8f095cd50f9d52601?rik=NKO%2bcDVu%2bLUNAQ&pid=ImgRaw&r=0",
+//   "/shwe.jpg",
+//   "/frame.jpg",
+//   "/mh.jpg",
+// ];
 const heroImages = [
-  // Teamwork at hackathon
-  "https://wallpaperaccess.com/full/9254947.jpg",
-
-  // Programmer at night
-  "https://th.bing.com/th/id/R.8dfb89a4fce2e4e8f095cd50f9d52601?rik=NKO%2bcDVu%2bLUNAQ&pid=ImgRaw&r=0",
-
-  // People collaborating with laptops
+  "./kv.jpg",
+  "./hotel.jpg",
   "/shwe.jpg",
-
-  // Dark coding setup
-  "/frame.jpg",
-
-  // Event tech atmosphere
-  "/mh.jpg",
+  "/BONUS.jpg",
+  "/hotel.jpg",
 ];
 export default function MindHack2025() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -65,7 +66,19 @@ export default function MindHack2025() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
-
+  const navigate = useNavigate();
+  const toRegister = () => {
+    navigate("/register/participant");
+  };
+  const toSponsor = () => {
+    navigate("/register/sponsor");
+  };
+  const toPartner = () => {
+    navigate("/register/partner");
+  };
+  const to2023 = () => {
+    navigate("/mindhack-2023");
+  };
   return (
     // Change this:
     // <div className="min-h-screen bg-gray-950 relative overflow-hidden font-orbitron">
@@ -133,18 +146,30 @@ export default function MindHack2025() {
               Ancient Revival
             </h2>
             <p className="text-lg text-white/90 mb-8 leading-relaxed max-w-xl">
-              Join the ultimate technical competition where ancient wisdom meets
-              cutting-edge innovation. Compete in 3D Design, Programming, and
-              Robotics while bridging the gap between tradition and technology.
+              Our world is changing fast. Technology is everywhere, but
+              sometimes we forget what makes us who we are—our culture, our
+              history, and our traditions. Mind Hack - is not just a
+              competition. It is a mission to save our culture and keep it alive
+              for the next generation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-8 py-3 text-lg border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25">
+              <button
+                onClick={() => {
+                  toRegister();
+                }}
+                className="backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-8 py-3 text-lg border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25"
+              >
                 <span>Register Now</span>
                 <FaChevronRight className="h-4 w-4" />
               </button>
-              <button className="border border-orange-500/30 text-white hover:bg-orange-500/10 font-bold px-8 py-3 text-lg rounded-lg transition-all duration-300 flex items-center space-x-2 hover:border-orange-400/50">
+              <button
+                onClick={() => {
+                  to2023();
+                }}
+                className="border border-orange-500/30 text-white hover:bg-orange-500/10 font-bold px-8 py-3 text-lg rounded-lg transition-all duration-300 flex items-center space-x-2 hover:border-orange-400/50"
+              >
                 <FaPlay className="h-4 w-4" />
-                <span>Watch 2022 Highlights</span>
+                <span>Watch 2023 Highlights</span>
               </button>
             </div>
           </motion.div>
@@ -373,7 +398,7 @@ export default function MindHack2025() {
               {
                 icon: FaMicrochip,
                 title: "3D Design & Modeling",
-                desc: "Create stunning 3D models, architectural designs, and immersive visualizations using industry-standard software.",
+                desc: "Craft stunning 3D models to preserve and promote  rich cultural heritage at MindHack 2025!",
                 gradient: "from-orange-500/20 to-amber-500/20",
                 iconColor: "text-orange-400",
                 borderColor: "border-orange-400/30",
@@ -382,7 +407,7 @@ export default function MindHack2025() {
               {
                 icon: FaCode,
                 title: "Scratch Programming",
-                desc: "Build interactive games, animations, and applications using visual programming languages.",
+                desc: "Develop groundbreaking software to safeguard and celebrate traditions at MindHack 2025!",
                 gradient: "from-amber-500/20 to-yellow-500/20",
                 iconColor: "text-amber-400",
                 borderColor: "border-amber-400/30",
@@ -391,7 +416,7 @@ export default function MindHack2025() {
               {
                 icon: FaBolt,
                 title: "Electronics & Robotics",
-                desc: "Design and build autonomous robots, IoT devices, and electronic circuits for real-world applications.",
+                desc: "Build innovative electronics to protect and showcase  vibrant culture at MindHack 2025!",
                 gradient: "from-yellow-500/20 to-orange-500/20",
                 iconColor: "text-yellow-400",
                 borderColor: "border-yellow-400/30",
@@ -481,7 +506,7 @@ export default function MindHack2025() {
                 icon: FaChild,
                 title: "Wizards",
                 age: "12 - 15 years",
-                desc: "Young innovators taking their first steps into the world of technology and creativity.",
+                desc: "Young innovators taking their first steps into the world of tech creation. Special mentorship and simplified project requirements.",
                 color: "text-orange-300",
                 bgColor: "bg-orange-300/10",
                 borderColor: "border-orange-300/30",
@@ -491,7 +516,7 @@ export default function MindHack2025() {
                 icon: FaUserGraduate,
                 title: "Heroes",
                 age: "16 - 19 years",
-                desc: "Teenage tech enthusiasts ready to showcase their advanced skills and innovative thinking.",
+                desc: "Teen creators with developing skills ready to tackle more complex challenges and showcase their growing technical abilities.",
                 color: "text-orange-400",
                 bgColor: "bg-orange-400/10",
                 borderColor: "border-orange-400/30",
@@ -501,7 +526,7 @@ export default function MindHack2025() {
                 icon: FaUserTie,
                 title: "Masters",
                 age: "20 - 25 years",
-                desc: "Young professionals and students demonstrating mastery in their chosen technical domains.",
+                desc: "Young adults with advanced skills ready to create projects with sophisticated technical implementation.",
                 color: "text-amber-400",
                 bgColor: "bg-amber-400/10",
                 borderColor: "border-amber-400/30",
@@ -838,10 +863,11 @@ export default function MindHack2025() {
                   <FaMapPin className="h-6 w-6 text-orange-400 mt-1 glow-text" />
                   <div>
                     <h3 className="text-xl font-bold text-white mb-2">
-                      Tech Innovation Center
+                      WYNDHAM GRAND YANGON Hotel
                     </h3>
                     <p className="text-white/80">
-                      123 Innovation Drive, Tech District
+                      NO 11 Corner of Kan Yeik Thar Road & U Aung Myat Road,
+                      Mingalar Taung Nyunt Tsp,
                     </p>
                     <p className="text-white/80">Yangon, Myanmar</p>
                   </div>
@@ -859,15 +885,9 @@ export default function MindHack2025() {
                   <div className="h-64 bg-gray-800/50 relative overflow-hidden">
                     {/* Google Maps Static Image */}
                     <img
-                      src="https://maps.googleapis.com/maps/api/staticmap?center=16.8409,96.1735&zoom=15&size=600x300&maptype=roadmap&markers=color:orange%7C16.8409,96.1735&key=YOUR_API_KEY"
+                      src="./map.png"
                       alt="Event Location Map"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      onError={(e) => {
-                        // Fallback if Google Maps API key is not available
-                        e.currentTarget.style.display = "none";
-                        e.currentTarget.nextElementSibling.style.display =
-                          "flex";
-                      }}
                     />
                     {/* Fallback content */}
                     <div
@@ -923,22 +943,22 @@ export default function MindHack2025() {
               {
                 icon: FaGraduationCap,
                 title: "Skill Development",
-                desc: "Enhance your technical abilities and learn cutting-edge technologies from industry experts.",
+                desc: "Enhance your technical abilities through hands-on project work and expert feedback         ",
               },
               {
                 icon: FaNetworkWired,
                 title: "Networking",
-                desc: "Connect with like-minded innovators, mentors, and potential collaborators from around the world.",
+                desc: "Connect with industry professionals, mentors, and like-minded peers",
               },
               {
                 icon: FaBriefcase,
                 title: "Career Opportunities",
-                desc: "Gain exposure to top tech companies and unlock internship and job opportunities.",
+                desc: "Showcase your work to potential employers and educational institutions",
               },
               {
                 icon: FaGlobe,
                 title: "Cultural Impact",
-                desc: "Contribute to preserving and revitalizing ancient wisdom through modern technology.",
+                desc: "Contribute to preserving and revitalizing cultural heritage through technology         ",
               },
             ].map((benefit, index) => (
               <motion.div
@@ -983,22 +1003,21 @@ export default function MindHack2025() {
           <div className="grid lg:grid-cols-3 gap-8">
             {[
               {
-                video: "dQw4w9WgXcQ", // YouTube video ID
-                name: "Sarah Chen",
-                title: "MindHack 2022 Winner",
-                category: "3D Design",
+                video: "https://www.youtube.com/embed/XFWZoaRQfCc", // YouTube video ID
+                title: "MindHack 2023 Winner",
+                // category: "3D Design",
               },
               {
-                video: "dQw4w9WgXcQ", // YouTube video ID
-                name: "Alex Rodriguez",
-                title: "MindHack 2022 Finalist",
-                category: "Robotics",
+                video: "https://www.youtube.com/embed/Sj-Lk__cV8A",
+
+                title: "MindHack 2023 Finalist",
+                // category: "Robotics",
               },
               {
-                video: "dQw4w9WgXcQ", // YouTube video ID
-                name: "Maya Patel",
+                video: "https://www.youtube.com/embed/cn6aMGaJ4nI", // YouTube video ID
+
                 title: "MindHack 2024 Champion",
-                category: "Coding",
+                // category: "Coding",
               },
             ].map((testimonial, index) => (
               <motion.div
@@ -1011,7 +1030,7 @@ export default function MindHack2025() {
               >
                 <div className="aspect-video">
                   <iframe
-                    src={`https://www.youtube.com/embed/${testimonial.video}`}
+                    src={`${testimonial.video}`}
                     title={`${testimonial.name} Testimonial`}
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -1025,9 +1044,9 @@ export default function MindHack2025() {
                   <p className="text-orange-400 mb-2 glow-text">
                     {testimonial.title}
                   </p>
-                  <p className="text-white/70">
+                  {/* <p className="text-white/70">
                     {testimonial.category} Category
-                  </p>
+                  </p> */}
                 </div>
               </motion.div>
             ))}
@@ -1052,17 +1071,33 @@ export default function MindHack2025() {
               ?
             </h2>
             <p className="text-white/90 text-xl mb-12 max-w-4xl mx-auto leading-relaxed">
-              Take the first step towards innovation and join thousands of
-              participants in the ultimate technical competition.
+              Be part of the movement that's bridging the gap between cultural
+              heritage and cutting-edge technology. Register today and start
+              your journey!
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-12 py-4 text-lg border border-orange-400/50 rounded-lg transition-all duration-300 glow-button hover:shadow-2xl hover:shadow-orange-500/25">
+              <button
+                onClick={() => {
+                  toRegister();
+                }}
+                className="backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-12 py-4 text-lg border border-orange-400/50 rounded-lg transition-all duration-300 glow-button hover:shadow-2xl hover:shadow-orange-500/25"
+              >
                 Register as Participant
               </button>
-              <button className="backdrop-blur-sm bg-amber-500/20 hover:bg-amber-500/30 text-white font-bold px-12 py-4 text-lg border border-amber-400/50 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/25">
+              <button
+                onClick={() => {
+                  toPartner();
+                }}
+                className="backdrop-blur-sm bg-amber-500/20 hover:bg-amber-500/30 text-white font-bold px-12 py-4 text-lg border border-amber-400/50 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/25"
+              >
                 Partner School
               </button>
-              <button className="backdrop-blur-sm bg-yellow-500/20 hover:bg-yellow-500/30 text-white font-bold px-12 py-4 text-lg border border-yellow-400/50 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/25">
+              <button
+                onClick={() => {
+                  toSponsor();
+                }}
+                className="backdrop-blur-sm bg-yellow-500/20 hover:bg-yellow-500/30 text-white font-bold px-12 py-4 text-lg border border-yellow-400/50 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/25"
+              >
                 Sponsor the Event
               </button>
             </div>
@@ -1142,10 +1177,11 @@ export default function MindHack2025() {
               </h2>
               <div className="space-y-6 text-white/80 leading-relaxed">
                 <p>
-                  MindHack was born from a vision to bridge the gap between
-                  ancient wisdom and modern technology. Founded in 2020, our
-                  competition has grown from a small local event to an
-                  international phenomenon.
+                  Mind Hack started with a bold vision: to transform Myanmar’s
+                  tech scene by empowering its youth. The first event in 2023
+                  brought together 100 students to compete in coding challenges.
+                  The success of this event laid the groundwork for a larger,
+                  more ambitious platform.
                 </p>
                 <p>
                   We believe that the principles and knowledge systems developed
@@ -1178,7 +1214,7 @@ export default function MindHack2025() {
             >
               <div className="aspect-video">
                 <iframe
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  src="https://www.youtube.com/embed/c-wbSGQDOOs"
                   title="Origins of MindHack"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -1199,7 +1235,7 @@ export default function MindHack2025() {
       </section>
 
       {/* Footer */}
-      <footer className="backdrop-blur-xl bg-gradient-to-br from-gray-900/20 via-orange-900/10 to-gray-900/20 border-t border-orange-500/20 py-16 px-4">
+      {/* <footer className="backdrop-blur-xl bg-gradient-to-br from-gray-900/20 via-orange-900/10 to-gray-900/20 border-t border-orange-500/20 py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -1320,7 +1356,7 @@ export default function MindHack2025() {
             </div>
           </motion.div>
         </div>
-      </footer>
+      </footer> */}
 
       {/* Custom Styles */}
       <style jsx global>{`

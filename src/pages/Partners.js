@@ -466,10 +466,8 @@ export default function Partners() {
             </h2>
 
             <p className="text-white/80 text-sm xs:text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-8">
-              Partner with us to shape the future of Myanmar's tech ecosystem.
-              By sponsoring MindHack, you're investing in the next generation of
-              innovators and creators who will drive technological advancement
-              while preserving cultural heritage.
+              Sponsor our events and competitions to connect your brand with
+              innovation and support young tech talent.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mt-12">
@@ -534,7 +532,7 @@ export default function Partners() {
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-gray-900/80" />
         </div>
 
-        <div className="relative z-10 h-full min-h-[80vh] flex flex-col justify-center py-16 sm:py-24">
+        <div className="relative z-10 h-full min-h-[80vh] flex flex-col justify-between py-16 sm:py-24">
           <motion.div
             variants={fadeInUp}
             initial="hidden"
@@ -605,14 +603,80 @@ export default function Partners() {
                   Ready to Partner?
                 </h3>
                 <p className="text-white/80 text-sm mb-6">
-                  Join us in shaping the future of Myanmar's tech landscape.
-                  Contact our partnership team to explore sponsorship
-                  opportunities.
+                  Ignite the future by joining MindHack 2025's thrilling mission
+                  to empower young global creators aged 7-17 and safeguard
+                  Asia's vibrant cultural heritage through cutting-edge
+                  technology! As a proud MindHack partner, you'll gain dazzling
+                  visibility while fueling the next generation of innovators,
+                  culminating at the grand finale on August 17 at Wyndham Grand
+                  Yangon Hotel—register your support by June 7!
                 </p>
                 <button className="w-full backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-6 py-3 border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25">
                   <span>Contact Partnership Team</span>
                   <FaChevronRight className="h-4 w-4" />
                 </button>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Stats Cards Section */}
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="px-4 xs:px-6 sm:px-8 md:px-12 mx-auto w-full max-w-7xl"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+              {/* Team Card */}
+              <motion.div
+                whileHover={{ y: -5 }}
+                className="bg-gradient-to-br from-gray-900/60 to-orange-900/30 backdrop-blur-sm border border-orange-500/20 rounded-xl p-6 sm:p-8 flex flex-col items-center text-center"
+              >
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-orange-400 mb-2 glow-text-orange">
+                  100+
+                </div>
+                <div className="text-white font-medium text-lg sm:text-xl mb-2">
+                  Teams
+                </div>
+                <div className="text-orange-200/80 text-sm">
+                  Competing in the hackathon
+                </div>
+                <div className="mt-4 w-12 h-1 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full" />
+              </motion.div>
+
+              {/* Coders Card */}
+              <motion.div
+                whileHover={{ y: -5 }}
+                className="bg-gradient-to-br from-gray-900/60 to-orange-900/30 backdrop-blur-sm border border-orange-500/20 rounded-xl p-6 sm:p-8 flex flex-col items-center text-center"
+              >
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-orange-400 mb-2 glow-text-orange">
+                  300+
+                </div>
+                <div className="text-white font-medium text-lg sm:text-xl mb-2">
+                  Young Coders
+                </div>
+                <div className="text-orange-200/80 text-sm">
+                  Aged 7-17 participating
+                </div>
+                <div className="mt-4 w-12 h-1 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full" />
+              </motion.div>
+
+              {/* Attendees Card */}
+              <motion.div
+                whileHover={{ y: -5 }}
+                className="bg-gradient-to-br from-gray-900/60 to-orange-900/30 backdrop-blur-sm border border-orange-500/20 rounded-xl p-6 sm:p-8 flex flex-col items-center text-center"
+              >
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-orange-400 mb-2 glow-text-orange">
+                  1000+
+                </div>
+                <div className="text-white font-medium text-lg sm:text-xl mb-2">
+                  Event Attendees
+                </div>
+                <div className="text-orange-200/80 text-sm">
+                  Expected at the grand finale
+                </div>
+                <div className="mt-4 w-12 h-1 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full" />
               </motion.div>
             </div>
           </motion.div>

@@ -794,6 +794,7 @@ import {
   FaBullseye,
   FaRocket,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const heroImages = [
   "./kv.jpg",
@@ -804,6 +805,10 @@ const heroImages = [
 ];
 
 export default function Homepage() {
+  const navigate = useNavigate();
+  const toRegister = () => {
+    navigate("/register/participant");
+  };
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -885,7 +890,12 @@ export default function Homepage() {
               . Compete for prestigious awards in this ultimate technical
               challenge.
             </p>
-            <button className="w-full xs:w-auto backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white text-base sm:text-lg px-6 sm:px-8 py-3 font-semibold border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25 min-h-[48px] touch-manipulation">
+            <button
+              onClick={() => {
+                toRegister();
+              }}
+              className="w-full xs:w-auto backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white text-base sm:text-lg px-6 sm:px-8 py-3 font-semibold border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25 min-h-[48px] touch-manipulation"
+            >
               <span>Register Now</span>
               <FaChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
@@ -954,13 +964,15 @@ export default function Homepage() {
               viewport={{ once: true }}
               className="text-white/70 max-w-4xl mx-auto text-sm xs:text-base sm:text-lg leading-relaxed mb-8 sm:mb-12 md:mb-16 px-2 sm:px-0"
             >
-              MindHack is a groundbreaking technical competition that bridges
-              ancient wisdom with cutting-edge technology. We believe in the
-              power of combining time-tested principles with modern innovation
-              to solve complex problems and create meaningful impact. Through
-              three specialized categories, participants showcase their
-              technical mastery while honoring cultural heritage and driving
-              technological advancement.
+              Ignite your Power to Create at MindHack 2025: The Ancient Revival,
+              the world’s leading international coding tournament! Young
+              innovators aged 7-17 from every corner of the globe converge to
+              revive cultural heritage through technology, finding their Place
+              to Shine in 3D Design, Coding, and Electronics. As a Platform to
+              Connect, MindHack unites creators, mentors, and visionaries,
+              sparking lifelong collaborations. From online Theme Camps to the
+              dazzling grand finale at Wyndham Grand Yangon Hotel on August 17,
+              2025, CIY Club empowers you to shape the future.
             </motion.p>
           </div>
 
@@ -998,7 +1010,7 @@ export default function Homepage() {
               {
                 icon: FaMicrochip,
                 title: "3D Designing & Modeling",
-                desc: "Create stunning 3D models, architectural designs, and immersive visualizations using industry-standard software. Showcase your spatial creativity and technical precision in bringing digital concepts to life.",
+                desc: "Craft stunning 3D models to preserve and promote  rich cultural heritage at MindHack 2025!",
                 gradient: "from-orange-500/20 to-amber-500/20",
                 iconColor: "text-orange-400",
                 borderColor: "border-orange-400/30",
@@ -1007,7 +1019,7 @@ export default function Homepage() {
               {
                 icon: FaCode,
                 title: "Scratch Coding",
-                desc: "Build interactive games, animations, and applications using visual programming. Perfect for beginners and experts alike to create engaging digital experiences that combine creativity with logical thinking.",
+                desc: "Develop groundbreaking software to safeguard and celebrate traditions at MindHack 2025!",
                 gradient: "from-amber-500/20 to-yellow-500/20",
                 iconColor: "text-amber-400",
                 borderColor: "border-amber-400/30",
@@ -1016,7 +1028,7 @@ export default function Homepage() {
               {
                 icon: FaBolt,
                 title: "Electronics & Robotics",
-                desc: "Design and build autonomous robots, IoT devices, and electronic circuits. Combine hardware engineering with intelligent programming for real-world solutions that bridge the physical and digital worlds.",
+                desc: "Build innovative electronics to protect and showcase  vibrant culture at MindHack 2025!",
                 gradient: "from-yellow-500/20 to-orange-500/20",
                 iconColor: "text-yellow-400",
                 borderColor: "border-yellow-400/30",
@@ -1105,10 +1117,15 @@ export default function Homepage() {
 
             <div className="space-y-4 text-white/90 text-base sm:text-lg leading-relaxed max-w-lg">
               <p>
-                MindHack serves as a groundbreaking fusion of ancient wisdom and
-                modern innovation. Our mission is to bridge the gap between
-                traditional knowledge systems and contemporary technological
-                solutions.
+                MindHack 2025 is a groundbreaking international coding
+                tournament designed for young creators aged 7-17, bridging the
+                gap between rich cultural heritage and modern technology to
+                inspire the next generation to protect and promote our
+                traditions through digital innovation. Participants will
+                collaborate on projects that fuse coding, 3D design, and
+                electronics with cultural elements, creating solutions that
+                honor the past and embrace the future, fostering creativity,
+                technical skills, and cultural pride across the globe.
               </p>
               <p className="hidden xs:block">
                 We create a unique platform for cultural revival and
@@ -1276,17 +1293,17 @@ export default function Homepage() {
 
             <div className="space-y-6 text-white/90 text-lg leading-relaxed">
               <p>
-                Join a global community of innovators bridging ancient wisdom
-                with modern technology through groundbreaking competitions and
-                collaborations.
+                MindHack 2025 is more than just a competition—it's a movement to
+                empower young creators to become the cultural ambassadors of
+                tomorrow. By participating, young innovators will:
               </p>
 
               <div className="space-y-4">
                 {[
-                  "Network with like-minded creators worldwide",
-                  "Access cutting-edge tools and resources",
-                  "Compete for $10,000+ in prizes",
-                  "Receive expert mentorship",
+                  "Develop valuable technical skills in coding, design, and electronics",
+                  "Gain deeper appreciation for cultural heritage and traditions",
+                  "Connect with like-minded peers and industry mentors",
+                  "Showcase their talents to a global audience",
                   "Showcase to global audiences",
                   "Preserve culture through innovation",
                 ].map((item, index) => (
@@ -1324,19 +1341,23 @@ export default function Homepage() {
               <span className="text-orange-400 glow-text-orange">Compete</span>?
             </h2>
             <p className="text-white/90 text-sm xs:text-base sm:text-lg md:text-xl mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto leading-relaxed px-2 sm:px-0">
-              Join MindHack 2025 and showcase your technical skills in 3D
-              Design, Scratch Programming, and Robotics. Compete for $10,000+ in
-              prizes and gain recognition from industry leaders in this ultimate
-              technical challenge.
+              Be part of Myanmar's most innovative tech competition and help
+              preserve our cultural heritage through creative technology
+              solutions.
             </p>
             <div className="flex flex-col xs:flex-row gap-4 sm:gap-6 justify-center mb-8 sm:mb-10 md:mb-12">
-              <button className="w-full xs:w-auto backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-2xl hover:shadow-orange-500/25 min-h-[48px] touch-manipulation">
+              <button
+                onClick={() => {
+                  toRegister();
+                }}
+                className="w-full xs:w-auto backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-2xl hover:shadow-orange-500/25 min-h-[48px] touch-manipulation"
+              >
                 <span>Register Now</span>
                 <FaChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
               </button>
-              <button className="w-full xs:w-auto border border-orange-500/30 text-white hover:bg-orange-500/10 font-bold px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg rounded-lg transition-all duration-300 hover:border-orange-400/50 min-h-[48px] touch-manipulation">
+              {/* <button className="w-full xs:w-auto border border-orange-500/30 text-white hover:bg-orange-500/10 font-bold px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg rounded-lg transition-all duration-300 hover:border-orange-400/50 min-h-[48px] touch-manipulation">
                 Download Rules
-              </button>
+              </button> */}
             </div>
             <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-white/60 max-w-md sm:max-w-2xl mx-auto">
               <div className="text-center">
