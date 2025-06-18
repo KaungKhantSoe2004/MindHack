@@ -37,37 +37,37 @@ const Navbar = () => {
               Home
             </Link>
 
-            {/* Competitions Dropdown */}
+            {/* Competitions Dropdown - Enhanced Visibility */}
             <div className="relative group">
-              <button className="text-white/80 hover:text-orange-400 font-medium flex items-center space-x-1 transition-colors">
+              <button className="text-white/90 hover:text-orange-400 font-semibold flex items-center space-x-1 transition-colors">
                 <span>Competitions</span>
                 <FaChevronRight className="h-3 w-3 transform group-hover:rotate-90 transition-transform duration-200" />
               </button>
-              <div className="absolute top-full left-0 mt-2 w-64 backdrop-blur-xl bg-gradient-to-br from-gray-900/95 via-orange-900/20 to-gray-900/95 border border-orange-500/30 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-2xl shadow-orange-500/20">
-                <div className="p-2">
+              <div className="absolute top-full left-0 mt-2 w-72 backdrop-blur-xl bg-gradient-to-br from-gray-900/95 via-orange-900/30 to-gray-900/95 border-2 border-orange-500/40 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-2xl shadow-orange-500/30">
+                <div className="p-3 space-y-1">
                   <Link
                     to="/mindhack-2025"
-                    className={`block px-4 py-3 rounded-lg transition-colors ${
+                    className={`block px-5 py-3 rounded-lg transition-all ${
                       isActive("/mindhack-2025")
-                        ? "text-orange-400 bg-orange-500/10 glow-text"
-                        : "text-white/80 hover:text-orange-400 hover:bg-orange-500/5"
+                        ? "text-orange-400 bg-orange-500/15 glow-text font-bold"
+                        : "text-white/90 hover:text-orange-300 hover:bg-orange-500/10 font-semibold"
                     }`}
                   >
-                    <div className="font-semibold">MindHack 2025</div>
-                    <div className="text-sm text-orange-400/60">
+                    <div className="text-xl mb-1">MindHack 2025</div>
+                    <div className="text-sm font-medium text-orange-400/70">
                       Current Competition
                     </div>
                   </Link>
                   <Link
                     to="/mindhack-2023"
-                    className={`block px-4 py-3 rounded-lg transition-colors ${
+                    className={`block px-5 py-3 rounded-lg transition-all ${
                       isActive("/mindhack-2023")
-                        ? "text-orange-400 bg-orange-500/10 glow-text"
-                        : "text-white/80 hover:text-orange-400 hover:bg-orange-500/5"
+                        ? "text-orange-400 bg-orange-500/15 glow-text font-bold"
+                        : "text-white/90 hover:text-orange-300 hover:bg-orange-500/10 font-semibold"
                     }`}
                   >
-                    <div className="font-semibold">MindHack 2023</div>
-                    <div className="text-sm text-white/60">
+                    <div className="text-xl mb-1">MindHack 2023</div>
+                    <div className="text-sm font-medium text-white/70">
                       Past Event Recap
                     </div>
                   </Link>
@@ -105,6 +105,57 @@ const Navbar = () => {
             >
               Join Us
             </Link>
+
+            {/* Register Dropdown - Enhanced Visibility */}
+            <div className="relative group ml-auto">
+              <button className="text-white/90 hover:text-orange-400 font-semibold flex items-center space-x-1 transition-colors">
+                <span>Register</span>
+                <FaChevronRight className="h-3 w-3 transform group-hover:rotate-90 transition-transform duration-200" />
+              </button>
+              <div className="absolute top-full right-0 mt-2 w-80 backdrop-blur-xl bg-gradient-to-br from-gray-900/95 via-orange-900/30 to-gray-900/95 border-2 border-orange-500/40 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-2xl shadow-orange-500/30">
+                <div className="p-3 space-y-1">
+                  <Link
+                    to="/register/participant"
+                    className={`block px-5 py-3 rounded-lg transition-all ${
+                      isActive("/register/participant")
+                        ? "text-orange-400 bg-orange-500/15 glow-text font-bold"
+                        : "text-white/90 hover:text-orange-300 hover:bg-orange-500/10 font-semibold"
+                    }`}
+                  >
+                    <div className="text-xl mb-1">Join as Participant</div>
+                    <div className="text-sm font-medium text-orange-400/70">
+                      Compete in MindHack
+                    </div>
+                  </Link>
+                  <Link
+                    to="/register/partner"
+                    className={`block px-5 py-3 rounded-lg transition-all ${
+                      isActive("/register/partner")
+                        ? "text-orange-400 bg-orange-500/15 glow-text font-bold"
+                        : "text-white/90 hover:text-orange-300 hover:bg-orange-500/10 font-semibold"
+                    }`}
+                  >
+                    <div className="text-xl mb-1">Become a Partner</div>
+                    <div className="text-sm font-medium text-white/70">
+                      Support with resources
+                    </div>
+                  </Link>
+                  <Link
+                    to="/register/sponsor"
+                    className={`block px-5 py-3 rounded-lg transition-all ${
+                      isActive("/register/sponsor")
+                        ? "text-orange-400 bg-orange-500/15 glow-text font-bold"
+                        : "text-white/90 hover:text-orange-300 hover:bg-orange-500/10 font-semibold"
+                    }`}
+                  >
+                    <div className="text-xl mb-1">Sponsor MindHack</div>
+                    <div className="text-sm font-medium text-white/70">
+                      Fund innovation & talent
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="flex items-center space-x-4">
@@ -145,6 +196,12 @@ const Navbar = () => {
                   { name: "Partners", path: "/partners" },
                   { name: "FAQ", path: "/faq" },
                   { name: "Join Us", path: "/join-us" },
+                  {
+                    name: "Join as Participant",
+                    path: "/register/participant",
+                  },
+                  { name: "Become a Partner", path: "/register/partner" },
+                  { name: "Sponsor MindHack", path: "/register/sponsor" },
                 ].map((item, index) => (
                   <motion.div
                     key={item.name}
@@ -155,10 +212,10 @@ const Navbar = () => {
                   >
                     <Link
                       to={item.path}
-                      className={`block px-4 py-3 rounded-lg transition-colors ${
+                      className={`block px-4 py-3 rounded-lg transition-colors text-lg ${
                         isActive(item.path)
-                          ? "text-orange-400 bg-orange-500/10 glow-text"
-                          : "text-white/80 hover:text-orange-400 hover:bg-orange-500/5"
+                          ? "text-orange-400 bg-orange-500/10 glow-text font-bold"
+                          : "text-white/90 hover:text-orange-400 hover:bg-orange-500/5 font-semibold"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >

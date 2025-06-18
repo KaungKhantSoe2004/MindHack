@@ -17,7 +17,7 @@ export default function MindHack2023() {
           <div
             className="w-full h-full bg-cover bg-center"
             style={{
-              backgroundImage: `url('./kv.jpg')`,
+              backgroundImage: `url('./g12.jpg')`,
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-950/95 via-gray-950/80 to-gray-950/60" />
@@ -275,7 +275,7 @@ export default function MindHack2023() {
               >
                 <div className="relative overflow-hidden rounded-lg sm:rounded-xl backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 hover:bg-gradient-to-br hover:from-gray-800/50 hover:via-orange-800/30 hover:to-gray-800/50 transition-all duration-500 group-hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
                   <img
-                    src={`./2.JPG`}
+                    src={`./g${index}.JPG`}
                     alt={`MindHack 2023 Gallery Image ${index}`}
                     className="w-full h-48 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-700"
                   />

@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { FaChevronRight, FaHandshake, FaRocket, FaGlobe } from "react-icons/fa"
+import { motion } from "framer-motion";
+import { FaChevronRight, FaHandshake, FaRocket, FaGlobe } from "react-icons/fa";
 
 export default function Partners() {
   // Animation variants
@@ -12,7 +12,7 @@ export default function Partners() {
       y: 0,
       transition: { duration: 0.8, ease: "easeOut" },
     },
-  }
+  };
 
   const fadeInLeft = {
     hidden: { opacity: 0, x: -60 },
@@ -21,7 +21,7 @@ export default function Partners() {
       x: 0,
       transition: { duration: 0.8, ease: "easeOut" },
     },
-  }
+  };
 
   const scaleIn = {
     hidden: { opacity: 0, scale: 0.8 },
@@ -30,7 +30,7 @@ export default function Partners() {
       scale: 1,
       transition: { duration: 0.6, ease: "easeOut" },
     },
-  }
+  };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
@@ -41,7 +41,7 @@ export default function Partners() {
         delayChildren: 0.1,
       },
     },
-  }
+  };
 
   const staggerItem = {
     hidden: { opacity: 0, y: 30 },
@@ -50,7 +50,7 @@ export default function Partners() {
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" },
     },
-  }
+  };
 
   return (
     <div className="relative pt-16">
@@ -69,7 +69,9 @@ export default function Partners() {
             className="flex items-center justify-center space-x-3 mb-6"
           >
             <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-orange-400" />
-            <span className="text-orange-400 font-mono text-sm uppercase tracking-wider glow-text">Partnership</span>
+            <span className="text-orange-400 font-mono text-sm uppercase tracking-wider glow-text">
+              Partnership
+            </span>
             <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-orange-400" />
           </motion.div>
 
@@ -79,7 +81,8 @@ export default function Partners() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 glow-text-strong leading-tight"
           >
-            Our <span className="text-orange-400 glow-text-orange">Partners</span>
+            Our{" "}
+            <span className="text-orange-400 glow-text-orange">Partners</span>
           </motion.h1>
 
           <motion.p
@@ -88,8 +91,8 @@ export default function Partners() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-sm xs:text-base sm:text-lg text-white/90 leading-relaxed max-w-3xl mx-auto"
           >
-            MindHack 2025 is made possible through the generous support of our partners who share our vision of
-            empowering young creators.
+            MindHack 2025 is made possible through the generous support of our
+            partners who share our vision of empowering young creators.
           </motion.p>
         </div>
       </section>
@@ -120,23 +123,27 @@ export default function Partners() {
           >
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400" />
-              <span className="text-orange-300 font-mono text-xs uppercase tracking-widest">COLLABORATION</span>
+              <span className="text-orange-300 font-mono text-xs uppercase tracking-widest">
+                COLLABORATION
+              </span>
             </div>
 
             <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Together We <span className="text-orange-400 glow-text-orange">Innovate</span>
+              Together We{" "}
+              <span className="text-orange-400 glow-text-orange">Innovate</span>
             </h2>
 
             <p className="text-white/90 text-base sm:text-lg leading-relaxed max-w-lg">
-              Our partners are essential to creating an impactful experience for all MindHack participants. Through
-              their support, we build bridges between tradition and innovation.
+              Our partners are essential to creating an impactful experience for
+              all MindHack participants. Through their support, we build bridges
+              between tradition and innovation.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Main Sponsors */}
-      <section className="py-16 sm:py-24 px-4 bg-black relative">
+      {/* <section className="py-16 sm:py-24 px-4 bg-black relative">
         <div className="max-w-7xl mx-auto">
           <motion.div
             variants={fadeInUp}
@@ -183,9 +190,9 @@ export default function Partners() {
         </div>
       </section>
 
-      {/* Diamond Sponsors */}
+
       <section className="py-16 sm:py-24 px-4 relative overflow-hidden">
-        {/* Glass-like gradient background with orange glow */}
+       
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/60 via-orange-900/30 to-gray-900/60 backdrop-blur-xl"></div>
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
@@ -256,8 +263,186 @@ export default function Partners() {
             ))}
           </motion.div>
         </div>
+      </section> */}
+
+      {/* Main Sponsors */}
+      <section className="py-16 sm:py-24 px-4 bg-black relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
+              Main{" "}
+              <span className="text-orange-400 glow-text-orange">Sponsors</span>
+            </h2>
+            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
+              Our premier partners who make MindHack 2025 possible
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid md:grid-cols-3 gap-8 sm:gap-12"
+          >
+            {/* First 3 sponsors - actual logos */}
+            {[1, 2, 3].map((index) => (
+              <motion.div
+                key={`main-${index}`}
+                variants={staggerItem}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.3 },
+                }}
+                className="group"
+              >
+                <div className="bg-white/5 backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20">
+                  <img
+                    src={`/sponsors/main-${index}.png`}
+                    alt={`Main Sponsor ${index}`}
+                    className="w-full h-24 sm:h-32 object-contain mx-auto filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-500"
+                  />
+                </div>
+              </motion.div>
+            ))}
+
+            {/* Next 3 sponsors - available spots */}
+            {[4, 5, 6].map((index) => (
+              <motion.div
+                key={`available-main-${index}`}
+                variants={staggerItem}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.3 },
+                }}
+                className="group"
+              >
+                <div className="bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border-2 border-dashed border-orange-400/50 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 flex flex-col items-center justify-center min-h-[200px]">
+                  <div className="w-16 h-16 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-orange-400/30">
+                    <FaHandshake className="h-8 w-8 text-orange-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-orange-400 mb-2">
+                    Available
+                  </h3>
+                  <p className="text-white/70 text-sm">Your Business Here</p>
+                  <button className="mt-4 px-4 py-2 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded-lg border border-orange-400/50 transition-all">
+                    Become a Sponsor
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </section>
 
+      {/* Diamond Sponsors */}
+      <section className="py-16 sm:py-24 px-4 relative overflow-hidden">
+        {/* Glass-like gradient background with orange glow */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/60 via-orange-900/30 to-gray-900/60 backdrop-blur-xl"></div>
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/20 blur-3xl animate-pulse"
+          />
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 2, delay: 0.3, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-amber-500/15 blur-3xl animate-pulse delay-1000"
+          />
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 2, delay: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="absolute top-1/2 right-1/4 w-48 h-48 rounded-full bg-orange-400/10 blur-2xl animate-pulse delay-500"
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
+              Diamond{" "}
+              <span className="text-orange-400 glow-text-orange">Sponsors</span>
+            </h2>
+            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
+              Prestigious partners supporting innovation and excellence
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8"
+          >
+            {[1, 2, 3].map((index) => (
+              <motion.div
+                key={`diamond-${index}`}
+                variants={staggerItem}
+                whileHover={{
+                  scale: 1.05,
+                  rotateY: 5,
+                  transition: { duration: 0.3 },
+                }}
+                className="group"
+              >
+                <div className="backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-orange-800/20 to-gray-800/50 border border-orange-500/30 rounded-xl p-6 sm:p-8 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500">
+                  <img
+                    src={`/sponsors/diamond-${index}.png`}
+                    alt={`Diamond Sponsor ${index}`}
+                    className="w-full h-16 sm:h-20 object-contain mx-auto filter brightness-90 group-hover:brightness-110 transition-all duration-500"
+                  />
+                </div>
+              </motion.div>
+            ))}
+
+            {/* Next 6 sponsors - available spots */}
+            {[4, 5, 6].map((index) => (
+              <motion.div
+                key={`available-diamond-${index}`}
+                variants={staggerItem}
+                whileHover={{
+                  scale: 1.05,
+                  rotateY: 5,
+                  transition: { duration: 0.3 },
+                }}
+                className="group"
+              >
+                <div className="backdrop-blur-xl bg-gradient-to-br from-gray-800/20 via-orange-800/10 to-gray-800/20 border-2 border-dashed border-orange-400/40 rounded-xl p-6 sm:p-8 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 flex flex-col items-center justify-center min-h-[160px]">
+                  <div className="w-12 h-12 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3 border border-orange-400/30">
+                    <FaRocket className="h-5 w-5 text-orange-400" />
+                  </div>
+                  <h3 className="text-lg font-bold text-orange-400 mb-1">
+                    Available For Your Business
+                  </h3>
+                  <p className="text-white/70 text-xs mb-2">Your Logo Here</p>
+                  <button className="mt-2 px-3 py-1 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded border border-orange-400/50 transition-all">
+                    Join Now
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
       {/* Sponsor MindHack Section */}
       <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 relative">
         <div className="max-w-4xl mx-auto text-center">
@@ -269,18 +454,22 @@ export default function Partners() {
           >
             <div className="flex items-center justify-center space-x-3 mb-6">
               <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-orange-400" />
-              <span className="text-orange-400 font-mono text-sm uppercase tracking-wider glow-text">Join Us</span>
+              <span className="text-orange-400 font-mono text-sm uppercase tracking-wider glow-text">
+                Join Us
+              </span>
               <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-orange-400" />
             </div>
 
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 glow-text-strong">
-              Sponsor <span className="text-orange-400 glow-text-orange">MindHack</span>
+              Sponsor{" "}
+              <span className="text-orange-400 glow-text-orange">MindHack</span>
             </h2>
 
             <p className="text-white/80 text-sm xs:text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-8">
-              Partner with us to shape the future of Myanmar's tech ecosystem. By sponsoring MindHack, you're investing
-              in the next generation of innovators and creators who will drive technological advancement while
-              preserving cultural heritage.
+              Partner with us to shape the future of Myanmar's tech ecosystem.
+              By sponsoring MindHack, you're investing in the next generation of
+              innovators and creators who will drive technological advancement
+              while preserving cultural heritage.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mt-12">
@@ -288,19 +477,22 @@ export default function Partners() {
                 {
                   icon: FaGlobe,
                   title: "Global Impact",
-                  description: "Reach international audiences and showcase your commitment to innovation",
+                  description:
+                    "Reach international audiences and showcase your commitment to innovation",
                   color: "text-orange-400",
                 },
                 {
                   icon: FaHandshake,
                   title: "Community Building",
-                  description: "Connect with Myanmar's brightest young minds and tech leaders",
+                  description:
+                    "Connect with Myanmar's brightest young minds and tech leaders",
                   color: "text-amber-400",
                 },
                 {
                   icon: FaRocket,
                   title: "Innovation Leadership",
-                  description: "Position your brand at the forefront of technological advancement",
+                  description:
+                    "Position your brand at the forefront of technological advancement",
                   color: "text-yellow-400",
                 },
               ].map((item, index) => (
@@ -315,7 +507,9 @@ export default function Partners() {
                   <div className="w-16 h-16 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-orange-400/30">
                     <item.icon className={`h-8 w-8 ${item.color}`} />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {item.title}
+                  </h3>
                   <p className="text-white/70 text-sm">{item.description}</p>
                 </motion.div>
               ))}
@@ -356,7 +550,8 @@ export default function Partners() {
             </div>
 
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
-              Become a <span className="text-orange-400 glow-text-orange">Sponsor</span>
+              Become a{" "}
+              <span className="text-orange-400 glow-text-orange">Sponsor</span>
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -388,8 +583,12 @@ export default function Partners() {
                   >
                     <div className="w-2 h-2 mt-2.5 rounded-full bg-gradient-to-r from-orange-400 to-amber-400 flex-shrink-0" />
                     <div>
-                      <h3 className="text-orange-400 font-semibold mb-2">{item.title}</h3>
-                      <p className="text-white/80 text-sm sm:text-base">{item.description}</p>
+                      <h3 className="text-orange-400 font-semibold mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-white/80 text-sm sm:text-base">
+                        {item.description}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -402,10 +601,13 @@ export default function Partners() {
                 viewport={{ once: true }}
                 className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-xl p-6 sm:p-8"
               >
-                <h3 className="text-xl font-bold text-white mb-4">Ready to Partner?</h3>
+                <h3 className="text-xl font-bold text-white mb-4">
+                  Ready to Partner?
+                </h3>
                 <p className="text-white/80 text-sm mb-6">
-                  Join us in shaping the future of Myanmar's tech landscape. Contact our partnership team to explore
-                  sponsorship opportunities.
+                  Join us in shaping the future of Myanmar's tech landscape.
+                  Contact our partnership team to explore sponsorship
+                  opportunities.
                 </p>
                 <button className="w-full backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-6 py-3 border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25">
                   <span>Contact Partnership Team</span>
@@ -428,7 +630,8 @@ export default function Partners() {
             className="text-center mb-12"
           >
             <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
-              Previous <span className="text-orange-400 glow-text-orange">Sponsors</span>
+              Previous{" "}
+              <span className="text-orange-400 glow-text-orange">Sponsors</span>
             </h2>
             <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
               Trusted partners who have supported MindHack's journey
@@ -465,5 +668,5 @@ export default function Partners() {
         </div>
       </section>
     </div>
-  )
+  );
 }

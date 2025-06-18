@@ -36,6 +36,12 @@ function App() {
           <Route path="/partners" element={<Partners />} />
           <Route path="/join-us" element={<JoinUs />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route
+            path="/register/participant"
+            element={<div>Participant</div>}
+          />
+          <Route path="/register/sponsor" element={<div>Sponsor</div>} />
+          <Route path="/register/partner" element={<div>Partner</div>} />
           {/* <Route path="/past-events" element={<PastEvents />} />
           <Route path="/timeline" element={<Timeline />} />
           <Route path="/register" element={<Register />} /> */}
