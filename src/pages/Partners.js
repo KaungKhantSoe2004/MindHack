@@ -1,10 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { FaChevronRight, FaHandshake, FaRocket, FaGlobe } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setReduxDiamondSponsors,
+  setReduxMainSponsors,
+  setReduxPrevSponsors,
+  setStoreReduxSponsors,
+} from "../reducer/sponsorSlice";
+import axios from "axios";
 
 export default function Partners() {
-  // Animation variants
+  const backend_domain_name = "http://127.0.0.1:8000";
+  const reduxSponsors = useSelector((store) => store.sponsors);
+  const [mainSponsors, setMainSponsors] = useState(reduxSponsors.mainSponsors);
+
+  const [prevSponsors, setPrevSponsors] = useState(reduxSponsors.prevSponsors);
+  const [diamondSponsors, setDiamondSponsors] = useState(
+    reduxSponsors.diamondSponsors
+  );
+  console.log(mainSponsors, diamondSponsors, prevSponsors);
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
     visible: {
@@ -51,7 +68,30 @@ export default function Partners() {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
+  const dispatch = useDispatch();
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${backend_domain_name}/api/sponsors`);
 
+      if (response.status == 200) {
+        console.log(response.data);
+        dispatch(setStoreReduxSponsors(response.data.sponsors));
+        dispatch(setReduxMainSponsors(response.data.mainSponsors));
+        dispatch(setReduxDiamondSponsors(response.data.diamondSponsors));
+        dispatch(setReduxPrevSponsors(response.data.prevSponsors));
+        setMainSponsors(response.data.mainSponsors);
+        setDiamondSponsors(response.data.diamondSponsors);
+        setPrevSponsors(response.data.prevSponsors);
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.error("Error in fetchApi:", error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className="relative pt-16">
       {/* Header Section */}
@@ -143,129 +183,6 @@ export default function Partners() {
       </section>
 
       {/* Main Sponsors */}
-      {/* <section className="py-16 sm:py-24 px-4 bg-black relative">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
-              Main <span className="text-orange-400 glow-text-orange">Sponsors</span>
-            </h2>
-            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
-              Our premier partners who make MindHack 2025 possible
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="grid md:grid-cols-3 gap-8 sm:gap-12"
-          >
-            {[1, 2, 3].map((index) => (
-              <motion.div
-                key={index}
-                variants={staggerItem}
-                whileHover={{
-                  scale: 1.05,
-                  transition: { duration: 0.3 },
-                }}
-                className="group"
-              >
-                <div className="bg-white/5 backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20">
-                  <img
-                    src="/placeholder.svg?height=120&width=300"
-                    alt={`Main Sponsor ${index}`}
-                    className="w-full h-24 sm:h-32 object-contain mx-auto filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-500"
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-
-      <section className="py-16 sm:py-24 px-4 relative overflow-hidden">
-       
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/60 via-orange-900/30 to-gray-900/60 backdrop-blur-xl"></div>
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 2, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/20 blur-3xl animate-pulse"
-          />
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 2, delay: 0.3, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-amber-500/15 blur-3xl animate-pulse delay-1000"
-          />
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 2, delay: 0.6, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="absolute top-1/2 right-1/4 w-48 h-48 rounded-full bg-orange-400/10 blur-2xl animate-pulse delay-500"
-          />
-        </div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
-              Diamond <span className="text-orange-400 glow-text-orange">Sponsors</span>
-            </h2>
-            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
-              Prestigious partners supporting innovation and excellence
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8"
-          >
-            {[1, 2, 3, 4, 5, 6].map((index) => (
-              <motion.div
-                key={index}
-                variants={staggerItem}
-                whileHover={{
-                  scale: 1.05,
-                  rotateY: 5,
-                  transition: { duration: 0.3 },
-                }}
-                className="group"
-              >
-                <div className="backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-orange-800/20 to-gray-800/50 border border-orange-500/30 rounded-xl p-6 sm:p-8 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500">
-                  <img
-                    src="/placeholder.svg?height=80&width=200"
-                    alt={`Diamond Sponsor ${index}`}
-                    className="w-full h-16 sm:h-20 object-contain mx-auto filter brightness-90 group-hover:brightness-110 transition-all duration-500"
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section> */}
-
-      {/* Main Sponsors */}
       <section className="py-16 sm:py-24 px-4 bg-black relative">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -292,7 +209,7 @@ export default function Partners() {
             className="grid md:grid-cols-3 gap-8 sm:gap-12"
           >
             {/* First 3 sponsors - actual logos */}
-            {[1, 2, 3].map((index) => (
+            {mainSponsors?.map((logo, index) => (
               <motion.div
                 key={`main-${index}`}
                 variants={staggerItem}
@@ -302,11 +219,11 @@ export default function Partners() {
                 }}
                 className="group"
               >
-                <div className="bg-white/5 backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center hover:bg-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20">
+                <div className=" backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center  transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 flex items-center justify-center min-h-[200px]">
                   <img
-                    src={`/sponsors/main-${index}.png`}
-                    alt={`Main Sponsor ${index}`}
-                    className="w-full h-24 sm:h-32 object-contain mx-auto filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-500"
+                    src={`${backend_domain_name}/storage/${logo.logo}`}
+                    alt={`MindHack 2025 ${logo.logo}`}
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               </motion.div>
@@ -393,22 +310,21 @@ export default function Partners() {
             viewport={{ once: true, margin: "-50px" }}
             className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8"
           >
-            {[1, 2, 3].map((index) => (
+            {diamondSponsors?.map((logo, index) => (
               <motion.div
-                key={`diamond-${index}`}
+                key={`main-${index}`}
                 variants={staggerItem}
                 whileHover={{
                   scale: 1.05,
-                  rotateY: 5,
                   transition: { duration: 0.3 },
                 }}
                 className="group"
               >
-                <div className="backdrop-blur-xl bg-gradient-to-br from-gray-800/50 via-orange-800/20 to-gray-800/50 border border-orange-500/30 rounded-xl p-6 sm:p-8 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500">
+                <div className=" backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center  transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 flex items-center justify-center min-h-[200px]">
                   <img
-                    src={`/sponsors/diamond-${index}.png`}
-                    alt={`Diamond Sponsor ${index}`}
-                    className="w-full h-16 sm:h-20 object-contain mx-auto filter brightness-90 group-hover:brightness-110 transition-all duration-500"
+                    src={`${backend_domain_name}/storage/${logo.logo}`}
+                    alt={`MindHack 2025 ${logo.logo}`}
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               </motion.div>
@@ -709,9 +625,9 @@ export default function Partners() {
             viewport={{ once: true, margin: "-50px" }}
             className="grid md:grid-cols-3 gap-8 sm:gap-12"
           >
-            {[1, 2, 3].map((index) => (
+            {prevSponsors?.map((logo, index) => (
               <motion.div
-                key={index}
+                key={`main-${index}`}
                 variants={staggerItem}
                 whileHover={{
                   scale: 1.05,
@@ -719,11 +635,11 @@ export default function Partners() {
                 }}
                 className="group"
               >
-                <div className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500">
+                <div className=" backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center  transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 flex items-center justify-center min-h-[200px]">
                   <img
-                    src="/placeholder.svg?height=100&width=250"
-                    alt={`Previous Sponsor ${index}`}
-                    className="w-full h-20 sm:h-24 object-contain mx-auto filter brightness-90 group-hover:brightness-110 transition-all duration-500"
+                    src={`${backend_domain_name}/storage/${logo.logo}`}
+                    alt={`MindHack 2025 ${logo.logo}`}
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               </motion.div>

@@ -886,7 +886,7 @@ export default function MindHack2025() {
                     {/* Google Maps Static Image */}
                     <img
                       src="./map.png"
-                      alt="Event Location Map"
+                      alt="Event Location Map MindHack 2025 "
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     {/* Fallback content */}

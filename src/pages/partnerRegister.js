@@ -11,8 +11,10 @@ import {
   FaUsers,
   FaFacebook,
 } from "react-icons/fa";
+import axios from "axios";
 
 export default function PartnerRegistration() {
+  const backend_domain_name = "http://127.0.0.1:8000";
   const [formData, setFormData] = useState({
     organizationName: "",
     contactName: "",
@@ -58,14 +60,69 @@ export default function PartnerRegistration() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    if (!validateForm()) return;
+      if (!validateForm()) return;
 
-    setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+      setIsSubmitting(true);
+
+      // Prepare data for submission
+      console.log(formData);
+      // return;
+      const submitData = {
+        name: formData.organizationName,
+        email: formData.email.trim().toLowerCase(),
+        phone: formData.phone.trim(),
+        contact_person_name: formData.contactName,
+        fbLink: formData.socialMedia,
+        // password: formData.password,
+      };
+
+      // Make API call
+      console.log(submitData);
+      const response = await axios.post(
+        `${backend_domain_name}/api/partnerRegister`,
+        submitData
+      );
+      console.log(response);
+      // Check if response is successful
+      if (response.status === 200 || response.status === 201) {
+        setIsSuccess(true);
+      }
+    } catch (error) {
+      let errorMessage = "An unexpected error occurred. Please try again.";
+
+      if (error.response) {
+        // Server responded with error status
+        if (error.response.status === 400) {
+          errorMessage =
+            error.response.data?.message ||
+            "Please check your input and try again.";
+        } else if (error.response.status === 409) {
+          errorMessage =
+            "An account with this email or phone number already exists. Please use a different email and phone or try logging in.";
+        } else if (error.response.status === 422) {
+          errorMessage =
+            "An account with this email or phone number already exists. Please use a different email and phone or try logging in.";
+        } else if (error.response.status === 429) {
+          errorMessage =
+            "Too many registration attempts. Please wait a moment and try again.";
+        } else if (error.response.status >= 500) {
+          errorMessage = "Server error. Please try again later.";
+        } else if (error.response.data?.message) {
+          errorMessage = error.response.data.message;
+        }
+      } else if (error.request) {
+        // Network error
+        errorMessage =
+          "Network error. Please check your connection and try again.";
+      } else if (error.code === "ECONNABORTED") {
+        errorMessage = "Request timeout. Please try again.";
+      }
+      alert(errorMessage);
+    }
     setIsSubmitting(false);
-    setIsSuccess(true);
   };
 
   const handleInputChange = (field, value) => {
@@ -117,12 +174,12 @@ export default function PartnerRegistration() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.6 }}
           >
-            <button
+            {/* <button
               onClick={() => (window.location.href = "/")}
               className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Return to Home
-            </button>
+            </button> */}
           </motion.div>
         </motion.div>
       </div>

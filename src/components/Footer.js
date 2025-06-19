@@ -40,7 +40,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-4 sm:mb-6">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-lg flex items-center justify-center border border-orange-500/20 shadow-lg shadow-orange-500/20">
                 <span className="text-white font-bold text-sm sm:text-base">
-                  <img src="./logo.png" alt="MindHack Logo" />
+                  <img src="./logo.png" alt="MindHack2025 Logo" />
                 </span>
               </div>
               <span className="text-white font-bold text-xl sm:text-2xl">

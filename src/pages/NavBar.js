@@ -17,7 +17,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-20 h-18 flex items-center justify-center">
-              <img src="./logo.png" alt="MindHack Logo" />
+              <img src="./logo.png" alt="MindHack 2025  Logo" />
             </div>
             <span className="text-orange-400 text-sm font-mono glow-text">
               2025

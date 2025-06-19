@@ -11,8 +11,15 @@ import {
   FaBirthdayCake,
   FaFacebook,
 } from "react-icons/fa";
+import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function ParticipantRegistration() {
+  const backend_domain_name = "http://127.0.0.1:8000";
+  const navigate = useNavigate();
+  const toHome = () => {
+    navigate("/");
+  };
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -64,14 +71,68 @@ export default function ParticipantRegistration() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    if (!validateForm()) return;
+      if (!validateForm()) return;
 
-    setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+      setIsSubmitting(true);
+
+      // Prepare data for submission
+      console.log(formData);
+      // return;
+      const submitData = {
+        name: formData.name,
+        email: formData.email.trim().toLowerCase(),
+        phone: formData.phone.trim(),
+        age: formData.age,
+        fbLink: formData.socialMedia,
+      };
+
+      // Make API call
+      console.log(submitData);
+      const response = await axios.post(
+        `${backend_domain_name}/api/register`,
+        submitData
+      );
+      console.log(response);
+      // Check if response is successful
+      if (response.status === 200 || response.status === 201) {
+        setIsSuccess(true);
+      }
+    } catch (error) {
+      let errorMessage = "An unexpected error occurred. Please try again.";
+
+      if (error.response) {
+        // Server responded with error status
+        if (error.response.status === 400) {
+          errorMessage =
+            error.response.data?.message ||
+            "Please check your input and try again.";
+        } else if (error.response.status === 409) {
+          errorMessage =
+            "An account with this email or phone number already exists. Please use a different email and phone or try logging in.";
+        } else if (error.response.status === 422) {
+          errorMessage =
+            "An account with this email or phone number already exists. Please use a different email and phone or try logging in.";
+        } else if (error.response.status === 429) {
+          errorMessage =
+            "Too many registration attempts. Please wait a moment and try again.";
+        } else if (error.response.status >= 500) {
+          errorMessage = "Server error. Please try again later.";
+        } else if (error.response.data?.message) {
+          errorMessage = error.response.data.message;
+        }
+      } else if (error.request) {
+        // Network error
+        errorMessage =
+          "Network error. Please check your connection and try again.";
+      } else if (error.code === "ECONNABORTED") {
+        errorMessage = "Request timeout. Please try again.";
+      }
+      alert(errorMessage);
+    }
     setIsSubmitting(false);
-    setIsSuccess(true);
   };
 
   const handleInputChange = (field, value) => {
@@ -123,12 +184,14 @@ export default function ParticipantRegistration() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.6 }}
           >
-            <button
-              onClick={() => (window.location.href = "/")}
+            {/* <button
+              onClick={() => {
+                toHome();
+              }}
               className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Return to Home
-            </button>
+            </button> */}
           </motion.div>
         </motion.div>
       </div>
@@ -180,6 +243,7 @@ export default function ParticipantRegistration() {
                   <span>Full Name *</span>
                 </label>
                 <input
+                  required
                   id="name"
                   type="text"
                   value={formData.name}
@@ -203,6 +267,7 @@ export default function ParticipantRegistration() {
                   <span>Email Address *</span>
                 </label>
                 <input
+                  required
                   id="email"
                   type="email"
                   value={formData.email}
@@ -228,6 +293,7 @@ export default function ParticipantRegistration() {
                   <span>Phone Number *</span>
                 </label>
                 <input
+                  required
                   id="phone"
                   type="tel"
                   value={formData.phone}
@@ -252,6 +318,7 @@ export default function ParticipantRegistration() {
                 </label>
                 <input
                   id="age"
+                  required
                   type="number"
                   value={formData.age}
                   onChange={(e) => handleInputChange("age", e.target.value)}
@@ -279,6 +346,7 @@ export default function ParticipantRegistration() {
               <input
                 id="socialMedia"
                 type="url"
+                required
                 value={formData.socialMedia}
                 onChange={(e) =>
                   handleInputChange("socialMedia", e.target.value)
