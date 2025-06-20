@@ -13,7 +13,9 @@ import {
 import axios from "axios";
 
 export default function Partners() {
-  const backend_domain_name = "http://127.0.0.1:8000";
+  const [loading, setLoading] = useState(false);
+  const backend_domain_name =
+    "https://www.mindhack-admin.z256600-ll9lz.ps02.zwhhosting.com";
   const reduxSponsors = useSelector((store) => store.sponsors);
   const [mainSponsors, setMainSponsors] = useState(reduxSponsors.mainSponsors);
 
@@ -71,6 +73,7 @@ export default function Partners() {
   const dispatch = useDispatch();
   const fetchData = async () => {
     try {
+      setLoading(true);
       const response = await axios.get(`${backend_domain_name}/api/sponsors`);
 
       if (response.status == 200) {
@@ -85,8 +88,10 @@ export default function Partners() {
       } else {
         console.log("error");
       }
+      setLoading(false);
     } catch (error) {
       console.error("Error in fetchApi:", error);
+      setLoading(false);
     }
   };
   useEffect(() => {
@@ -185,13 +190,7 @@ export default function Partners() {
       {/* Main Sponsors */}
       <section className="py-16 sm:py-24 px-4 bg-black relative">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center mb-12"
-          >
+          <div className="text-center mb-12">
             <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
               Main{" "}
               <span className="text-orange-400 glow-text-orange">Sponsors</span>
@@ -199,101 +198,107 @@ export default function Partners() {
             <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
               Our premier partners who make MindHack 2025 possible
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="grid md:grid-cols-3 gap-8 sm:gap-12"
-          >
-            {/* First 3 sponsors - actual logos */}
-            {mainSponsors?.map((logo, index) => (
-              <motion.div
-                key={`main-${index}`}
-                variants={staggerItem}
-                whileHover={{
-                  scale: 1.05,
-                  transition: { duration: 0.3 },
-                }}
-                className="group"
-              >
-                <div className=" backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center  transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 flex items-center justify-center min-h-[200px]">
-                  <img
-                    src={`${backend_domain_name}/storage/${logo.logo}`}
-                    alt={`MindHack 2025 ${logo.logo}`}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-              </motion.div>
-            ))}
-
-            {/* Next 3 sponsors - available spots */}
-            {[4, 5, 6].map((index) => (
-              <motion.div
-                key={`available-main-${index}`}
-                variants={staggerItem}
-                whileHover={{
-                  scale: 1.05,
-                  transition: { duration: 0.3 },
-                }}
-                className="group"
-              >
-                <div className="bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border-2 border-dashed border-orange-400/50 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 flex flex-col items-center justify-center min-h-[200px]">
-                  <div className="w-16 h-16 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-orange-400/30">
-                    <FaHandshake className="h-8 w-8 text-orange-400" />
+          <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
+            {loading && mainSponsors.length < 1 ? (
+              // Loading state
+              Array.from({ length: 3 }).map((_, index) => (
+                <div key={`loading-${index}`} className="group">
+                  <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center min-h-[200px] flex items-center justify-center">
+                    <div className="animate-pulse bg-gray-800 w-full h-full rounded-lg"></div>
                   </div>
-                  <h3 className="text-xl font-bold text-orange-400 mb-2">
-                    Available
-                  </h3>
-                  <p className="text-white/70 text-sm">Your Business Here</p>
-                  <button className="mt-4 px-4 py-2 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded-lg border border-orange-400/50 transition-all">
-                    Become a Sponsor
-                  </button>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))
+            ) : mainSponsors?.length > 0 ? (
+              // Render actual sponsors + available spots
+              <>
+                {mainSponsors.map((logo, index) => (
+                  <div
+                    key={`main-${index}`}
+                    className="group hover:scale-105 transition-transform duration-300"
+                  >
+                    <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 flex items-center justify-center min-h-[200px] bg-white/5">
+                      <img
+                        src={`${backend_domain_name}/public/storage/${logo.logo}`}
+                        alt={`MindHack 2025 ${logo.name || logo.logo}`}
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        style={{
+                          filter: logo.hasDarkBackground ? "invert(1)" : "none",
+                          maxHeight: "100px", // Ensures consistent logo sizing
+                        }}
+                      />
+                    </div>
+                    {logo.name && (
+                      <p className="mt-3 text-center text-white/80 text-sm">
+                        {logo.name}
+                      </p>
+                    )}
+                  </div>
+                ))}
+
+                {/* Show available spots if there are less than 3 sponsors */}
+                {Array.from({
+                  length: Math.max(0, 3 - mainSponsors.length),
+                }).map((_, index) => (
+                  <div
+                    key={`available-main-${index}`}
+                    className="group hover:scale-105 transition-transform duration-300"
+                  >
+                    <div className="bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border-2 border-dashed border-orange-400/50 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 flex flex-col items-center justify-center min-h-[200px]">
+                      <div className="w-16 h-16 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-orange-400/30">
+                        <FaHandshake className="h-8 w-8 text-orange-400" />
+                      </div>
+                      <h3 className="text-xl font-bold text-orange-400 mb-2">
+                        Available
+                      </h3>
+                      <p className="text-white/70 text-sm">
+                        Your Business Here
+                      </p>
+                      <button className="mt-4 px-4 py-2 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded-lg border border-orange-400/50 transition-all">
+                        Become a Sponsor
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </>
+            ) : (
+              // Show all available spots if no sponsors
+              Array.from({ length: 3 }).map((_, index) => (
+                <div
+                  key={`available-main-${index}`}
+                  className="group hover:scale-105 transition-transform duration-300"
+                >
+                  <div className="bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border-2 border-dashed border-orange-400/50 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 flex flex-col items-center justify-center min-h-[200px]">
+                    <div className="w-16 h-16 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-orange-400/30">
+                      <FaHandshake className="h-8 w-8 text-orange-400" />
+                    </div>
+                    <h3 className="text-xl font-bold text-orange-400 mb-2">
+                      Available
+                    </h3>
+                    <p className="text-white/70 text-sm">Your Business Here</p>
+                    <button className="mt-4 px-4 py-2 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded-lg border border-orange-400/50 transition-all">
+                      Become a Sponsor
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
         </div>
       </section>
 
       {/* Diamond Sponsors */}
       <section className="py-16 sm:py-24 px-4 relative overflow-hidden">
-        {/* Glass-like gradient background with orange glow */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/60 via-orange-900/30 to-gray-900/60 backdrop-blur-xl"></div>
         <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 2, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/20 blur-3xl animate-pulse"
-          />
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 2, delay: 0.3, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-amber-500/15 blur-3xl animate-pulse delay-1000"
-          />
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 2, delay: 0.6, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="absolute top-1/2 right-1/4 w-48 h-48 rounded-full bg-orange-400/10 blur-2xl animate-pulse delay-500"
-          />
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/20 blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-amber-500/15 blur-3xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 right-1/4 w-48 h-48 rounded-full bg-orange-400/10 blur-2xl animate-pulse delay-500" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center mb-12"
-          >
+          <div className="text-center mb-12">
             <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
               Diamond{" "}
               <span className="text-orange-400 glow-text-orange">Sponsors</span>
@@ -301,62 +306,78 @@ export default function Partners() {
             <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
               Prestigious partners supporting innovation and excellence
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8"
-          >
-            {diamondSponsors?.map((logo, index) => (
-              <motion.div
-                key={`main-${index}`}
-                variants={staggerItem}
-                whileHover={{
-                  scale: 1.05,
-                  transition: { duration: 0.3 },
-                }}
-                className="group"
-              >
-                <div className=" backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center  transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 flex items-center justify-center min-h-[200px]">
-                  <img
-                    src={`${backend_domain_name}/storage/${logo.logo}`}
-                    alt={`MindHack 2025 ${logo.logo}`}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-              </motion.div>
-            ))}
-
-            {/* Next 6 sponsors - available spots */}
-            {[4, 5, 6].map((index) => (
-              <motion.div
-                key={`available-diamond-${index}`}
-                variants={staggerItem}
-                whileHover={{
-                  scale: 1.05,
-                  rotateY: 5,
-                  transition: { duration: 0.3 },
-                }}
-                className="group"
-              >
-                <div className="backdrop-blur-xl bg-gradient-to-br from-gray-800/20 via-orange-800/10 to-gray-800/20 border-2 border-dashed border-orange-400/40 rounded-xl p-6 sm:p-8 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 flex flex-col items-center justify-center min-h-[160px]">
-                  <div className="w-12 h-12 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3 border border-orange-400/30">
-                    <FaRocket className="h-5 w-5 text-orange-400" />
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+            {loading & (diamondSponsors.length < 1)
+              ? // Loading state
+                Array.from({ length: 3 }).map((_, index) => (
+                  <div key={`loading-${index}`} className="group">
+                    <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center min-h-[200px] flex items-center justify-center">
+                      <div className="animate-pulse bg-gray-700/50 w-full h-full rounded-lg"></div>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold text-orange-400 mb-1">
-                    Available For Your Business
-                  </h3>
-                  <p className="text-white/70 text-xs mb-2">Your Logo Here</p>
-                  <button className="mt-2 px-3 py-1 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded border border-orange-400/50 transition-all">
-                    Join Now
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                ))
+              : diamondSponsors?.length > 0
+              ? // Actual sponsors
+                diamondSponsors.map((logo, index) => (
+                  <div key={`main-${index}`} className="group">
+                    <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 flex items-center justify-center min-h-[200px] bg-white/10">
+                      <img
+                        src={`${backend_domain_name}/public/storage/${logo.logo}`}
+                        alt={`MindHack 2025 ${logo.logo}`}
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        style={{
+                          filter: logo.hasDarkBackground ? "invert(1)" : "none",
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))
+              : // Empty state - show all available spots
+                Array.from({ length: 6 }).map((_, index) => (
+                  <div key={`available-diamond-${index}`} className="group">
+                    <div className="backdrop-blur-xl bg-gradient-to-br from-gray-800/20 via-orange-800/10 to-gray-800/20 border-2 border-dashed border-orange-400/40 rounded-xl p-6 sm:p-8 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 flex flex-col items-center justify-center min-h-[160px]">
+                      <div className="w-12 h-12 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3 border border-orange-400/30">
+                        <FaRocket className="h-5 w-5 text-orange-400" />
+                      </div>
+                      <h3 className="text-lg font-bold text-orange-400 mb-1">
+                        Available For Your Business
+                      </h3>
+                      <p className="text-white/70 text-xs mb-2">
+                        Your Logo Here
+                      </p>
+                      <button className="mt-2 px-3 py-1 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded border border-orange-400/50 transition-all">
+                        Join Now
+                      </button>
+                    </div>
+                  </div>
+                ))}
+
+            {/* Show available spots if there are some sponsors but not all spots filled */}
+            {diamondSponsors?.length > 0 &&
+              diamondSponsors.length < 6 &&
+              Array.from({ length: 6 - diamondSponsors.length }).map(
+                (_, index) => (
+                  <div key={`available-diamond-${index}`} className="group">
+                    <div className="backdrop-blur-xl bg-gradient-to-br from-gray-800/20 via-orange-800/10 to-gray-800/20 border-2 border-dashed border-orange-400/40 rounded-xl p-6 sm:p-8 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 flex flex-col items-center justify-center min-h-[160px]">
+                      <div className="w-12 h-12 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3 border border-orange-400/30">
+                        <FaRocket className="h-5 w-5 text-orange-400" />
+                      </div>
+                      <h3 className="text-lg font-bold text-orange-400 mb-1">
+                        Available For Your Business
+                      </h3>
+                      <p className="text-white/70 text-xs mb-2">
+                        Your Logo Here
+                      </p>
+                      <button className="mt-2 px-3 py-1 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded border border-orange-400/50 transition-all">
+                        Join Now
+                      </button>
+                    </div>
+                  </div>
+                )
+              )}
+          </div>
         </div>
       </section>
       {/* Sponsor MindHack Section */}
@@ -625,25 +646,49 @@ export default function Partners() {
             viewport={{ once: true, margin: "-50px" }}
             className="grid md:grid-cols-3 gap-8 sm:gap-12"
           >
-            {prevSponsors?.map((logo, index) => (
-              <motion.div
-                key={`main-${index}`}
-                variants={staggerItem}
-                whileHover={{
-                  scale: 1.05,
-                  transition: { duration: 0.3 },
-                }}
-                className="group"
-              >
-                <div className=" backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center  transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 flex items-center justify-center min-h-[200px]">
-                  <img
-                    src={`${backend_domain_name}/storage/${logo.logo}`}
-                    alt={`MindHack 2025 ${logo.logo}`}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-              </motion.div>
-            ))}
+            {loading && prevSponsors.length > 0 ? (
+              // Loading state
+              Array.from({ length: 3 }).map((_, index) => (
+                <motion.div
+                  key={`loading-${index}`}
+                  variants={staggerItem}
+                  className="group"
+                >
+                  <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center transition-all duration-500 min-h-[200px] flex items-center justify-center">
+                    <div className="animate-pulse bg-gray-700/50 w-full h-full rounded-lg"></div>
+                  </div>
+                </motion.div>
+              ))
+            ) : prevSponsors?.length > 0 ? (
+              // Actual sponsors
+              prevSponsors.map((logo, index) => (
+                <motion.div
+                  key={`main-${index}`}
+                  variants={staggerItem}
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.3 },
+                  }}
+                  className="group"
+                >
+                  <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 flex items-center justify-center min-h-[200px] bg-white/10">
+                    <img
+                      src={`${backend_domain_name}/public/storage/${logo.logo}`}
+                      alt={`MindHack 2025 ${logo.logo}`}
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                      style={{
+                        filter: logo.hasDarkBackground ? "invert(1)" : "none",
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              ))
+            ) : (
+              // Empty state
+              <div className="col-span-3 text-center py-12 text-gray-400">
+                No sponsors available
+              </div>
+            )}
           </motion.div>
         </div>
       </section>

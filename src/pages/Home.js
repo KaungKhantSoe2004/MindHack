@@ -19,6 +19,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { Helmet } from "react-helmet";
+
 import {
   setReduxDiamondSponsors,
   setReduxMainSponsors,
@@ -79,6 +81,12 @@ export default function Homepage() {
   }, []);
 
   return (
+    // <Helmet>
+    //   <title>MindHack 2025 | Home</title>
+    //   <meta
+    //     name="description"
+    //     content="Welcome to MindHack 2025 – The ultimate innovation hackathon in Myanmar."
+    //   />
     <div className="relative">
       <section className="relative h-screen overflow-hidden">
         {/* Background Images - Seamless Transition */}
@@ -714,5 +722,6 @@ export default function Homepage() {
 
       {/* Footer */}
     </div>
+    // </Helmet>
   );
 }

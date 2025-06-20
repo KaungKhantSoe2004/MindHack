@@ -26,7 +26,8 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 export default function FAQ() {
-  const backend_domain_name = "http://127.0.0.1:8000";
+  const backend_domain_name =
+    "https://www.mindhack-admin.z256600-ll9lz.ps02.zwhhosting.com";
   const [activeCategory, setActiveCategory] = useState("");
   const [openFAQ, setOpenFAQ] = useState(null);
   const reduxFaqs = useSelector((store) => store.faqs);

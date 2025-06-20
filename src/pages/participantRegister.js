@@ -15,7 +15,8 @@ import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 
 export default function ParticipantRegistration() {
-  const backend_domain_name = "http://127.0.0.1:8000";
+  const backend_domain_name =
+    "https://www.mindhack-admin.z256600-ll9lz.ps02.zwhhosting.com";
   const navigate = useNavigate();
   const toHome = () => {
     navigate("/");
