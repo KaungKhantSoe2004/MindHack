@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronRight, FaBars, FaTimes } from "react-icons/fa";
@@ -9,6 +9,9 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top-left
+  }, [location]);
   const isActive = (path) => location.pathname === path;
 
   return (
