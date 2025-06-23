@@ -150,7 +150,7 @@ export default function Partners() {
             whileInView={{ scale: 1 }}
             transition={{ duration: 1.5 }}
             viewport={{ once: true }}
-            src="./3.JPG"
+            src="3h.JPG"
             alt="Partnership background"
             className="w-full h-full object-cover object-center"
           />
@@ -620,6 +620,77 @@ export default function Partners() {
         </div>
       </section>
 
+      <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
+              Our Partner{" "}
+              <span className="text-orange-400 glow-text-orange">Schools</span>
+            </h2>
+            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
+              Trusted partners who have supported MindHack's journey
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid md:grid-cols-3 gap-8 sm:gap-12"
+          >
+            {loading && prevSponsors.length > 0 ? (
+              // Loading state
+              Array.from({ length: 3 }).map((_, index) => (
+                <motion.div
+                  key={`loading-${index}`}
+                  variants={staggerItem}
+                  className="group"
+                >
+                  <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center transition-all duration-500 min-h-[200px] flex items-center justify-center">
+                    <div className="animate-pulse bg-gray-700/50 w-full h-full rounded-lg"></div>
+                  </div>
+                </motion.div>
+              ))
+            ) : prevSponsors?.length > 0 ? (
+              // Actual sponsors
+              prevSponsors.map((logo, index) => (
+                <motion.div
+                  key={`main-${index}`}
+                  variants={staggerItem}
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.3 },
+                  }}
+                  className="group"
+                >
+                  <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 flex items-center justify-center min-h-[200px] bg-white/10">
+                    <img
+                      src={`${backend_domain_name}/public/storage/${logo.logo}`}
+                      alt={`MindHack 2025 ${logo.logo}`}
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                      style={{
+                        filter: logo.hasDarkBackground ? "invert(1)" : "none",
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              ))
+            ) : (
+              // Empty state
+              <div className="col-span-3 text-center py-12 text-gray-400">
+                No sponsors available
+              </div>
+            )}
+          </motion.div>
+        </div>
+      </section>
       {/* Previous Sponsors */}
       <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 relative">
         <div className="max-w-7xl mx-auto">
