@@ -206,7 +206,12 @@ export default function MindHack2025() {
               viewport={{ once: true }}
               className="text-white/80 text-xl max-w-3xl mx-auto font-light"
             >
-              Celebrating excellence with $10,000 in total prizes
+              Celebrating excellence with{" "}
+              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">
+                $10,000
+                <span className="absolute inset-0 blur-md bg-gradient-to-r from-orange-400 to-amber-400 opacity-40 rounded-full z-[-1]" />
+              </span>{" "}
+              in prizes
             </motion.p>
           </div>
 
@@ -277,18 +282,6 @@ export default function MindHack2025() {
 
                   {/* Card content */}
                   <div className="relative z-10 h-full flex flex-col p-6">
-                    {/* Prize Amount at the Top */}
-                    <div className="mb-4 text-center">
-                      <div
-                        className={`text-3xl font-bold bg-gradient-to-r ${award.color} bg-clip-text text-transparent`}
-                      >
-                        $10,000
-                      </div>
-                      <p className="text-xs text-white/60 mt-1">
-                        Total Prize Pool
-                      </p>
-                    </div>
-
                     {/* Header */}
                     <div className="mb-6">
                       <h3 className="text-2xl font-bold text-white mb-1">
