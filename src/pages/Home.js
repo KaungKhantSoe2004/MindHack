@@ -121,11 +121,11 @@ export default function Homepage() {
             className="text-center sm:text-left px-4 sm:px-0 sm:bottom-12 sm:left-12 max-w-3xl w-full sm:absolute sm:inset-auto"
           >
             <div className="flex items-center justify-center sm:justify-start space-x-2 sm:space-x-3 mb-3 sm:mb-4">
-              <div className="w-4 sm:w-6 h-0.5 bg-orange-400 hidden sm:block" />
-              <span className="text-orange-400 font-mono text-xs sm:text-sm uppercase tracking-wider glow-text px-3 py-1 bg-orange-400/10 rounded-full sm:bg-transparent sm:px-0 sm:py-0">
-                Technical Competition
+              <div className="w-4 sm:w-6 h-0.5 bg-blue-400 hidden sm:block" />
+              <span className="text-blue-700 font-mono text-xs sm:text-sm uppercase tracking-wider glow-text px-3 py-1 bg-orange-400/10 rounded-full sm:bg-transparent sm:px-0 sm:py-0">
+                International Coding Tournament
               </span>
-              <div className="w-4 sm:w-6 h-0.5 bg-orange-400 hidden sm:block" />
+              <div className="w-4 sm:w-6 h-0.5 bg-blue-400 hidden sm:block" />
             </div>
             <h1 className="text-3xl xs:text-4xl sm:text-4xl md:text-6xl font-bold text-white mb-3 sm:mb-4 glow-text-strong leading-tight">
               MindHack{" "}
@@ -139,10 +139,7 @@ export default function Homepage() {
             <p className="text-sm xs:text-base sm:text-lg text-white/90 mb-6 sm:mb-8 leading-relaxed max-w-lg sm:max-w-2xl mx-auto sm:mx-0">
               Master the future of technology through{" "}
               <span className="text-orange-400 font-semibold">3D Design</span>,
-              <span className="text-amber-400 font-semibold">
-                {" "}
-                Scratch Programming
-              </span>
+              <span className="text-amber-400 font-semibold"> Programming</span>
               , and
               <span className="text-orange-400 font-semibold">
                 {" "}
@@ -164,19 +161,19 @@ export default function Homepage() {
         </div>
 
         {/* Image indicators */}
-        <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10">
+        <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3 z-10">
           {heroImages.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentImageIndex(index)}
-              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 touch-manipulation min-h-[32px] min-w-[32px] sm:min-h-0 sm:min-w-0 flex items-center justify-center ${
+              className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 touch-manipulation min-h-[20px] min-w-[20px] sm:min-h-0 sm:min-w-0 flex items-center justify-center ${
                 index === currentImageIndex
-                  ? "bg-orange-400 scale-125 glow-dot"
-                  : "bg-white/50 hover:bg-orange-400/70"
+                  ? "bg-orange-400 scale-110 glow-dot"
+                  : "bg-white/40 hover:bg-orange-400/60"
               }`}
             >
               <div
-                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${
+                className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${
                   index === currentImageIndex ? "bg-orange-400" : "bg-white/50"
                 }`}
               />
@@ -233,7 +230,7 @@ export default function Homepage() {
               Connect, MindHack unites creators, mentors, and visionaries,
               sparking lifelong collaborations. From online Theme Camps to the
               dazzling grand finale at Wyndham Grand Yangon Hotel on August 17,
-              2025, CIY Club empowers you to shape the future.
+              2025, CIY.CLUB Myanmar empowers you to shape the future.
             </motion.p>
           </div>
 
@@ -279,7 +276,7 @@ export default function Homepage() {
               },
               {
                 icon: FaCode,
-                title: "Scratch Coding",
+                title: " Coding",
                 desc: "Develop groundbreaking software to safeguard and celebrate traditions at MindHack 2025!",
                 gradient: "from-amber-500/20 to-yellow-500/20",
                 iconColor: "text-amber-400",
