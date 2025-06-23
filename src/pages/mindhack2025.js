@@ -179,20 +179,21 @@ export default function MindHack2025() {
       {/* Awards Section - Using Reference Image */}
       {/* Awards Section - Using Reference Image */}
       <section className="py-28 px-4 relative overflow-hidden bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
-        {/* Subtle animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Background Blurs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/5 blur-3xl animate-pulse" />
           <div className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-amber-500/5 blur-3xl animate-pulse delay-1000" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-30">
-          <div className="text-center mb-20">
+          {/* Section Header */}
+          <div className="text-center mb-12">
             <motion.h2
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-6xl font-bold text-white mb-6"
+              className="text-5xl md:text-6xl font-bold text-white mb-4"
             >
               Competition{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">
@@ -206,14 +207,24 @@ export default function MindHack2025() {
               viewport={{ once: true }}
               className="text-white/80 text-xl max-w-3xl mx-auto font-light"
             >
-              Celebrating excellence with{" "}
-              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">
-                $10,000
-                <span className="absolute inset-0 blur-md bg-gradient-to-r from-orange-400 to-amber-400 opacity-40 rounded-full z-[-1]" />
-              </span>{" "}
-              in prizes
+              Celebrating excellence across all age groups with incredible
+              prizes.
             </motion.p>
           </div>
+
+          {/* Glowing $10,000 Highlight */}
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <h1 className="relative inline-block text-6xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400 animate-pulse">
+              $10,000
+              <span className="absolute inset-0 blur-2xl bg-gradient-to-r from-orange-400 to-amber-400 opacity-40 rounded-full z-[-1]" />
+            </h1>
+          </motion.div>
 
           {/* Award Cards Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -294,7 +305,7 @@ export default function MindHack2025() {
                       </p>
                     </div>
 
-                    {/* Medal/Centerpiece */}
+                    {/* Center Icon */}
                     <div className="flex-1 flex flex-col items-center justify-center mb-8">
                       <div
                         className={`relative mb-6 w-28 h-28 rounded-full flex items-center justify-center bg-gradient-to-br ${award.color} shadow-lg`}
@@ -325,45 +336,6 @@ export default function MindHack2025() {
               </motion.div>
             ))}
           </div>
-
-          {/* Total Prize Pool */}
-          <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="mt-20"
-          >
-            <div className="relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 rounded-2xl p-10 max-w-4xl mx-auto border border-orange-500/20 overflow-hidden text-center">
-              {/* Glowing circles */}
-              <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-orange-500/5 blur-3xl" />
-              <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-amber-500/5 blur-3xl" />
-
-              <div className="relative z-10">
-                {/* Glowing Total Prize */}
-                <h3 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-                  Total Awards:{" "}
-                  <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400 animate-pulse">
-                    $10,000
-                    <span className="absolute inset-0 blur-md bg-gradient-to-r from-orange-400 to-amber-400 opacity-40 animate-pulse rounded-full z-[-1]" />
-                  </span>
-                </h3>
-
-                <p className="text-white/80 text-lg max-w-2xl mx-auto font-light">
-                  Distributed across all age groups to recognize excellence in
-                  3D Design, Programming, and Electronics & Robotics.
-                </p>
-                <div className="mt-6 flex justify-center gap-4">
-                  <div className="px-4 py-2 bg-orange-500/10 border border-orange-500/20 rounded-full text-orange-400 text-sm font-medium">
-                    3 Age Categories
-                  </div>
-                  <div className="px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-sm font-medium">
-                    4 Competition Tracks
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
