@@ -297,8 +297,8 @@ export default function MindHack2023() {
       <section className="relative min-h-[80vh] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="./1.JPG"
-            alt="Join MindHack background"
+            src="./1h.jpg"
+            alt="Join MindHack 2025  background"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-orange-950/40 sm:from-gray-900 sm:to-orange-950/30" />
