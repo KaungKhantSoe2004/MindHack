@@ -19,8 +19,6 @@ import {
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { Helmet } from "react-helmet";
-
 import {
   setReduxDiamondSponsors,
   setReduxMainSponsors,
@@ -38,7 +36,8 @@ const heroImages = [
 ];
 
 export default function Homepage() {
-  const backend_domain_name = "http://127.0.0.1:8000";
+  const backend_domain_name =
+    "https://www.mindhack-admin.z256600-ll9lz.ps02.zwhhosting.com";
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const toRegister = () => {
@@ -81,12 +80,6 @@ export default function Homepage() {
   }, []);
 
   return (
-    // <Helmet>
-    //   <title>MindHack 2025 | Home</title>
-    //   <meta
-    //     name="description"
-    //     content="Welcome to MindHack 2025 – The ultimate innovation hackathon in Myanmar."
-    //   />
     <div className="relative">
       <section className="relative h-screen overflow-hidden">
         {/* Background Images - Seamless Transition */}
@@ -441,7 +434,7 @@ export default function Homepage() {
             {[
               {
                 phase: "Registration",
-                date: "March 1, 2025",
+                date: "March 15, 2025",
                 time: "9:00 AM",
                 icon: FaUsers,
                 color: "text-orange-300",
@@ -451,7 +444,7 @@ export default function Homepage() {
               },
               {
                 phase: "On Boarding",
-                date: "March 10, 2025",
+                date: "June 10 - 11, 2025",
                 time: "10:00 AM",
                 icon: FaBook,
                 color: "text-orange-400",
@@ -461,7 +454,7 @@ export default function Homepage() {
               },
               {
                 phase: "First Stage",
-                date: "March 20, 2025",
+                date: "July 7, 2025",
                 time: "9:00 AM",
                 icon: FaRocket,
                 color: "text-amber-400",
@@ -471,7 +464,7 @@ export default function Homepage() {
               },
               {
                 phase: "Finalist Announcement",
-                date: "March 21, 2025",
+                date: "July 15, 2025",
                 time: "6:00 PM",
                 icon: FaBullseye,
                 color: "text-yellow-400",
@@ -481,7 +474,7 @@ export default function Homepage() {
               },
               {
                 phase: "Second Stage Final",
-                date: "March 22, 2025",
+                date: "August 17(Wyndham Grand Yangon Hotel), 2025",
                 time: "9:00 AM",
                 icon: FaTrophy,
                 color: "text-orange-400",
@@ -630,7 +623,7 @@ export default function Homepage() {
             <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 text-white/60 max-w-md sm:max-w-2xl mx-auto">
               <div className="text-center">
                 <div className="text-xl xs:text-2xl sm:text-3xl font-bold text-orange-400 mb-1 sm:mb-2 glow-text">
-                  500+
+                  300+
                 </div>
                 <div className="text-xs sm:text-sm uppercase tracking-wider">
                   Participants
@@ -690,14 +683,14 @@ export default function Homepage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-6">
             {[
-              "./1.JPG",
-              "./2.JPG",
-              "./3.JPG",
-              "./4.JPG",
-              "./5.JPG",
-              "./6.JPG",
-              "./7.JPG",
-              "./8.JPG",
+              "./1h.JPG",
+              "./2h.JPG",
+              "./3h.JPG",
+              "./4h.JPG",
+              "./5h.JPG",
+              "./6h.JPG",
+              "./7h.JPG",
+              "./8h.JPG",
             ].map((img, index) => (
               <motion.div
                 key={index}
@@ -710,7 +703,7 @@ export default function Homepage() {
                 <div className="relative overflow-hidden rounded-lg sm:rounded-2xl backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 hover:bg-gradient-to-br hover:from-gray-800/50 hover:via-orange-800/30 hover:to-gray-800/50 transition-all duration-500 group-hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
                   <img
                     src={img || "/placeholder.svg"}
-                    alt={`kgroun highlight ${index + 1} `}
+                    alt={`MindHack 2025 highlight ${index + 1} `}
                     className="w-full h-32 xs:h-40 sm:h-48 md:h-64 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
@@ -722,6 +715,5 @@ export default function Homepage() {
 
       {/* Footer */}
     </div>
-    // </Helmet>
   );
 }

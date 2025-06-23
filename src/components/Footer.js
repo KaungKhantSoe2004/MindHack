@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaFacebook,
   FaTwitter,
@@ -10,6 +10,10 @@ import {
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 const Footer = () => {
+  const navigate = useNavigate();
+  const toContact = () => {
+    navigate("/faq");
+  };
   const navigation = [
     { name: "Home", path: "/" },
     { name: "Events", path: "/events" },
@@ -51,20 +55,23 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-white/70 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-              The premier technical competition for 3D Design, Scratch
-              Programming, and Robotics. Where innovation meets ancient wisdom
-              through cutting-edge technology.
+              The premier technical competition for 3D Design, Programming, and
+              Robotics. Where innovation meets ancient wisdom through
+              cutting-edge technology.
             </p>
             <div className="flex space-x-3 sm:space-x-4">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800/50 backdrop-blur-sm border border-orange-500/20 rounded-full flex items-center justify-center hover:bg-orange-500/10 transition-colors cursor-pointer hover:shadow-lg hover:shadow-orange-500/20 touch-manipulation">
+              <a
+                href="https://www.facebook.com/mindhackmyanmar"
+                className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800/50 backdrop-blur-sm border border-orange-500/20 rounded-full flex items-center justify-center hover:bg-orange-500/10 transition-colors cursor-pointer hover:shadow-lg hover:shadow-orange-500/20 touch-manipulation"
+              >
                 <span className="text-orange-400 text-xs sm:text-sm">f</span>
-              </div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800/50 backdrop-blur-sm border border-orange-500/20 rounded-full flex items-center justify-center hover:bg-orange-500/10 transition-colors cursor-pointer hover:shadow-lg hover:shadow-orange-500/20 touch-manipulation">
+              </a>
+              {/* <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800/50 backdrop-blur-sm border border-orange-500/20 rounded-full flex items-center justify-center hover:bg-orange-500/10 transition-colors cursor-pointer hover:shadow-lg hover:shadow-orange-500/20 touch-manipulation">
                 <span className="text-amber-400 text-xs sm:text-sm">t</span>
               </div>
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800/50 backdrop-blur-sm border border-orange-500/20 rounded-full flex items-center justify-center hover:bg-orange-500/10 transition-colors cursor-pointer hover:shadow-lg hover:shadow-orange-500/20 touch-manipulation">
                 <span className="text-yellow-400 text-xs sm:text-sm">in</span>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -75,7 +82,7 @@ const Footer = () => {
             <div className="space-y-2 sm:space-y-3">
               {[
                 "3D Design & Modeling",
-                "Scratch Programming",
+                " Programming",
                 "Electronics & Robotics",
                 "Competition Rules",
               ].map((link) => (
@@ -90,7 +97,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div>
+          {/* <div>
             <h4 className="text-white font-bold text-base sm:text-lg mb-4 sm:mb-6 glow-text-strong">
               Resources
             </h4>
@@ -110,7 +117,7 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-          </div>
+          </div> */}
 
           <div>
             <h4 className="text-white font-bold text-base sm:text-lg mb-4 sm:mb-6 glow-text-strong">
@@ -119,16 +126,22 @@ const Footer = () => {
             <div className="space-y-3 sm:space-y-4">
               <div className="flex items-center space-x-2 sm:space-x-3 text-white/70 text-sm sm:text-base">
                 <FaEnvelope className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 text-orange-400" />
-                <span>tech@mindhack.com</span>
+                <span
+                  onClick={() => {
+                    toContact();
+                  }}
+                >
+                  Mail - Contact Us From Faq Section
+                </span>
               </div>
               <div className="flex items-center space-x-2 sm:space-x-3 text-white/70 text-sm sm:text-base">
                 <FaPhone className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 text-amber-400" />
-                <span>+1 (555) TECH-2025</span>
+                <span>+95 9 890 695258</span>
               </div>
-              <div className="flex items-center space-x-2 sm:space-x-3 text-white/70 text-sm sm:text-base">
+              {/* <div className="flex items-center space-x-2 sm:space-x-3 text-white/70 text-sm sm:text-base">
                 <FaMapMarkedAlt className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 text-yellow-400" />
                 <span>Tech Hub, Innovation District</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </motion.div>
