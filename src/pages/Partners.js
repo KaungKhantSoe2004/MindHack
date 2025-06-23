@@ -2,18 +2,31 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { FaChevronRight, FaHandshake, FaRocket, FaGlobe } from "react-icons/fa";
+import {
+  FaChevronRight,
+  FaHandshake,
+  FaRocket,
+  FaGlobe,
+  FaStore,
+  FaArrowRight,
+} from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setReduxDiamondSponsors,
+  setReduxExhibitorponsors,
   setReduxMainSponsors,
   setReduxPrevSponsors,
   setStoreReduxSponsors,
 } from "../reducer/sponsorSlice";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Partners() {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const toSponsorRegister = () => {
+    navigate("/register/sponsor");
+  };
   const backend_domain_name =
     "https://www.mindhack-admin.z256600-ll9lz.ps02.zwhhosting.com";
   const reduxSponsors = useSelector((store) => store.sponsors);
@@ -23,6 +36,10 @@ export default function Partners() {
   const [diamondSponsors, setDiamondSponsors] = useState(
     reduxSponsors.diamondSponsors
   );
+  const [exhibitorSponsors, setExhibitorSponsors] = useState(
+    reduxSponsors.exhibitorSponsors
+  );
+
   console.log(mainSponsors, diamondSponsors, prevSponsors);
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -82,7 +99,9 @@ export default function Partners() {
         dispatch(setReduxMainSponsors(response.data.mainSponsors));
         dispatch(setReduxDiamondSponsors(response.data.diamondSponsors));
         dispatch(setReduxPrevSponsors(response.data.prevSponsors));
+        dispatch(setReduxExhibitorponsors(response.data.exhibitorSponsors));
         setMainSponsors(response.data.mainSponsors);
+        setExhibitorSponsors(response.data.exhibitorSponsors);
         setDiamondSponsors(response.data.diamondSponsors);
         setPrevSponsors(response.data.prevSponsors);
       } else {
@@ -188,7 +207,7 @@ export default function Partners() {
       </section>
 
       {/* Main Sponsors */}
-      <section className="py-16 sm:py-24 px-4 bg-black relative">
+      {/* <section className="py-16 sm:py-24 px-4 bg-black relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
@@ -202,7 +221,7 @@ export default function Partners() {
 
           <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
             {loading && mainSponsors.length < 1 ? (
-              // Loading state
+        
               Array.from({ length: 3 }).map((_, index) => (
                 <div key={`loading-${index}`} className="group">
                   <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center min-h-[200px] flex items-center justify-center">
@@ -211,7 +230,7 @@ export default function Partners() {
                 </div>
               ))
             ) : mainSponsors?.length > 0 ? (
-              // Render actual sponsors + available spots
+            
               <>
                 {mainSponsors.map((logo, index) => (
                   <div
@@ -225,7 +244,7 @@ export default function Partners() {
                         className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                         style={{
                           filter: logo.hasDarkBackground ? "invert(1)" : "none",
-                          maxHeight: "100px", // Ensures consistent logo sizing
+                          maxHeight: "100px", 
                         }}
                       />
                     </div>
@@ -237,7 +256,7 @@ export default function Partners() {
                   </div>
                 ))}
 
-                {/* Show available spots if there are less than 3 sponsors */}
+               
                 {Array.from({
                   length: Math.max(0, 3 - mainSponsors.length),
                 }).map((_, index) => (
@@ -263,7 +282,7 @@ export default function Partners() {
                 ))}
               </>
             ) : (
-              // Show all available spots if no sponsors
+            
               Array.from({ length: 3 }).map((_, index) => (
                 <div
                   key={`available-main-${index}`}
@@ -283,6 +302,83 @@ export default function Partners() {
                   </div>
                 </div>
               ))
+            )}
+          </div>
+        </div>
+      </section> */}
+      <section className="py-16 sm:py-24 px-4 bg-black relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
+              Main{" "}
+              <span className="text-orange-400 glow-text-orange">Sponsor</span>
+            </h2>
+            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
+              Our premier partner who makes MindHack 2025 possible
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-1 gap-8 sm:gap-12">
+            {loading && mainSponsors.length < 1 ? (
+              // Loading state - single big card
+              <div className="group">
+                <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-12 sm:p-16 text-center min-h-[300px] flex items-center justify-center">
+                  <div className="animate-pulse bg-gray-800 w-full h-full rounded-lg"></div>
+                </div>
+              </div>
+            ) : mainSponsors?.length > 0 ? (
+              // Single main sponsor card
+              <div className="group hover:scale-[1.02] transition-transform duration-300">
+                <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-12 sm:p-16 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 flex flex-col items-center justify-center min-h-[300px] bg-white/5">
+                  {mainSponsors[0].logo && (
+                    <img
+                      src={`${backend_domain_name}/public/storage/${mainSponsors[0].logo}`}
+                      alt={`MindHack 2025 ${
+                        mainSponsors[0].name || mainSponsors[0].logo
+                      }`}
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 mb-6"
+                      style={{
+                        filter: mainSponsors[0].hasDarkBackground
+                          ? "invert(1)"
+                          : "none",
+                        maxHeight: "120px",
+                      }}
+                    />
+                  )}
+                  {mainSponsors[0].name && (
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+                      {mainSponsors[0].name}
+                    </h3>
+                  )}
+                  <p className="text-white/70 text-base max-w-2xl mx-auto">
+                    Our Premier Partner
+                  </p>
+                </div>
+              </div>
+            ) : (
+              // Single big available card if no sponsors
+              <div className="group hover:scale-[1.02] transition-transform duration-300">
+                <div className="bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border-2 border-dashed border-orange-400/50 rounded-2xl p-12 sm:p-16 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 flex flex-col items-center justify-center min-h-[300px]">
+                  <div className="w-20 h-20 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 border border-orange-400/30">
+                    <FaHandshake className="h-10 w-10 text-orange-400" />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-orange-400 mb-3">
+                    Main Sponsor Opportunity Available
+                  </h3>
+                  <p className="text-white/70 text-base max-w-2xl mx-auto">
+                    Be the exclusive main sponsor of MindHack 2025 and get
+                    maximum visibility
+                  </p>
+                  <button
+                    onClick={() => {
+                      toSponsorRegister();
+                    }}
+                    className="mt-6 px-6 py-3 text-sm font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded-lg border border-orange-400/50 transition-all"
+                  >
+                    Become Main Sponsor
+                  </button>
+                </div>
+              </div>
             )}
           </div>
         </div>
@@ -308,19 +404,20 @@ export default function Partners() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-            {loading & (diamondSponsors.length < 1)
-              ? // Loading state
-                Array.from({ length: 3 }).map((_, index) => (
-                  <div key={`loading-${index}`} className="group">
-                    <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center min-h-[200px] flex items-center justify-center">
-                      <div className="animate-pulse bg-gray-700/50 w-full h-full rounded-lg"></div>
-                    </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+            {loading && diamondSponsors.length < 1 ? (
+              // Loading state - show 3 loading cards
+              Array.from({ length: 3 }).map((_, index) => (
+                <div key={`loading-${index}`} className="group">
+                  <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center min-h-[200px] flex items-center justify-center">
+                    <div className="animate-pulse bg-gray-700/50 w-full h-full rounded-lg"></div>
                   </div>
-                ))
-              : diamondSponsors?.length > 0
-              ? // Actual sponsors
-                diamondSponsors.map((logo, index) => (
+                </div>
+              ))
+            ) : diamondSponsors?.length > 0 ? (
+              // Render actual sponsors + available spots
+              <>
+                {diamondSponsors.map((logo, index) => (
                   <div key={`main-${index}`} className="group">
                     <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 flex items-center justify-center min-h-[200px] bg-white/10">
                       <img
@@ -333,51 +430,177 @@ export default function Partners() {
                       />
                     </div>
                   </div>
-                ))
-              : // Empty state - show all available spots
-                Array.from({ length: 6 }).map((_, index) => (
+                ))}
+
+                {/* Show available spots to make total of 3 */}
+                {Array.from({
+                  length: Math.max(0, 3 - diamondSponsors.length),
+                }).map((_, index) => (
                   <div key={`available-diamond-${index}`} className="group">
-                    <div className="backdrop-blur-xl bg-gradient-to-br from-gray-800/20 via-orange-800/10 to-gray-800/20 border-2 border-dashed border-orange-400/40 rounded-xl p-6 sm:p-8 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 flex flex-col items-center justify-center min-h-[160px]">
-                      <div className="w-12 h-12 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3 border border-orange-400/30">
-                        <FaRocket className="h-5 w-5 text-orange-400" />
+                    <div className="backdrop-blur-xl bg-gradient-to-br from-gray-800/20 via-orange-800/10 to-gray-800/20 border-2 border-dashed border-orange-400/40 rounded-2xl p-8 sm:p-10 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 flex flex-col items-center justify-center min-h-[200px]">
+                      <div className="w-14 h-14 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-orange-400/30">
+                        <FaRocket className="h-6 w-6 text-orange-400" />
                       </div>
-                      <h3 className="text-lg font-bold text-orange-400 mb-1">
-                        Available For Your Business
+                      <h3 className="text-lg font-bold text-orange-400 mb-2">
+                        Available
                       </h3>
-                      <p className="text-white/70 text-xs mb-2">
+                      <p className="text-white/70 text-sm mb-3">
                         Your Logo Here
                       </p>
-                      <button className="mt-2 px-3 py-1 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded border border-orange-400/50 transition-all">
-                        Join Now
+                      <button
+                        onClick={() => {
+                          toSponsorRegister();
+                        }}
+                        className="mt-2 px-4 py-2 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded-lg border border-orange-400/50 transition-all"
+                      >
+                        Become a Sponsor
                       </button>
                     </div>
                   </div>
                 ))}
+              </>
+            ) : (
+              // Show 3 available spots if no sponsors
+              Array.from({ length: 3 }).map((_, index) => (
+                <div key={`available-diamond-${index}`} className="group">
+                  <div className="backdrop-blur-xl bg-gradient-to-br from-gray-800/20 via-orange-800/10 to-gray-800/20 border-2 border-dashed border-orange-400/40 rounded-2xl p-8 sm:p-10 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 flex flex-col items-center justify-center min-h-[200px]">
+                    <div className="w-14 h-14 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-orange-400/30">
+                      <FaRocket className="h-6 w-6 text-orange-400" />
+                    </div>
+                    <h3 className="text-lg font-bold text-orange-400 mb-2">
+                      Available
+                    </h3>
+                    <p className="text-white/70 text-sm mb-3">Your Logo Here</p>
+                    <button className="mt-2 px-4 py-2 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded-lg border border-orange-400/50 transition-all">
+                      Become a Sponsor
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </section>
 
-            {/* Show available spots if there are some sponsors but not all spots filled */}
-            {diamondSponsors?.length > 0 &&
-              diamondSponsors.length < 6 &&
-              Array.from({ length: 6 - diamondSponsors.length }).map(
-                (_, index) => (
-                  <div key={`available-diamond-${index}`} className="group">
-                    <div className="backdrop-blur-xl bg-gradient-to-br from-gray-800/20 via-orange-800/10 to-gray-800/20 border-2 border-dashed border-orange-400/40 rounded-xl p-6 sm:p-8 text-center hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300 flex flex-col items-center justify-center min-h-[160px]">
-                      <div className="w-12 h-12 bg-orange-400/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3 border border-orange-400/30">
-                        <FaRocket className="h-5 w-5 text-orange-400" />
-                      </div>
-                      <h3 className="text-lg font-bold text-orange-400 mb-1">
-                        Available For Your Business
-                      </h3>
-                      <p className="text-white/70 text-xs mb-2">
-                        Your Logo Here
+      <section className="py-16 sm:py-24 px-4 bg-black relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-amber-500/5 blur-3xl animate-pulse delay-1000" />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
+              Exhibitor{" "}
+              <span className="text-orange-400 glow-text-orange">Sponsors</span>
+            </h2>
+            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
+              Showcase your brand to our vibrant community of innovators and
+              tech enthusiasts
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+            {loading && exhibitorSponsors.length < 1 ? (
+              // Loading state - 15 skeleton cards
+              Array.from({ length: 15 }).map((_, index) => (
+                <div key={`loading-${index}`} className="aspect-square">
+                  <div className="h-full w-full bg-gray-800/50 rounded-lg animate-pulse border border-gray-700" />
+                </div>
+              ))
+            ) : exhibitorSponsors?.length > 0 ? (
+              // Render actual sponsors + available spots
+              <>
+                {exhibitorSponsors.map((sponsor, index) => (
+                  <div
+                    key={`exhibitor-${index}`}
+                    className="group aspect-square hover:scale-[1.03] transition-transform duration-300"
+                  >
+                    <div className="h-full w-full bg-white/5 backdrop-blur-sm rounded-lg border border-orange-500/20 p-4 sm:p-6 flex items-center justify-center hover:shadow-lg hover:shadow-orange-500/10 transition-all">
+                      <img
+                        src={`${backend_domain_name}/public/storage/${sponsor.logo}`}
+                        alt={sponsor.name || "Exhibitor Sponsor"}
+                        className="w-full h-full object-contain transition-opacity duration-300 group-hover:opacity-90"
+                        style={{
+                          filter: sponsor.hasDarkBackground
+                            ? "invert(1)"
+                            : "none",
+                        }}
+                      />
+                    </div>
+                    {sponsor.name && (
+                      <p className="mt-2 text-center text-white/80 text-xs sm:text-sm truncate px-1">
+                        {sponsor.name}
                       </p>
-                      <button className="mt-2 px-3 py-1 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded border border-orange-400/50 transition-all">
-                        Join Now
+                    )}
+                  </div>
+                ))}
+
+                {/* Available spots (up to 15 total) */}
+                {Array.from({
+                  length: Math.max(0, 15 - exhibitorSponsors.length),
+                }).map((_, index) => (
+                  <div
+                    key={`available-exhibitor-${index}`}
+                    className="group aspect-square hover:scale-[1.03] transition-transform duration-300"
+                  >
+                    <div className="h-full w-full bg-gradient-to-br from-gray-900/40 to-gray-800/40 rounded-lg border-2 border-dashed border-orange-400/40 p-4 flex flex-col items-center justify-center hover:shadow-lg hover:shadow-orange-500/10 transition-all">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-orange-400/10 rounded-full flex items-center justify-center mb-2 sm:mb-3">
+                        <FaStore className="h-4 w-4 sm:h-5 sm:w-5 text-orange-400" />
+                      </div>
+                      <h3 className="text-xs sm:text-sm font-bold text-orange-400 mb-1 text-center">
+                        Available
+                      </h3>
+                      <p className="text-white/60 text-xs text-center mb-2">
+                        Your Brand Here
+                      </p>
+                      <button
+                        onClick={() => {
+                          toSponsorRegister();
+                        }}
+                        className="mt-1 px-2 py-1 text-[0.6rem] sm:text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded border border-orange-400/50 transition-all"
+                      >
+                        Exhibit Now
                       </button>
                     </div>
                   </div>
-                )
-              )}
+                ))}
+              </>
+            ) : (
+              // Show all 15 available spots if no sponsors
+              Array.from({ length: 15 }).map((_, index) => (
+                <div
+                  key={`available-exhibitor-${index}`}
+                  className="group aspect-square hover:scale-[1.03] transition-transform duration-300"
+                >
+                  <div className="h-full w-full bg-gradient-to-br from-gray-900/40 to-gray-800/40 rounded-lg border-2 border-dashed border-orange-400/40 p-4 flex flex-col items-center justify-center hover:shadow-lg hover:shadow-orange-500/10 transition-all">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-orange-400/10 rounded-full flex items-center justify-center mb-2 sm:mb-3">
+                      <FaStore className="h-4 w-4 sm:h-5 sm:w-5 text-orange-400" />
+                    </div>
+                    <h3 className="text-xs sm:text-sm font-bold text-orange-400 mb-1 text-center">
+                      Available
+                    </h3>
+                    <p className="text-white/60 text-xs text-center mb-2">
+                      Your Brand Here
+                    </p>
+                    <button className="mt-1 px-2 py-1 text-[0.6rem] sm:text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded border border-orange-400/50 transition-all">
+                      Exhibit Now
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
+
+          {/* View All button if needed */}
+          {exhibitorSponsors?.length > 15 && (
+            <div className="text-center mt-10">
+              <button className="px-6 py-2 bg-orange-500/10 hover:bg-orange-500/20 text-orange-400 rounded-full border border-orange-400/30 transition-all flex items-center mx-auto">
+                View All Exhibitors <FaArrowRight className="ml-2" />
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -608,10 +831,10 @@ export default function Partners() {
                   culminating at the grand finale on August 17 at Wyndham Grand
                   Yangon Hotel—register your support by June 7!
                 </p>
-                <button className="w-full backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-6 py-3 border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25">
+                {/* <button className="w-full backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-6 py-3 border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-lg hover:shadow-orange-500/25">
                   <span>Contact Partnership Team</span>
                   <FaChevronRight className="h-4 w-4" />
-                </button>
+                </button> */}
               </motion.div>
             </div>
           </motion.div>

@@ -5,6 +5,7 @@ const initialState = {
   mainSponsors: [],
   prevSponsors: [],
   diamondSponsors: [],
+  exhibitorSponsors: [],
 };
 const sponsorSlice = createSlice({
   name: "sponsors",
@@ -22,6 +23,9 @@ const sponsorSlice = createSlice({
     setReduxPrevSponsors: (state, action) => {
       state.prevSponsors = action.payload;
     },
+    setReduxExhibitorponsors: (state, action) => {
+      state.exhibitorSponsors = action.payload;
+    },
   },
 });
 export const {
@@ -29,5 +33,6 @@ export const {
   setReduxDiamondSponsors,
   setReduxMainSponsors,
   setReduxPrevSponsors,
+  setReduxExhibitorponsors,
 } = sponsorSlice.actions;
 export default sponsorSlice.reducer;
