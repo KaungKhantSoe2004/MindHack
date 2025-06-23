@@ -201,7 +201,7 @@ export default function MindHack2023() {
           >
             <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-6 glow-text-strong">
               MIND<span className="text-orange-400 glow-text-orange">HACK</span>{" "}
-              2023
+              2022
             </h2>
             <p className="text-white/80 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed mb-8">
               Mind Hack started with a bold vision: to transform Myanmar’s tech
@@ -282,7 +282,7 @@ export default function MindHack2023() {
               >
                 <div className="relative overflow-hidden rounded-lg sm:rounded-xl backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 hover:bg-gradient-to-br hover:from-gray-800/50 hover:via-orange-800/30 hover:to-gray-800/50 transition-all duration-500 group-hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
                   <img
-                    src={`./g${index}.JPG`}
+                    src={`./g${index}.jpg`}
                     alt={`MindHack 2023 Gallery Image ${index}`}
                     className="w-full h-48 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
