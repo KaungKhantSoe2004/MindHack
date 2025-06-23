@@ -680,14 +680,14 @@ export default function Homepage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-6">
             {[
-              "./1h.JPG",
-              "./2h.JPG",
-              "./3h.JPG",
-              "./4h.JPG",
-              "./5h.JPG",
-              "./6h.JPG",
-              "./7h.JPG",
-              "./8h.JPG",
+              "./1h.jpg",
+              "./2h.jpg",
+              "./3h.jpg",
+              "./4h.jpg",
+              "./5h.jpg",
+              "./6h.jpg",
+              "./7h.jpg",
+              "./8h.jpg",
             ].map((img, index) => (
               <motion.div
                 key={index}
