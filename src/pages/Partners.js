@@ -380,7 +380,67 @@ export default function Partners() {
           </div>
         </div>
       </section>
-      {/* Sponsor MindHack Section */}
+
+      <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+              Our{" "}
+              <span className="text-orange-400 relative">
+                Partner Schools
+                <span className="absolute -bottom-2 left-0 w-full h-1 bg-orange-500/50 rounded-full"></span>
+              </span>
+            </h2>
+            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
+              Trusted educational partners collaborating with MindHack 2025
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6"
+          >
+            {Array.from({ length: 18 }).map((_, index) => (
+              <motion.div
+                key={`school-${index + 1}`}
+                variants={staggerItem}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.3 },
+                }}
+                className="group"
+              >
+                <div className="relative bg-white/5 backdrop-blur-sm border border-gray-800 rounded-xl p-4 sm:p-6 transition-all duration-300 hover:border-orange-500/30 hover:bg-white/10 hover:shadow-lg hover:shadow-orange-500/10 aspect-square flex items-center justify-center">
+                  <img
+                    src={`/school-logos/${index + 1}.png`}
+                    alt={`School ${index + 1} MindHack 2025`}
+                    className="w-full h-full object-contain max-h-[80px] transition-transform duration-300 group-hover:scale-110"
+                    loading="lazy"
+                  />
+
+                  {/* Subtle glow effect */}
+                  <div className="absolute inset-0 rounded-xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-orange-500/10 to-transparent"></div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Decorative elements */}
+          <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl"></div>
+          <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-blue-500/10 blur-3xl"></div>
+        </div>
+      </section>
       <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 relative">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -620,77 +680,6 @@ export default function Partners() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 relative">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
-              Our Partner{" "}
-              <span className="text-orange-400 glow-text-orange">Schools</span>
-            </h2>
-            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
-              Trusted partners who have supported MindHack's journey
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="grid md:grid-cols-3 gap-8 sm:gap-12"
-          >
-            {loading && prevSponsors.length > 0 ? (
-              // Loading state
-              Array.from({ length: 3 }).map((_, index) => (
-                <motion.div
-                  key={`loading-${index}`}
-                  variants={staggerItem}
-                  className="group"
-                >
-                  <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center transition-all duration-500 min-h-[200px] flex items-center justify-center">
-                    <div className="animate-pulse bg-gray-700/50 w-full h-full rounded-lg"></div>
-                  </div>
-                </motion.div>
-              ))
-            ) : prevSponsors?.length > 0 ? (
-              // Actual sponsors
-              prevSponsors.map((logo, index) => (
-                <motion.div
-                  key={`main-${index}`}
-                  variants={staggerItem}
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { duration: 0.3 },
-                  }}
-                  className="group"
-                >
-                  <div className="backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 sm:p-12 text-center transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/20 flex items-center justify-center min-h-[200px] bg-white/10">
-                    <img
-                      src={`${backend_domain_name}/public/storage/${logo.logo}`}
-                      alt={`MindHack 2025 ${logo.logo}`}
-                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-                      style={{
-                        filter: logo.hasDarkBackground ? "invert(1)" : "none",
-                      }}
-                    />
-                  </div>
-                </motion.div>
-              ))
-            ) : (
-              // Empty state
-              <div className="col-span-3 text-center py-12 text-gray-400">
-                No sponsors available
-              </div>
-            )}
-          </motion.div>
-        </div>
-      </section>
       {/* Previous Sponsors */}
       <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 relative">
         <div className="max-w-7xl mx-auto">
