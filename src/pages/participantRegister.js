@@ -223,7 +223,7 @@ export default function ParticipantRegistration() {
           </h1>
           <p className="text-white/70 text-lg leading-relaxed">
             Join the ultimate technical competition and showcase your skills in
-            3D Design, Scratch Programming, or Electronics & Robotics.
+            3D Design, Programming, or Electronics & Robotics.
           </p>
         </motion.div>
 
