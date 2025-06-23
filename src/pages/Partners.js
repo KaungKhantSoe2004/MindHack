@@ -150,7 +150,7 @@ export default function Partners() {
             whileInView={{ scale: 1 }}
             transition={{ duration: 1.5 }}
             viewport={{ once: true }}
-            src="3h.JPG"
+            src="3h.jpg"
             alt="Partnership background"
             className="w-full h-full object-cover object-center"
           />
@@ -521,7 +521,7 @@ export default function Partners() {
             whileInView={{ scale: 1 }}
             transition={{ duration: 1.5 }}
             viewport={{ once: true }}
-            src="./4.JPG"
+            src="./4h.jpg"
             alt="Become a sponsor background"
             className="w-full h-full object-cover object-center"
           />
