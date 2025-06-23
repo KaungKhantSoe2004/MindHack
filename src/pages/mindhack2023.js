@@ -340,7 +340,7 @@ export default function MindHack2023() {
                 {
                   icon: FaMapMarkerAlt,
                   title: "Location",
-                  value: "Yangon & Mandalay",
+                  value: "Yangon",
                   color: "text-amber-400",
                   bgColor: "bg-amber-400/10",
                   borderColor: "border-amber-400/30",
@@ -348,7 +348,7 @@ export default function MindHack2023() {
                 {
                   icon: FaUsers,
                   title: "Participants",
-                  value: "500+ Expected",
+                  value: "300+ Expected",
                   color: "text-yellow-400",
                   bgColor: "bg-yellow-400/10",
                   borderColor: "border-yellow-400/30",

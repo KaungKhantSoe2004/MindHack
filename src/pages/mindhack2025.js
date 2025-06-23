@@ -406,7 +406,7 @@ export default function MindHack2025() {
               },
               {
                 icon: FaCode,
-                title: "Scratch Programming",
+                title: " Programming",
                 desc: "Develop groundbreaking software to safeguard and celebrate traditions at MindHack 2025!",
                 gradient: "from-amber-500/20 to-yellow-500/20",
                 iconColor: "text-amber-400",
@@ -796,27 +796,27 @@ export default function MindHack2025() {
               <div className="space-y-6">
                 {[
                   {
-                    date: "March 1, 2025",
+                    date: "March 15, 2025",
                     event: "Registration Opens",
                     icon: FaCalendarAlt,
                   },
                   {
-                    date: "March 10, 2025",
+                    date: "June 10 - 11, 2025",
                     event: "Onboarding Session",
                     icon: FaBook,
                   },
                   {
-                    date: "March 20, 2025",
+                    date: "July 7, 2025",
                     event: "First Stage Competition",
                     icon: FaRocket,
                   },
                   {
-                    date: "March 21, 2025",
+                    date: "July 15, 2025",
                     event: "Finalist Announcement",
                     icon: FaBullseye,
                   },
                   {
-                    date: "March 22, 2025",
+                    date: "August 17(Wyndham Grand Yangon Hotel), 2025",
                     event: "Final Competition",
                     icon: FaTrophy,
                   },
