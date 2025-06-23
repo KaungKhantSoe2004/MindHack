@@ -421,7 +421,7 @@ export default function Partners() {
               >
                 <div className="relative bg-white/5 backdrop-blur-sm border border-gray-800 rounded-xl p-4 sm:p-6 transition-all duration-300 hover:border-orange-500/30 hover:bg-white/10 hover:shadow-lg hover:shadow-orange-500/10 aspect-square flex items-center justify-center">
                   <img
-                    src={`/school-logos/${index + 1}.png`}
+                    src={`/school/${index + 1}.png`}
                     alt={`School ${index + 1} MindHack 2025`}
                     className="w-full h-full object-contain max-h-[80px] transition-transform duration-300 group-hover:scale-110"
                     loading="lazy"
