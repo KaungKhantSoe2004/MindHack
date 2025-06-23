@@ -215,7 +215,7 @@ export default function MindHack2025() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: "Wizards Champion",
+                title: "Wizards Champion Competition",
                 ageGroup: "12 - 15 years",
                 amount: "$2,500",
                 color: "from-yellow-400 to-amber-400",
@@ -226,7 +226,7 @@ export default function MindHack2025() {
                 icon: <FaTrophy className="w-10 h-10" />,
               },
               {
-                title: "Heroes Champion",
+                title: "Heroes Champion Competition",
                 ageGroup: "16 - 19 years",
                 amount: "$2,500",
                 color: "from-yellow-400 to-amber-400",
@@ -237,7 +237,7 @@ export default function MindHack2025() {
                 icon: <FaTrophy className="w-10 h-10" />,
               },
               {
-                title: "Masters Awards",
+                title: "Masters Awards Competition",
                 ageGroup: "20 - 25 years",
                 amount: "$1,000",
                 color: "from-yellow-400 to-amber-400",
@@ -248,7 +248,7 @@ export default function MindHack2025() {
                 icon: <FaTrophy className="w-10 h-10" />,
               },
               {
-                title: "Audience Choice",
+                title: "Audience Choice Competition",
                 ageGroup: "All Categories",
                 amount: "$4,000",
                 color: "from-yellow-400 to-amber-400",
