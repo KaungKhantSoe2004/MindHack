@@ -206,8 +206,7 @@ export default function MindHack2025() {
               viewport={{ once: true }}
               className="text-white/80 text-xl max-w-3xl mx-auto font-light"
             >
-              Celebrating excellence across all categories with substantial
-              prizes
+              Celebrating excellence with $10,000 in total prizes
             </motion.p>
           </div>
 
@@ -218,6 +217,7 @@ export default function MindHack2025() {
                 title: "Wizards Champion Competition",
                 ageGroup: "12 - 15 years",
                 amount: "$2,500",
+                totalPool: "$10,000 Total Prizes",
                 color: "from-yellow-400 to-amber-400",
                 bgColor:
                   "bg-gradient-to-br from-yellow-400/10 via-amber-400/5 to-yellow-400/10",
@@ -229,7 +229,8 @@ export default function MindHack2025() {
                 title: "Heroes Champion Competition",
                 ageGroup: "16 - 19 years",
                 amount: "$2,500",
-                color: "from-yellow-400 to-amber-400",
+                totalPool: "$10,000 Total Prizes",
+                color: "from-orange-400 to-amber-400",
                 bgColor:
                   "bg-gradient-to-br from-orange-400/10 via-amber-400/5 to-orange-400/10",
                 borderColor: "border-orange-400/30",
@@ -237,10 +238,11 @@ export default function MindHack2025() {
                 icon: <FaTrophy className="w-10 h-10" />,
               },
               {
-                title: "Masters Awards Competition",
+                title: "Masters Champion Competition",
                 ageGroup: "20 - 25 years",
                 amount: "$1,000",
-                color: "from-yellow-400 to-amber-400",
+                totalPool: "$10,000 Total Prizes",
+                color: "from-amber-400 to-orange-400",
                 bgColor:
                   "bg-gradient-to-br from-amber-400/10 via-orange-400/5 to-amber-400/10",
                 borderColor: "border-amber-400/30",
@@ -251,6 +253,7 @@ export default function MindHack2025() {
                 title: "Audience Choice Competition",
                 ageGroup: "All Categories",
                 amount: "$4,000",
+                totalPool: "$10,000 Total Prizes",
                 color: "from-yellow-400 to-amber-400",
                 bgColor:
                   "bg-gradient-to-br from-yellow-400/10 via-amber-400/5 to-yellow-400/10",
@@ -294,8 +297,22 @@ export default function MindHack2025() {
                       </p>
                     </div>
 
+                    {/* Prize Amount - Highlighted */}
+                    <div className="mb-4 text-center">
+                      <div className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30">
+                        <p
+                          className={`text-2xl font-bold bg-gradient-to-r ${award.color} bg-clip-text text-transparent`}
+                        >
+                          {award.amount}
+                        </p>
+                        <p className="text-xs text-white/70 mt-1">
+                          {award.totalPool}
+                        </p>
+                      </div>
+                    </div>
+
                     {/* Medal/Centerpiece */}
-                    <div className="flex-1 flex flex-col items-center justify-center mb-8">
+                    <div className="flex-1 flex flex-col items-center justify-center mb-6">
                       <div
                         className={`relative mb-6 w-28 h-28 rounded-full flex items-center justify-center bg-gradient-to-br ${award.color} shadow-lg`}
                       >
@@ -342,7 +359,7 @@ export default function MindHack2025() {
               <div className="relative z-10">
                 {/* Glowing Total Prize */}
                 <h3 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-                  Total Awards:{" "}
+                  Total Prize Pool:{" "}
                   <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400 animate-pulse">
                     $10,000
                     <span className="absolute inset-0 blur-md bg-gradient-to-r from-orange-400 to-amber-400 opacity-40 animate-pulse rounded-full z-[-1]" />
@@ -350,15 +367,17 @@ export default function MindHack2025() {
                 </h3>
 
                 <p className="text-white/80 text-lg max-w-2xl mx-auto font-light">
-                  Distributed across all age groups to recognize excellence in
-                  3D Design, Programming, and Electronics & Robotics.
+                  Distributed across all competition categories and age groups
                 </p>
-                <div className="mt-6 flex justify-center gap-4">
+                <div className="mt-6 flex flex-wrap justify-center gap-4">
                   <div className="px-4 py-2 bg-orange-500/10 border border-orange-500/20 rounded-full text-orange-400 text-sm font-medium">
                     3 Age Categories
                   </div>
                   <div className="px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-sm font-medium">
                     4 Competition Tracks
+                  </div>
+                  <div className="px-4 py-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full text-yellow-400 text-sm font-medium">
+                    $10,000 Total Awards
                   </div>
                 </div>
               </div>
