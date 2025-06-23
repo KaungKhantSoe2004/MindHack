@@ -248,7 +248,7 @@ export default function MindHack2025() {
                 icon: <FaTrophy className="w-10 h-10" />,
               },
               {
-                title: "People Choice",
+                title: "Audience Choice",
                 ageGroup: "All Categories",
                 amount: "$4,000",
                 color: "from-yellow-400 to-amber-400",
@@ -320,16 +320,6 @@ export default function MindHack2025() {
                         ))}
                       </div>
                     </div>
-
-                    {/* Prize amount */}
-                    <div className="text-center">
-                      {/* <p className="text-white/60 text-sm mb-1">Prize</p>
-                      <p
-                        className={`text-3xl font-bold bg-gradient-to-r ${award.color} bg-clip-text text-transparent`}
-                      >
-                        {award.amount}
-                      </p> */}
-                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -344,18 +334,21 @@ export default function MindHack2025() {
             viewport={{ once: true }}
             className="mt-20"
           >
-            <div className="relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 rounded-2xl p-8 max-w-4xl mx-auto border border-orange-500/20 overflow-hidden">
-              {/* Decorative elements */}
+            <div className="relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 rounded-2xl p-10 max-w-4xl mx-auto border border-orange-500/20 overflow-hidden text-center">
+              {/* Glowing circles */}
               <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-orange-500/5 blur-3xl" />
               <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-amber-500/5 blur-3xl" />
 
-              <div className="relative z-10 text-center">
-                {/* <h3 className="text-3xl font-bold text-white mb-3">
-                  Total Prize Pool:{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">
+              <div className="relative z-10">
+                {/* Glowing Total Prize */}
+                <h3 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+                  Total Awards:{" "}
+                  <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400 animate-pulse">
                     $10,000
+                    <span className="absolute inset-0 blur-md bg-gradient-to-r from-orange-400 to-amber-400 opacity-40 animate-pulse rounded-full z-[-1]" />
                   </span>
-                </h3> */}
+                </h3>
+
                 <p className="text-white/80 text-lg max-w-2xl mx-auto font-light">
                   Distributed across all age groups to recognize excellence in
                   3D Design, Programming, and Electronics & Robotics.
