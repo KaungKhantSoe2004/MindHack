@@ -14,6 +14,10 @@ export default function MindHack2023() {
   const toJoinUs = () => {
     navigate("join-us");
   };
+
+  const toRegister = () => {
+    navigate("/register/participant");
+  };
   return (
     <div className="relative pt-16">
       {/* Banner Section */}
@@ -381,7 +385,12 @@ export default function MindHack2023() {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <button className="backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-2xl hover:shadow-orange-500/25 mx-auto">
+              <button
+                onClick={() => {
+                  toRegister();
+                }}
+                className="backdrop-blur-sm bg-orange-500/20 hover:bg-orange-500/30 text-white font-bold px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg border border-orange-400/50 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 glow-button hover:shadow-2xl hover:shadow-orange-500/25 mx-auto"
+              >
                 <span>JOIN MINDHACK 2025</span>
                 <FaChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>

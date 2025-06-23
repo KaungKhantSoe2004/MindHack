@@ -161,7 +161,7 @@ export default function JoinUs() {
                 <div className="space-y-3 mb-8">
                   {[
                     { icon: FaCube, text: "3D Design & Modeling competitions" },
-                    { icon: FaCode, text: "Scratch Programming challenges" },
+                    { icon: FaCode, text: " Programming challenges" },
                     {
                       icon: FaMicrochip,
                       text: "Electronics & Robotics projects",
@@ -328,7 +328,7 @@ export default function JoinUs() {
             whileInView={{ scale: 1 }}
             transition={{ duration: 1.5 }}
             viewport={{ once: true }}
-            src="./6.JPG"
+            src="./6h.jpg"
             alt="Why join MindHack background"
             className="w-full h-full object-cover object-center"
           />
@@ -432,7 +432,7 @@ export default function JoinUs() {
       </section>
 
       {/* Success Stories Section */}
-      <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 relative">
+      {/* <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 relative">
         <div className="max-w-7xl mx-auto">
           <motion.div
             variants={fadeInUp}
@@ -525,7 +525,7 @@ export default function JoinUs() {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Ready to Join CTA Section */}
       <section className="py-16 sm:py-24 px-4 relative overflow-hidden">
