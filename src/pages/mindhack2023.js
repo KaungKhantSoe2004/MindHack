@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 import {
   FaCalendarAlt,
   FaMapMarkerAlt,
@@ -20,6 +21,13 @@ export default function MindHack2023() {
   };
   return (
     <div className="relative pt-16">
+      <Helmet>
+        <title>Mindhack 2023 | Mindhack Tournament</title>
+        <meta
+          name="description"
+          content="Learn more about our team and mission."
+        />
+      </Helmet>
       {/* Banner Section */}
       <section className="relative h-[60vh] sm:h-[70vh] overflow-hidden">
         <div className="absolute inset-0 z-0">

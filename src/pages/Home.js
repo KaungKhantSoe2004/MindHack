@@ -26,6 +26,7 @@ import {
   setStoreReduxSponsors,
 } from "../reducer/sponsorSlice";
 import { setStoreReduxFaq } from "../reducer/faqSlice";
+import { Helmet } from "react-helmet";
 
 const heroImages = [
   "./kv.jpg",
@@ -81,6 +82,13 @@ export default function Homepage() {
 
   return (
     <div className="relative">
+      <Helmet>
+        <title>Home | Mindhack Tournament</title>
+        <meta
+          name="description"
+          content="Learn more about our team and mission."
+        />
+      </Helmet>
       <section className="relative h-screen overflow-hidden">
         {/* Background Images - Seamless Transition */}
         <div className="absolute inset-0">
@@ -346,7 +354,7 @@ export default function Homepage() {
       <section className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="5.JPG"
+            src="5k.jpg"
             alt="Cultural innovation background MindHack 2025"
             className="w-full h-full object-cover object-center"
             loading="eager"

@@ -20,6 +20,7 @@ import {
 } from "../reducer/sponsorSlice";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function Partners() {
   const [loading, setLoading] = useState(false);
@@ -119,6 +120,13 @@ export default function Partners() {
   return (
     <div className="relative pt-16">
       {/* Header Section */}
+      <Helmet>
+        <title>Partner | Mindhack Tournament</title>
+        <meta
+          name="description"
+          content="Learn more about our team and mission."
+        />
+      </Helmet>
       <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 relative">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/5 blur-3xl animate-pulse" />

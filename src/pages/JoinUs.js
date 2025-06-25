@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 import {
   FaChevronRight,
   FaUsers,
@@ -79,6 +80,13 @@ export default function JoinUs() {
   };
   return (
     <div className="relative pt-16">
+      <Helmet>
+        <title>JoinUs | Mindhack Tournament</title>
+        <meta
+          name="description"
+          content="Learn more about our team and mission."
+        />
+      </Helmet>
       {/* Header Section */}
       <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 relative">
         <div className="absolute inset-0 overflow-hidden">

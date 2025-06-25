@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function ParticipantRegistration() {
   const backend_domain_name =
@@ -146,6 +147,13 @@ export default function ParticipantRegistration() {
   if (isSuccess) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 flex items-center justify-center px-4">
+        <Helmet>
+          <title>Participant Registration | Mindhack Tournament</title>
+          <meta
+            name="description"
+            content="Learn more about our team and mission."
+          />
+        </Helmet>
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}

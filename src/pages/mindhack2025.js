@@ -32,6 +32,7 @@ import {
   FaExternalLinkAlt,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 // Add this new import
 // Remove this line:
@@ -85,6 +86,13 @@ export default function MindHack2025() {
     // To this:
     <div className="min-h-screen bg-gray-950 relative overflow-hidden">
       {/* Technical Grid Background */}
+      <Helmet>
+        <title>Mindhack 2025 | Mindhack Tournament</title>
+        <meta
+          name="description"
+          content="Learn more about our team and mission."
+        />
+      </Helmet>
       <div className="fixed inset-0 opacity-5">
         <div
           className="absolute inset-0"
