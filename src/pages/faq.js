@@ -25,6 +25,7 @@ import {
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
+import { useLocation } from "react-router-dom";
 
 export default function FAQ() {
   const backend_domain_name =
@@ -94,6 +95,19 @@ export default function FAQ() {
     "Other FAQs": FaCommentAlt,
   };
 
+  // const location = useLocation();
+
+  // useEffect(() => {
+  //   // alert(location.hash);
+  //   if (location.hash) {
+  //     const height = document.documentElement.scrollHeight - window.innerHeight;
+  //     const position = (50 / 100) * height;
+  //     window.scrollTo({
+  //       top: position,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // }, [location]);
   // Fetch FAQ data from API
   useEffect(() => {
     const fetchFaqs = async () => {

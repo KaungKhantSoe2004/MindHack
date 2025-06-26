@@ -66,12 +66,7 @@ const Footer = () => {
               >
                 <span className="text-orange-400 text-xs sm:text-sm">f</span>
               </a>
-              {/* <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800/50 backdrop-blur-sm border border-orange-500/20 rounded-full flex items-center justify-center hover:bg-orange-500/10 transition-colors cursor-pointer hover:shadow-lg hover:shadow-orange-500/20 touch-manipulation">
-                <span className="text-amber-400 text-xs sm:text-sm">t</span>
-              </div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800/50 backdrop-blur-sm border border-orange-500/20 rounded-full flex items-center justify-center hover:bg-orange-500/10 transition-colors cursor-pointer hover:shadow-lg hover:shadow-orange-500/20 touch-manipulation">
-                <span className="text-yellow-400 text-xs sm:text-sm">in</span>
-              </div> */}
+
             </div>
           </div>
 

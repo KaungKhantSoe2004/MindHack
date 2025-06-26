@@ -28,11 +28,6 @@ export default function SponsorRegistration() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const validateMyanmarPhone = (phone) => {
-    const myanmarPhoneRegex = /^(\+?95|0?9)\d{7,9}$/;
-    return myanmarPhoneRegex.test(phone.replace(/\s+/g, ""));
-  };
-
   const validateForm = () => {
     const newErrors = {};
 
@@ -52,9 +47,6 @@ export default function SponsorRegistration() {
 
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
-    } else if (!validateMyanmarPhone(formData.phone)) {
-      newErrors.phone =
-        "Please enter a valid Myanmar phone number (e.g., +959xxxxxxxx or 09xxxxxxxx)";
     }
 
     setErrors(newErrors);
@@ -183,14 +175,7 @@ export default function SponsorRegistration() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-          >
-            {/* <button
-              onClick={() => (window.location.href = "/")}
-              className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              Return to Home
-            </button> */}
-          </motion.div>
+          ></motion.div>
         </motion.div>
       </div>
     );
@@ -328,7 +313,7 @@ export default function SponsorRegistration() {
                   className={`w-full bg-gray-800/50 border border-yellow-500/30 text-white placeholder-white/50 focus:border-yellow-400 focus:outline-none rounded-md px-3 py-2 ${
                     errors.phone ? "border-red-500" : ""
                   }`}
-                  placeholder="+959xxxxxxxx or 09xxxxxxxx"
+                  placeholder="Phone Number is Required"
                 />
                 {errors.phone && (
                   <p className="text-red-400 text-sm mt-1">{errors.phone}</p>

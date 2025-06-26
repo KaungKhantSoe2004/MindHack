@@ -30,6 +30,8 @@ import {
   FaUserGraduate,
   FaUserTie,
   FaExternalLinkAlt,
+  FaUsers,
+  FaLeaf,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -246,9 +248,9 @@ export default function MindHack2025() {
 
             {/* Modified Prize Pool Text - now simple white text */}
             <div className="flex justify-center">
-              <h3 className="text-white/80  font-medium tracking-wider">
+              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 glow-text-strong">
                 PRIZE POOL
-              </h3>
+              </h2>
             </div>
           </motion.div>
 
@@ -256,7 +258,7 @@ export default function MindHack2025() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: "Wizards Champion Competition",
+                title: "Wizards Champion ",
                 ageGroup: "12 - 15 years",
                 color: "from-yellow-400 to-amber-400",
                 bgColor:
@@ -266,7 +268,7 @@ export default function MindHack2025() {
                 icon: <FaTrophy className="w-10 h-10" />,
               },
               {
-                title: "Heroes Champion Competition",
+                title: "Heroes Champion ",
                 ageGroup: "16 - 19 years",
                 color: "from-orange-400 to-amber-400",
                 bgColor:
@@ -276,7 +278,7 @@ export default function MindHack2025() {
                 icon: <FaTrophy className="w-10 h-10" />,
               },
               {
-                title: "Masters Awards Competition",
+                title: "Masters Awards ",
                 ageGroup: "20 - 25 years",
                 color: "from-amber-400 to-orange-400",
                 bgColor:
@@ -286,7 +288,7 @@ export default function MindHack2025() {
                 icon: <FaTrophy className="w-10 h-10" />,
               },
               {
-                title: "Audience Choice Competition",
+                title: "Audience Choice Award",
                 ageGroup: "All Categories",
                 color: "from-yellow-400 to-amber-400",
                 bgColor:
@@ -365,7 +367,7 @@ export default function MindHack2025() {
         </div>
       </section>
 
-      {/* Competition Categories - Updated Design */}
+      {/*  Categories - Updated Design */}
       <section className="py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-orange-900/20 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-amber-500/10" />
         <div className="max-w-7xl mx-auto relative z-10">
@@ -614,8 +616,8 @@ export default function MindHack2025() {
                   {[
                     {
                       icon: FaLightbulb,
-                      title: "Innovation & Creativity",
-                      percentage: 40,
+                      title: "Creativity and Innovation",
+                      percentage: 20,
                       desc: "Originality of ideas, creative problem-solving approaches, and unique implementation methods",
                       color: "text-yellow-400",
                       bgColor: "bg-yellow-400",
@@ -623,20 +625,40 @@ export default function MindHack2025() {
                       borderColor: "border-yellow-400/30",
                     },
                     {
+                      icon: FaLeaf,
+                      title: "Relevance to Sustainable Heritage Theme",
+                      percentage: 10,
+                      desc: "How well the project aligns with and addresses sustainable heritage preservation",
+                      color: "text-green-400",
+                      bgColor: "bg-green-400",
+                      glowColor: "shadow-green-400/30",
+                      borderColor: "border-green-400/30",
+                    },
+                    {
                       icon: FaCogs,
-                      title: "Technical Excellence",
-                      percentage: 40,
-                      desc: "Code quality, technical complexity, proper implementation, and use of best practices",
+                      title: "Functionality",
+                      percentage: 30,
+                      desc: "Technical implementation, code quality, and working functionality of the solution",
                       color: "text-orange-400",
                       bgColor: "bg-orange-400",
                       glowColor: "shadow-orange-400/30",
                       borderColor: "border-orange-400/30",
                     },
                     {
+                      icon: FaUsers,
+                      title: "Teamwork and Collaboration",
+                      percentage: 10,
+                      desc: "Effective collaboration, division of work, and team synergy throughout the project",
+                      color: "text-blue-400",
+                      bgColor: "bg-blue-400",
+                      glowColor: "shadow-blue-400/30",
+                      borderColor: "border-blue-400/30",
+                    },
+                    {
                       icon: FaChalkboardTeacher,
-                      title: "Impact & Presentation",
-                      percentage: 20,
-                      desc: "Real-world impact, presentation quality, and ability to communicate technical concepts effectively",
+                      title: "Presentation and Communication",
+                      percentage: 30,
+                      desc: "Clarity of presentation, ability to communicate technical concepts, and overall delivery",
                       color: "text-amber-400",
                       bgColor: "bg-amber-400",
                       glowColor: "shadow-amber-400/30",

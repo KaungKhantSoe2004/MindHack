@@ -28,11 +28,6 @@ export default function PartnerRegistration() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const validateMyanmarPhone = (phone) => {
-    const myanmarPhoneRegex = /^(\+?95|0?9)\d{7,9}$/;
-    return myanmarPhoneRegex.test(phone.replace(/\s+/g, ""));
-  };
-
   const validateForm = () => {
     const newErrors = {};
 
@@ -52,9 +47,6 @@ export default function PartnerRegistration() {
 
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
-    } else if (!validateMyanmarPhone(formData.phone)) {
-      newErrors.phone =
-        "Please enter a valid Myanmar phone number (e.g., +959xxxxxxxx or 09xxxxxxxx)";
     }
 
     setErrors(newErrors);
@@ -326,7 +318,7 @@ export default function PartnerRegistration() {
                   className={`w-full bg-gray-800/50 border border-amber-500/30 text-white placeholder-white/50 focus:border-amber-400 focus:outline-none rounded-md px-3 py-2 ${
                     errors.phone ? "border-red-500" : ""
                   }`}
-                  placeholder="+959xxxxxxxx or 09xxxxxxxx"
+                  placeholder="Phone Number is Required"
                 />
                 {errors.phone && (
                   <p className="text-red-400 text-sm mt-1">{errors.phone}</p>

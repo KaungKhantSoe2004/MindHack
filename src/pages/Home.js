@@ -129,11 +129,11 @@ export default function Homepage() {
             className="text-center sm:text-left px-4 sm:px-0 sm:bottom-12 sm:left-12 max-w-3xl w-full sm:absolute sm:inset-auto"
           >
             <div className="flex items-center justify-center sm:justify-start space-x-2 sm:space-x-3 mb-3 sm:mb-4">
-              <div className="w-4 sm:w-6 h-0.5 bg-blue-400 hidden sm:block" />
-              <span className="text-blue-700 font-mono text-xs sm:text-sm uppercase tracking-wider glow-text px-3 py-1 bg-orange-400/10 rounded-full sm:bg-transparent sm:px-0 sm:py-0">
+              <div className="w-4 sm:w-6 h-0.5 bg-orange-400 hidden sm:block" />
+              <span className="text-orange-400 font-mono text-xs sm:text-sm uppercase tracking-wider glow-text px-3 py-1 bg-orange-400/10 rounded-full sm:bg-transparent sm:px-0 sm:py-0">
                 International Coding Tournament
               </span>
-              <div className="w-4 sm:w-6 h-0.5 bg-blue-400 hidden sm:block" />
+              <div className="w-4 sm:w-6 h-0.5 bg-orange-400 hidden sm:block" />
             </div>
             <h1 className="text-3xl xs:text-4xl sm:text-4xl md:text-6xl font-bold text-white mb-3 sm:mb-4 glow-text-strong leading-tight">
               MindHack{" "}
@@ -479,7 +479,7 @@ export default function Homepage() {
               },
               {
                 phase: "Second Stage Final",
-                date: "August 17(Wyndham Grand Yangon Hotel), 2025",
+                date: "August 17, 2025",
                 time: "9:00 AM",
                 icon: FaTrophy,
                 color: "text-orange-400",

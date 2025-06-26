@@ -479,7 +479,12 @@ export default function Partners() {
                       Available
                     </h3>
                     <p className="text-white/70 text-sm mb-3">Your Logo Here</p>
-                    <button className="mt-2 px-4 py-2 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded-lg border border-orange-400/50 transition-all">
+                    <button
+                      onClick={() => {
+                        toSponsorRegister();
+                      }}
+                      className="mt-2 px-4 py-2 text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded-lg border border-orange-400/50 transition-all"
+                    >
                       Become a Sponsor
                     </button>
                   </div>
@@ -501,7 +506,7 @@ export default function Partners() {
           <div className="text-center mb-12">
             <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 glow-text-strong">
               Exhibitor{" "}
-              <span className="text-orange-400 glow-text-orange">Sponsors</span>
+              {/* <span className="text-orange-400 glow-text-orange">Sponsors</span> */}
             </h2>
             <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
               Showcase your brand to our vibrant community of innovators and
@@ -592,7 +597,12 @@ export default function Partners() {
                     <p className="text-white/60 text-xs text-center mb-2">
                       Your Brand Here
                     </p>
-                    <button className="mt-1 px-2 py-1 text-[0.6rem] sm:text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded border border-orange-400/50 transition-all">
+                    <button
+                      onClick={() => {
+                        toSponsorRegister();
+                      }}
+                      className="mt-1 px-2 py-1 text-[0.6rem] sm:text-xs font-medium bg-orange-500/20 hover:bg-orange-500/30 text-white rounded border border-orange-400/50 transition-all"
+                    >
                       Exhibit Now
                     </button>
                   </div>

@@ -586,6 +586,9 @@ export default function JoinUs() {
 
             <div className="flex flex-col xs:flex-row gap-4 sm:gap-6 justify-center">
               <motion.button
+                onClick={() => {
+                  toRegister();
+                }}
                 whileHover={{
                   scale: 1.05,
                   boxShadow: "0 20px 40px rgba(249, 115, 22, 0.3)",
@@ -604,6 +607,9 @@ export default function JoinUs() {
                   transition: { duration: 0.3 },
                 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  navigate("/faq#contact-form");
+                }}
                 className="border border-orange-500/30 text-white hover:bg-orange-500/10 font-bold px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg rounded-lg transition-all duration-300 hover:border-orange-400/50 flex items-center justify-center space-x-2"
               >
                 <FaEnvelope className="h-4 w-4 sm:h-5 sm:w-5" />
