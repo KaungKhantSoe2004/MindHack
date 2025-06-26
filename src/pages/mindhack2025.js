@@ -57,6 +57,14 @@ const heroImages = [
   "/BONUS.jpg",
   "/hotel.jpg",
 ];
+const staggerItem = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 export default function MindHack2025() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -226,12 +234,22 @@ export default function MindHack2025() {
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="text-center mb-16"
           >
-            <h1 className="relative inline-block text-6xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400 animate-pulse">
-              $10,000
-              <span className="absolute inset-0 blur-2xl bg-gradient-to-r from-orange-400 to-amber-400 opacity-40 rounded-full z-[-1]" />
-            </h1>
+            {/* Main Prize Amount - UNCHANGED */}
+            <div className="relative inline-block mb-3">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400 animate-pulse">
+                $10,000
+              </h1>
+              <span className="absolute inset-0 blur-2xl bg-gradient-to-r from-orange-400 to-amber-400 opacity-30 rounded-full -z-10" />
+            </div>
+
+            {/* Modified Prize Pool Text - now simple white text */}
+            <div className="flex justify-center">
+              <h3 className="text-white/80  font-medium tracking-wider">
+                PRIZE POOL
+              </h3>
+            </div>
           </motion.div>
 
           {/* Award Cards Grid */}
@@ -1096,35 +1114,45 @@ export default function MindHack2025() {
             </motion.h2>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            {[
-              "Tech Academy",
-              "Innovation High",
-              "Future Leaders School",
-              "Digital Arts Institute",
-              "STEM Excellence Center",
-              "Creative Tech School",
-              "Advanced Learning Hub",
-              "Tomorrow's Engineers",
-            ].map((school, index) => (
+          <motion.div
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6"
+          >
+            {Array.from({ length: 18 }).map((_, index) => (
               <motion.div
-                key={index}
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="backdrop-blur-xl bg-gradient-to-br from-gray-900/40 via-orange-900/20 to-gray-900/40 border border-orange-500/20 rounded-lg p-6 text-center hover:bg-gradient-to-br hover:from-gray-800/50 hover:via-orange-800/30 hover:to-gray-800/50 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20"
+                key={`school-${index + 1}`}
+                variants={staggerItem}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.3 },
+                }}
+                className="group"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-gray-800/60 via-orange-800/20 to-gray-800/60 backdrop-blur-sm rounded-lg flex items-center justify-center mx-auto mb-4 border border-orange-500/20 shadow-lg shadow-orange-500/20">
-                  <FaGraduationCap className="h-8 w-8 text-orange-400" />
+                <div className="relative bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 aspect-square group">
+                  <img
+                    src={`/school/${index + 1}.png`}
+                    alt={`School ${index + 1} MindHack 2025`}
+                    className="absolute top-1/2 left-1/2 w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+
+                  {/* Subtle glow effect on hover */}
+                  <div className="absolute inset-0 rounded-xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 rounded-xl bg-orange-100/20"></div>
+                  </div>
                 </div>
-                <h3 className="text-white font-semibold">{school}</h3>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="text-center">
-            <button className="backdrop-blur-sm bg-gradient-to-r from-gray-800/50 via-orange-800/20 to-gray-800/50 hover:bg-gradient-to-r hover:from-gray-700/60 hover:via-orange-700/30 hover:to-gray-700/60 text-white font-bold px-12 py-4 text-lg border border-orange-500/20 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20">
+          <div className=" mt-5 text-center">
+            <button
+              onClick={() => {
+                toPartner();
+              }}
+              className="backdrop-blur-sm bg-gradient-to-r from-gray-800/50 via-orange-800/20 to-gray-800/50 hover:bg-gradient-to-r hover:from-gray-700/60 hover:via-orange-700/30 hover:to-gray-700/60 text-white font-bold px-12 py-4 text-lg border border-orange-500/20 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/20"
+            >
               Become a Partner
             </button>
           </div>

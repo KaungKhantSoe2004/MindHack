@@ -615,8 +615,6 @@ export default function Partners() {
       <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            variants={fadeInUp}
-            initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-12"
@@ -634,8 +632,6 @@ export default function Partners() {
           </motion.div>
 
           <motion.div
-            variants={staggerContainer}
-            initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6"
@@ -650,17 +646,17 @@ export default function Partners() {
                 }}
                 className="group"
               >
-                <div className="relative bg-white/5 backdrop-blur-sm border border-gray-800 rounded-xl p-4 sm:p-6 transition-all duration-300 hover:border-orange-500/30 hover:bg-white/10 hover:shadow-lg hover:shadow-orange-500/10 aspect-square flex items-center justify-center">
+                <div className="relative bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 aspect-square group">
                   <img
                     src={`/school/${index + 1}.png`}
                     alt={`School ${index + 1} MindHack 2025`}
-                    className="w-full h-full object-contain max-h-[80px] transition-transform duration-300 group-hover:scale-110"
+                    className="absolute top-1/2 left-1/2 w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                   />
 
-                  {/* Subtle glow effect */}
+                  {/* Subtle glow effect on hover */}
                   <div className="absolute inset-0 rounded-xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-orange-500/10 to-transparent"></div>
+                    <div className="absolute inset-0 rounded-xl bg-orange-100/20"></div>
                   </div>
                 </div>
               </motion.div>
@@ -915,7 +911,6 @@ export default function Partners() {
       <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 relative">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -931,8 +926,6 @@ export default function Partners() {
           </motion.div>
 
           <motion.div
-            variants={staggerContainer}
-            initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             className="grid md:grid-cols-3 gap-8 sm:gap-12"
