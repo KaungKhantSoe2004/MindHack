@@ -48,13 +48,10 @@ function App() {
             />
             <Route path="/register/sponsor" element={<SponsorRegistration />} />
             <Route path="/register/partner" element={<PartnerRegistration />} />
-            {/* <Route path="/past-events" element={<PastEvents />} />
-          <Route path="/timeline" element={<Timeline />} />
-          <Route path="/register" element={<Register />} /> */}
           </Routes>
           <Footer />
           {/* Custom Styles */}
-          <style jsx global>{`
+          <style>{`
             @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
 
             * {
