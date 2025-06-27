@@ -504,10 +504,10 @@ export default function ParticipantRegistration() {
     { value: "F", label: "2XL" },
   ];
 
-  const validateMyanmarPhone = (phone) => {
-    const myanmarPhoneRegex = /^(\+?95|0?9)\d{7,9}$/;
-    return myanmarPhoneRegex.test(phone.replace(/\s+/g, ""));
-  };
+  // const validateMyanmarPhone = (phone) => {
+  //   const myanmarPhoneRegex = /^(\+?95|0?9)\d{7,9}$/;
+  //   return myanmarPhoneRegex.test(phone.replace(/\s+/g, ""));
+  // };
 
   const validateForm = () => {
     const newErrors = {};
@@ -539,8 +539,7 @@ export default function ParticipantRegistration() {
       newErrors.member1ParentName = "Parent name is required";
     if (!formData.member1ParentPhone.trim())
       newErrors.member1ParentPhone = "Parent phone is required";
-    else if (!validateMyanmarPhone(formData.member1ParentPhone))
-      newErrors.member1ParentPhone = "Invalid Myanmar phone";
+
     if (!formData.member1TshirtSize)
       newErrors.member1TshirtSize = "T-shirt size is required";
     if (!formData.member1Photo) {
@@ -564,27 +563,55 @@ export default function ParticipantRegistration() {
     setIsSubmitting(true);
 
     try {
-      const submitData = {
-        ...formData,
-        // Include the optional school name if provided
-        school:
-          formData.school === "Other" && formData.schoolName
-            ? formData.schoolName
-            : formData.school,
-      };
-      console.log(submitData);
-      return;
+      const formDataToSend = new FormData();
+
+      // Append all form data
+      formDataToSend.append("ageGroup", formData.ageGroup);
+      formDataToSend.append("category", formData.category);
+      formDataToSend.append("groupName", formData.groupName);
+      formDataToSend.append("school", formData.school);
+      formDataToSend.append(
+        "schoolName",
+        formData.school === "Other" ? formData.schoolName : ""
+      );
+      formDataToSend.append("platform", formData.platform);
+      formDataToSend.append("campus", formData.campus);
+      formDataToSend.append("member1Name", formData.member1Name);
+      formDataToSend.append("member1Birthday", formData.member1Birthday);
+      formDataToSend.append("member1School", formData.member1School);
+      formDataToSend.append("member1Phone", formData.member1Phone);
+      formDataToSend.append("member1Email", formData.member1Email);
+      formDataToSend.append("member1ParentName", formData.member1ParentName);
+      formDataToSend.append("member1ParentPhone", formData.member1ParentPhone);
+      formDataToSend.append("member1TshirtSize", formData.member1TshirtSize);
+
+      // Append the photo file
+      if (formData.member1Photo) {
+        formDataToSend.append("member1Photo", formData.member1Photo);
+      }
+
       const response = await axios.post(
         `${backend_domain_name}/api/register`,
-        submitData
+        formDataToSend,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
 
       if (response.status === 200 || response.status === 201) {
         setIsSuccess(true);
+      } else if (response.status === 422) {
+        alert("Your email or phone is already taken");
       }
     } catch (error) {
       console.error(error);
-      alert("An error occurred during registration. Please try again.");
+      if (error.status === 422) {
+        alert("Your email or phone is already taken");
+      } else {
+        alert("An error occurred during registration. Please try again.");
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -939,7 +966,7 @@ export default function ParticipantRegistration() {
                         ? "border-red-500"
                         : "border-orange-500/30"
                     } text-white rounded-md px-3 py-2`}
-                    placeholder="+959xxxxxxxx or 09xxxxxxxx"
+                    placeholder="Require Data"
                   />
                   {errors.member1Phone && (
                     <p className="text-red-400 text-sm mt-1">
@@ -1013,7 +1040,7 @@ export default function ParticipantRegistration() {
                         ? "border-red-500"
                         : "border-orange-500/30"
                     } text-white rounded-md px-3 py-2`}
-                    placeholder="+959xxxxxxxx or 09xxxxxxxx"
+                    placeholder="Require Data"
                   />
                   {errors.member1ParentPhone && (
                     <p className="text-red-400 text-sm mt-1">
